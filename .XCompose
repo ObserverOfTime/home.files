@@ -1,0 +1,675 @@
+# UTF-8 (Unicode) compose sequence
+# {keys...} : "{glyph}" {entity|unicode number} # {unicode name}
+
+# Dashes & spaces {{{
+<Multi_key> <underscore> <asciicircum>   : "¯" macr # MACRON
+<Multi_key> <asciicircum> <underscore>   : "¯" macr # MACRON
+<Multi_key> <minus> <minus> <period>     : "–" ndash # EN DASH
+<Multi_key> <minus> <minus> <minus>      : "—" mdash # EM DASH
+<Multi_key> <minus> <minus> <space>      : "­" shy # SOFT HYPHEN
+<Multi_key> <space> <space>              : " " nbsp # NO-BREAK SPACE
+<Multi_key> <minus> <underscore> <minus> : "⍽" U237D # SHOULDERED OPEN BOX
+<Multi_key> <asciitilde> <asciitilde>    : "〜" U301C # WAVE DASH
+<Multi_key> <asciicircum> <asciicircum>  : "〰" U3030 # WAVY DASH
+<Multi_key> <j> <minus>                  : "ー" U3007 # KATAKANA-HIRAGANA PROLONGED SOUND MARK
+<Multi_key> <j> <asciitilde>             : "～" UFF5E # FULLWIDTH TILDE
+# }}}
+
+# Dots {{{
+<Multi_key> <period> <period>      : "…" hellip # HORIZONTAL ELLIPSIS
+<Multi_key> <period> <bar>         : "⋮" vellip # VERTICAL ELLIPSIS
+<Multi_key> <period> <bar>         : "⋮" vellip # VERTICAL ELLIPSIS
+<Multi_key> <slash> <period>       : "⋰" utdot # UP RIGHT DIAGONAL ELLIPSIS
+<Multi_key> <period> <slash>       : "⋰" utdot # UP RIGHT DIAGONAL ELLIPSIS
+<Multi_key> <backslash> <period>   : "⋱" dtdot # DOWN RIGHT DIAGONAL ELLIPSIS
+<Multi_key> <period> <backslash>   : "⋱" dtdot # DOWN RIGHT DIAGONAL ELLIPSIS
+<Multi_key> <asciicircum> <period> : "·" middot # MIDDLE DOT
+<Multi_key> <period> <asciicircum> : "·" middot # MIDDLE DOT
+<Multi_key> <minus> <period>       : "•" bullet # BULLET
+<Multi_key> <period> <minus>       : "•" bullet # BULLET
+# }}}
+
+# Quotation marks {{{
+<Multi_key> <period> <less>            : "‹" lsaquo # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+<Multi_key> <period> <greater>         : "›" rsaquo # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+<Multi_key> <less> <less>              : "«" laquo # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <greater> <greater>        : "»" raquo # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <less> <apostrophe>        : "‘" lsquo # LEFT SINGLE QUOTATION MARK
+<Multi_key> <apostrophe> <less>        : "‘" lsquo # LEFT SINGLE QUOTATION MARK
+<Multi_key> <greater> <apostrophe>     : "’" rsquo # RIGHT SINGLE QUOTATION MARK
+<Multi_key> <apostrophe> <greater>     : "’" rsquo # RIGHT SINGLE QUOTATION MARK
+<Multi_key> <comma> <apostrophe>       : "‚" sbquo # SINGLE LOW-9 QUOTATION MARK
+<Multi_key> <apostrophe> <comma>       : "‚" sbquo # SINGLE LOW-9 QUOTATION MARK
+<Multi_key> <less> <quotedbl>          : "“" ldquo # LEFT DOUBLE QUOTATION MARK
+<Multi_key> <quotedbl> <less>          : "“" ldquo # LEFT DOUBLE QUOTATION MARK
+<Multi_key> <greater> <quotedbl>       : "”" rdquo # RIGHT DOUBLE QUOTATION MARK
+<Multi_key> <quotedbl> <greater>       : "”" rdquo # RIGHT DOUBLE QUOTATION MARK
+<Multi_key> <comma> <quotedbl>         : "„" bdquo # DOUBLE LOW-9 QUOTATION MARK
+<Multi_key> <quotedbl> <comma>         : "„" bdquo # DOUBLE LOW-9 QUOTATION MARK
+<Multi_key> <j> <apostrophe> <less>    : "「" U300C # LEFT CORNER BRACKET
+<Multi_key> <j> <apostrophe> <greater> : "」" U300D # RIGHT CORNER BRACKET
+<Multi_key> <j> <quotedbl> <less>      : "『" U300E # LEFT WHITE CORNER BRACKET
+<Multi_key> <j> <quotedbl> <greater>   : "』" U300F # RIGHT WHITE CORNER BRACKET
+# }}}
+
+# Currencies {{{
+<Multi_key> <C> <equal> : "€" euro # EURO SIGN
+<Multi_key> <equal> <C> : "€" euro # EURO SIGN
+<Multi_key> <c> <equal> : "€" euro # EURO SIGN
+<Multi_key> <equal> <c> : "€" euro # EURO SIGN
+<Multi_key> <E> <equal> : "€" euro # EURO SIGN
+<Multi_key> <equal> <E> : "€" euro # EURO SIGN
+<Multi_key> <e> <equal> : "€" euro # EURO SIGN
+<Multi_key> <equal> <e> : "€" euro # EURO SIGN
+<Multi_key> <C> <bar>   : "¢" cent # CENT SIGN
+<Multi_key> <bar> <C>   : "¢" cent # CENT SIGN
+<Multi_key> <c> <bar>   : "¢" cent # CENT SIGN
+<Multi_key> <bar> <c>   : "¢" cent # CENT SIGN
+<Multi_key> <c> <slash> : "¢" cent # CENT SIGN
+<Multi_key> <slash> <c> : "¢" cent # CENT SIGN
+<Multi_key> <L> <minus> : "£" pound # POUND SIGN
+<Multi_key> <minus> <L> : "£" pound # POUND SIGN
+<Multi_key> <l> <minus> : "£" pound # POUND SIGN
+<Multi_key> <minus> <l> : "£" pound # POUND SIGN
+<Multi_key> <Y> <equal> : "¥" yen # YEN SIGN
+<Multi_key> <equal> <Y> : "¥" yen # YEN SIGN
+<Multi_key> <y> <equal> : "¥" yen # YEN SIGN
+<Multi_key> <equal> <y> : "¥" yen # YEN SIGN
+<Multi_key> <Y> <minus> : "¥" yen # YEN SIGN
+<Multi_key> <minus> <Y> : "¥" yen # YEN SIGN
+<Multi_key> <y> <minus> : "¥" yen # YEN SIGN
+<Multi_key> <minus> <y> : "¥" yen # YEN SIGN
+<Multi_key> <n> <n>     : "₪" U20AA # NEW SHEQEL SIGN
+<Multi_key> <N> <N>     : "₪" U20AA # NEW SHEQEL SIGN
+<Multi_key> <o> <x>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <x> <o>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <o> <X>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <X> <o>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <O> <X>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <X> <O>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <O> <x>     : "¤" curren # CURRENCY SIGN
+<Multi_key> <x> <O>     : "¤" curren # CURRENCY SIGN
+# }}}
+
+# Math & logic {{{
+<Multi_key> <bar> <C>                        : "ℂ" complexes # DOUBLE-STRUCK CAPITAL C
+<Multi_key> <bar> <N>                        : "ℕ" naturals # DOUBLE-STRUCK CAPITAL N
+<Multi_key> <bar> <P>                        : "ℙ" primes # DOUBLE-STRUCK CAPITAL P
+<Multi_key> <bar> <Q>                        : "ℚ" rationals # DOUBLE-STRUCK CAPITAL Q
+<Multi_key> <bar> <R>                        : "ℝ" reals # DOUBLE-STRUCK CAPITAL R
+<Multi_key> <bar> <Z>                        : "ℤ" integers # DOUBLE-STRUCK CAPITAL Z
+<Multi_key> <f> <comma>                      : "ƒ" fnof # LATIN SMALL LETTER F WITH HOOK
+<Multi_key> <comma> <f>                      : "ƒ" fnof # LATIN SMALL LETTER F WITH HOOK
+<Multi_key> <s> <u> <m>                      : "∑" sum # N-ARY SUMMATION
+<Multi_key> <i> <n> <t>                      : "∫" int # INTEGRAL
+<Multi_key> <I> <n> <t>                      : "∬" Int # DOUBLE INTEGRAL
+<Multi_key> <d> <e> <l>                      : "∇" nabla # NABLA
+<Multi_key> <plus> <minus>                   : "±" plusmn # PLUS-MINUS SIGN
+<Multi_key> <minus> <plus>                   : "∓" mnplus # MINUS-PLUS SIGN
+<Multi_key> <x> <x>                          : "×" times # MULTIPLICATION SIGN
+<Multi_key> <colon> <minus>                  : "÷" div # DIVISION SIGN
+<Multi_key> <minus> <colon>                  : "÷" div # DIVISION SIGN
+<Multi_key> <i> <asciicircum>                : "ⁱ" U2071 # SUPERSCRIPT LATIN SMALL LETTER I
+<Multi_key> <n> <asciicircum>                : "ⁿ" U207F # SUPERSCRIPT LATIN SMALL LETTER N
+<Multi_key> <asciicircum> <0>                : "⁰" U2070 # SUPERSCRIPT ZERO
+<Multi_key> <asciicircum> <1>                : "¹" sup1 # SUPERSCRIPT ONE
+<Multi_key> <1> <asciicircum>                : "¹" sup1 # SUPERSCRIPT ONE
+<Multi_key> <asciicircum> <2>                : "²" sup2 # SUPERSCRIPT TWO
+<Multi_key> <2> <asciicircum>                : "²" sup2 # SUPERSCRIPT TWO
+<Multi_key> <asciicircum> <3>                : "³" sup3 # SUPERSCRIPT THREE
+<Multi_key> <3> <asciicircum>                : "³" sup3 # SUPERSCRIPT THREE
+<Multi_key> <1> <2>                          : "½" frac12 # VULGAR FRACTION ONE HALF
+<Multi_key> <asciicircum> <plus>             : "⁺" U207A # SUPERSCRIPT PLUS SIGN
+<Multi_key> <asciicircum> <minus>            : "⁻" U207B # SUPERSCRIPT MINUS
+<Multi_key> <underscore> <0>                 : "₀" U2080 # SUBSCRIPT ZERO
+<Multi_key> <underscore> <1>                 : "₁" U2081 # SUBSCRIPT ONE
+<Multi_key> <comma> <minus>                  : "¬" not # NOT SIGN
+<Multi_key> <minus> <comma>                  : "¬" not # NOT SIGN
+<Multi_key> <v> <slash>                      : "√" radic # SQUARE ROOT
+<Multi_key> <slash> <v>                      : "√" radic # SQUARE ROOT
+<Multi_key> <s> <q>                          : "√" radic # SQUARE ROOT
+<Multi_key> <8> <8>                          : "∞" infin # INFINITY
+<Multi_key> <E> <E>                          : "∃" exist # THERE EXISTS
+<Multi_key> <slash> <E>                      : "∄" nexist # THERE DOES NOT EXIST
+<Multi_key> <E> <slash>                      : "∄" nexist # THERE DOES NOT EXIST
+<Multi_key> <A> <A>                          : "∀" forall # FOR ALL
+<Multi_key> <0> <slash>                      : "∅" empty # EMPTY SET
+<Multi_key> <slash> <0>                      : "∅" empty # EMPTY SET
+<Multi_key> <braceleft> <braceright>         : "∅" empty # EMPTY SET
+<Multi_key> <braceleft> <U>                  : "∪" cup # UNION
+<Multi_key> <braceleft> <asciicircum>        : "∩" cap # INTERSECTION
+<Multi_key> <braceleft> <parenleft>          : "⊂" sub # SUBSET OF
+<Multi_key> <braceleft> <equal> <parenleft>  : "⊆" sube # SUBSET OF OR EQUAL TO
+<Multi_key> <braceleft> <parenright>         : "⊃" sup # SUPERSET OF
+<Multi_key> <braceleft> <equal> <parenright> : "⊇" supe # SUPERSET OF OR EQUAL TO
+<Multi_key> <slash> <braceleft> <parenleft>  : "⊄" nsub # NOT A SUBSET OF
+<Multi_key> <colon> <equal>                  : "≔" colone # COLON EQUALS
+<Multi_key> <equal> <question>               : "≟" equest # QUESTIONED EQUAL TO
+<Multi_key> <exclam> <equal>                 : "≠" ne # NOT EQUAL TO
+<Multi_key> <slash> <equal>                  : "≠" ne # NOT EQUAL TO
+<Multi_key> <equal> <underscore>             : "≡" equiv # IDENTICAL TO
+<Multi_key> <asciitilde> <equal>             : "≅" cong # APPROXIMATELY EQUAL TO
+<Multi_key> <less> <underscore>              : "≤" le # LESS-THAN OR EQUAL TO
+<Multi_key> <underscore> <less>              : "≤" le # LESS-THAN OR EQUAL TO
+<Multi_key> <greater> <underscore>           : "≥" ge # GREATER-THAN OR EQUAL TO
+<Multi_key> <underscore> <greater>           : "≥" ge # GREATER-THAN OR EQUAL TO
+<Multi_key> <n> <8>                          : "ℵ" aleph # ALEF SYMBOL
+<Multi_key> <asciicircum> <asciicircum>      : "∧" and # LOGICAL AND
+<Multi_key> <asciicircum> <equal>            : "⊼" U22BC # NAND
+<Multi_key> <v> <v>                          : "∨" or # LOGICAL OR
+<Multi_key> <v> <minus>                      : "⊽" U22BD # NOR
+<Multi_key> <v> <underscore>                 : "⊻" veebar # XOR
+<Multi_key> <o> <plus>                       : "⊕" oplus # CIRCLED PLUS
+<Multi_key> <O> <plus>                       : "⊕" oplus # CIRCLED PLUS
+# }}}
+
+# Arrows {{{
+<Multi_key> <minus> <greater>        : "→" rarr # RIGHTWARDS ARROW
+<Multi_key> <minus> <less>           : "←" larr # LEFTWARDS ARROW
+<Multi_key> <minus> <v>              : "↓" darr # DOWNWARDS ARROW
+<Multi_key> <minus> <asciicircum>    : "↑" uarr # UPWARDS ARROW
+<Multi_key> <less> <minus> <greater> : "↔" harr # LEFT RIGHT ARROW
+<Multi_key> <v> <asciicircum>        : "↕" varr # UP DOWN ARROW
+<Multi_key> <asciicircum> <v>        : "⇵" duarr # DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW
+<Multi_key> <less> <minus> <bar>     : "↵" crarr # DOWNWARDS ARROW WITH CORNER LEFTWARDS
+<Multi_key> <equal> <greater>        : "⇒" rArr # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <less>           : "⇐" lArr # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <asciicircum>    : "⇑" uArr # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <v>              : "⇓" dArr # DOWNWARDS DOUBLE ARROW
+<Multi_key> <equal> <asciitilde>     : "⇔" hArr # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <bar>            : "⇕" vArr # UP DOWN DOUBLE ARROW
+# }}}
+
+# Musical notes {{{
+<Multi_key> <numbersign> <q>          : "♩" U2669 # QUARTER NOTE
+<Multi_key> <numbersign> <e>          : "♪" sung # EIGHTH NOTE
+<Multi_key> <numbersign> <B> <minus>  : "♫" U266B # BEAMED EIGHTH NOTES
+<Multi_key> <numbersign> <B> <equal>  : "♬" U266C # BEAMED SIXTEENTH NOTES
+<Multi_key> <numbersign> <b>          : "♭" flat # MUSIC FLAT SIGN
+<Multi_key> <numbersign> <n>          : "♮" natur # MUSIC NATURAL SIGN
+<Multi_key> <numbersign> <numbersign> : "♯" sharp # MUSIC SHARP SIGN
+<Multi_key> <numbersign> <2>          : "𝅗𝅥" U1D15E # MUSICAL SYMBOL HALF NOTE
+<Multi_key> <numbersign> <4>          : "𝅘𝅥" U1D15F # MUSICAL SYMBOL QUARTER NOTE
+<Multi_key> <numbersign> <8>          : "𝅘𝅥𝅮" U1D160 # MUSICAL SYMBOL EIGHTH NOTE
+<Multi_key> <numbersign> <6>          : "𝅘𝅥𝅯" U1D161 # MUSICAL SYMBOL SIXTEENTH NOTE
+<Multi_key> <numbersign> <3> <2>      : "𝅘𝅥𝅰" U1D162 # MUSICAL SYMBOL THIRTY-SECOND NOTE
+<Multi_key> <numbersign> <6> <4>      : "𝅘𝅥𝅱" U1D163 # MUSICAL SYMBOL SIXTY-FOURTH NOTE
+<Multi_key> <numbersign> <1> <2> <8>  : "𝅘𝅥𝅲" U1D164 # MUSICAL SYMBOL ONE HUNDRED TWENTY-EIGHTH NOTE
+<Multi_key> <numbersign> <m>          : "𝆹𝅥" U1D1BB # MUSICAL SYMBOL MINIMA
+<Multi_key> <numbesign> <M>           : "𝆺𝅥" U1D1BC # MUSICAL SYMBOL MINIMA BLACK
+<Multi_key> <numbersign> <s>          : "𝆹𝅥𝅮" U1D1BD # MUSICAL SYMBOL SEMIMINIMA WHITE
+<Multi_key> <numbersign> <S>          : "𝆺𝅥𝅮" U1D1BE # MUSICAL SYMBOL SEMIMINIMA BLACK
+<Multi_key> <numbersign> <f>          : "𝆹𝅥𝅯" U1D1BF # MUSICAL SYMBOL FUSA WHITE
+<Multi_key> <numbersign> <F>          : "𝆺𝅥𝅯" U1D1C0 # MUSICAL SYMBOL FUSA BLACK
+# }}}
+
+# Intellectual property {{{
+<Multi_key> <C> <o> : "©" copy # COPYRIGHT SIGN
+<Multi_key> <C> <O> : "©" copy # COPYRIGHT SIGN
+<Multi_key> <R> <o> : "®" reg # REGISTERED SIGN
+<Multi_key> <R> <O> : "®" reg # REGISTERED SIGN
+<Multi_key> <T> <M> : "™" trade # TRADE MARK SIGN
+<Multi_key> <t> <m> : "™" trade # TRADE MARK SIGN
+<Multi_key> <o> <c> : "🄯" U1F12F # COPYLEFT SIGN
+<Multi_key> <O> <C> : "🄯" U1F12F # COPYLEFT SIGN
+# }}}
+
+# Card suits {{{
+<Multi_key> <less> <3>  : "♥" hearts # BLACK HEART SUIT
+<Multi_key> <s> <b> <h> : "♥" hearts # BLACK HEART SUIT
+<Multi_key> <s> <b> <c> : "♣" clubs # BLACK CLUB SUIT
+<Multi_key> <s> <b> <s> : "♠" spades # BLACK SPADE SUIT
+<Multi_key> <s> <b> <d> : "♦" diams # BLACK DIAMOND SUIT
+<Multi_key> <s> <w> <h> : "♡" U2661 # WHITE HEART SUIT
+<Multi_key> <s> <w> <c> : "♧" U2667 # WHITE CLUB SUIT
+<Multi_key> <s> <w> <s> : "♤" U2664 # WHITE SPADE SUIT
+<Multi_key> <s> <w> <d> : "♢" U2662 # WHITE DIAMOND SUIT
+# }}}
+
+# Chess {{{
+<Multi_key> <c> <w> <k> : "♔" U2654 # WHITE CHESS KING
+<Multi_key> <c> <w> <q> : "♕" U2655 # WHITE CHESS QUEEN
+<Multi_key> <c> <w> <r> : "♖" U2656 # WHITE CHESS ROOK
+<Multi_key> <c> <w> <b> : "♗" U2657 # WHITE CHESS BISHOP
+<Multi_key> <c> <w> <n> : "♘" U2658 # WHITE CHESS KNIGHT
+<Multi_key> <c> <w> <p> : "♙" U2659 # WHITE CHESS PAWN
+<Multi_key> <c> <b> <k> : "♚" U265A # BLACK CHESS KING
+<Multi_key> <c> <b> <q> : "♛" U265B # BLACK CHESS QUEEN
+<Multi_key> <c> <b> <r> : "♜" U265C # BLACK CHESS ROOK
+<Multi_key> <c> <b> <b> : "♝" U265D # BLACK CHESS BISHOP
+<Multi_key> <c> <b> <n> : "♞" U265E # BLACK CHESS KNIGHT
+<Multi_key> <c> <b> <p> : "♟" U265F # BLACK CHESS PAWN
+# }}}
+
+# Other symbols {{{
+<Multi_key> <o> <o>                   : "°" deg # DEGREE SIGN
+<Multi_key> <asterisk> <0>            : "°" deg # DEGREE SIGN
+<Multi_key> <0> <asterisk>            : "°" deg # DEGREE SIGN
+<Multi_key> <exclam> <bar>            : "¦" brvbar # BROKEN BAR
+<Multi_key> <bar> <eclam>             : "¦" brvbar # BROKEN BAR
+<Multi_key> <bar> <minus>             : "†" dagger # DAGGER
+<Multi_key> <bar> <equal>             : "‡" ddagger # DOUBLE DAGGER
+<Multi_key> <bar> <bar>               : "‖" Vert # DOUBLE VERTICAL LINE
+<Multi_key> <p> <exclam>              : "¶" para # PILCROW SIGN
+<Multi_key> <P> <exclam>              : "¶" para # PILCROW SIGN
+<Multi_key> <exclam> <exclam>         : "¡" iexcl # INVERTED EXCLAMATION MARK
+<Multi_key> <question> <question>     : "¿" iquest # INVERTED QUESTION MARK
+<Multi_key> <exclam> <question>       : "‽" U203D # INTERROBANG
+<Multi_key> <question> <exclam>       : "⸘" U2E18 # INVERTED INTERROBANG
+<Multi_key> <2> <question>            : "⁇" U2047 # DOUBLE QUESTION MARK
+<Multi_key> <question> <bar> <exclam> : "⁈" U2048 # QUESTION EXCLAMATION MARK
+<Multi_key> <exclam> <bar> <question> : "⁉" U2049 # EXCLAMATION QUESTION MARK
+<Multi_key> <2> <exclam>              : "‼" U203C # DOUBLE EXCLAMATION MARK
+<Multi_key> <colon> <colon>           : "∷" Proportion # PROPORTION
+<Multi_key> <j> <comma>               : "、" U3001 # IDEOGRAPHIC COMMA
+<Multi_key> <j> <period>              : "。" U3002 # IDEOGRAPHIC FULL STOP
+<Multi_key> <j> <colon>               : "：" UFF1A # FULLWIDTH COLON
+<Multi_key> <j> <question>            : "？" UFF1F # FULLWIDTH QUESTION MARK
+<Multi_key> <j> <exclam>              : "！" UFF01 # FULLWIDTH EXCLAMATION MARK
+<Multi_key> <s> <o>                   : "§" sect # SECTION SIGN
+<Multi_key> <o> <s>                   : "§" sect # SECTION SIGN
+<Multi_key> <S> <O>                   : "§" sect # SECTION SIGN
+<Multi_key> <O> <S>                   : "§" sect # SECTION SIGN
+<Multi_key> <s> <exclam>              : "§" sect # SECTION SIGN
+<Multi_key> <S> <exclam>              : "§" sect # SECTION SIGN
+<Multi_key> <N> <o>                   : "№" numero # NUMERO SIGN
+<Multi_key> <N> <O>                   : "№" numero # NUMERO SIGN
+<Multi_key> <F> <less>                : "☚" U261A # BLACK LEFT POINTING INDEX
+<Multi_key> <F> <greater>             : "☛" U261B # BLACK RIGHT POINTING INDEX
+<Multi_key> <f> <less>                : "☜" U261C # WHITE LEFT POINTING INDEX
+<Multi_key> <f> <asciicircum>         : "☝" U261D # WHITE UP POINTING INDEX
+<Multi_key> <f> <greater>             : "☞" U261E # WHITE RIGHT POINTING INDEX
+<Multi_key> <f> <v>                   : "☟" U261F # WHITE DOWN POINTING INDEX
+<Multi_key> <asterisk> <asterisk>     : "★" starf # BLACK STAR
+<Multi_key> <asterisk> <0>            : "☆" star # WHITE STAR
+<Multi_key> <asterisk> <x>            : "❄" U2744 # SNOWFLAKE
+<Multi_key> <C> <C> <C> <P>           : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <h> <s>                   : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <H> <S>                   : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <at> <slash>              : "✓" check # CHECK MARK
+<Multi_key> <at> <at> <slash>         : "✔" U2714 # HEAVY CHECK MARK
+<Multi_key> <at> <X>                  : "✗" cross # BALLOT X
+<Multi_key> <at> <at> <X>             : "✘" U2718 # HEAVY BALLOT X
+<Multi_key> <o> <f>                   : "♀" female # FEMALE SIGN
+<Multi_key> <o> <m>                   : "♂" male # MALE SIGN
+<Multi_key> <o> <t>                   : "⚥" U26A5 # MALE AND FEMALE SIGN
+<Multi_key> <exclam> <asciicircum>    : "⚠" U26A0 # WARNING SIGN
+<Multi_key> <bar> <asciicircum>       : "☮" U262E # PEACE SYMBOL
+<Multi_key> <y> <y>                   : "☯" U262F # YIN YANG
+# }}}
+
+# Hiragana {{{
+<Multi_key> <h> <a>         : "あ" U3042 # HIRAGANA LETTER A
+<Multi_key> <h> <i>         : "い" U3044 # HIRAGANA LETTER I
+<Multi_key> <h> <u>         : "う" U3046 # HIRAGANA LETTER U
+<Multi_key> <h> <e>         : "え" U3048 # HIRAGANA LETTER E
+<Multi_key> <h> <o>         : "お" U304A # HIRAGANA LETTER O
+<Multi_key> <h> <k> <a>     : "か" U304B # HIRAGANA LETTER KA
+<Multi_key> <h> <k> <i>     : "き" U304D # HIRAGANA LETTER KI
+<Multi_key> <h> <k> <u>     : "く" U304F # HIRAGANA LETTER KU
+<Multi_key> <h> <k> <e>     : "け" U3051 # HIRAGANA LETTER KE
+<Multi_key> <h> <k> <o>     : "こ" U3053 # HIRAGANA LETTER KO
+<Multi_key> <h> <s> <a>     : "さ" U3055 # HIRAGANA LETTER SA
+<Multi_key> <h> <s> <i>     : "し" U3057 # HIRAGANA LETTER SI
+<Multi_key> <h> <s> <u>     : "す" U3059 # HIRAGANA LETTER SU
+<Multi_key> <h> <s> <e>     : "せ" U305B # HIRAGANA LETTER SE
+<Multi_key> <h> <s> <o>     : "そ" U305D # HIRAGANA LETTER SO
+<Multi_key> <h> <t> <a>     : "た" U305F # HIRAGANA LETTER TA
+<Multi_key> <h> <t> <i>     : "ち" U3061 # HIRAGANA LETTER TI
+<Multi_key> <h> <t> <u>     : "つ" U3064 # HIRAGANA LETTER TU
+<Multi_key> <h> <t> <e>     : "て" U3066 # HIRAGANA LETTER TE
+<Multi_key> <h> <t> <o>     : "と" U3068 # HIRAGANA LETTER TO
+<Multi_key> <h> <n> <a>     : "な" U306A # HIRAGANA LETTER NA
+<Multi_key> <h> <n> <i>     : "に" U306B # HIRAGANA LETTER NI
+<Multi_key> <h> <n> <u>     : "ぬ" U306C # HIRAGANA LETTER NU
+<Multi_key> <h> <n> <e>     : "ね" U306D # HIRAGANA LETTER NE
+<Multi_key> <h> <n> <o>     : "の" U306E # HIRAGANA LETTER NO
+<Multi_key> <h> <h> <a>     : "は" U306F # HIRAGANA LETTER HA
+<Multi_key> <h> <h> <i>     : "ひ" U3072 # HIRAGANA LETTER HI
+<Multi_key> <h> <h> <u>     : "ふ" U3075 # HIRAGANA LETTER HU
+<Multi_key> <h> <h> <e>     : "へ" U3078 # HIRAGANA LETTER HE
+<Multi_key> <h> <h> <o>     : "ほ" U307B # HIRAGANA LETTER HO
+<Multi_key> <h> <m> <a>     : "ま" U307E # HIRAGANA LETTER MA
+<Multi_key> <h> <m> <i>     : "み" U307F # HIRAGANA LETTER MI
+<Multi_key> <h> <m> <u>     : "む" U3080 # HIRAGANA LETTER MU
+<Multi_key> <h> <m> <e>     : "め" U3081 # HIRAGANA LETTER ME
+<Multi_key> <h> <m> <o>     : "も" U3082 # HIRAGANA LETTER MO
+<Multi_key> <h> <y> <a>     : "や" U3084 # HIRAGANA LETTER YA
+<Multi_key> <h> <y> <u>     : "ゆ" U3086 # HIRAGANA LETTER YU
+<Multi_key> <h> <y> <o>     : "よ" U3088 # HIRAGANA LETTER YO
+<Multi_key> <h> <r> <a>     : "ら" U3089 # HIRAGANA LETTER RA
+<Multi_key> <h> <r> <i>     : "り" U308A # HIRAGANA LETTER RI
+<Multi_key> <h> <r> <u>     : "る" U308B # HIRAGANA LETTER RU
+<Multi_key> <h> <r> <e>     : "れ" U308C # HIRAGANA LETTER RE
+<Multi_key> <h> <r> <o>     : "ろ" U308D # HIRAGANA LETTER RO
+<Multi_key> <h> <w> <a>     : "わ" U308F # HIRAGANA LETTER WA
+<Multi_key> <h> <w> <i>     : "ゐ" U3090 # HIRAGANA LETTER WI
+<Multi_key> <h> <w> <e>     : "ゑ" U3091 # HIRAGANA LETTER WE
+<Multi_key> <h> <w> <o>     : "を" U3092 # HIRAGANA LETTER WO
+<Multi_key> <h> <n>         : "ん" U3093 # HIRAGANA LETTER N
+<Multi_key> <h> <l> <y> <a> : "ゃ" U3083 # HIRAGANA LETTER SMALL YA
+<Multi_key> <h> <l> <y> <u> : "ゅ" U3085 # HIRAGANA LETTER SMALL YU
+<Multi_key> <h> <l> <y> <o> : "ょ" U3087 # HIRAGANA LETTER SMALL YO
+<Multi_key> <h> <l> <t> <u> : "っ" U3063 # HIRAGANA LETTER SMALL TU
+<Multi_key> <h> <g> <a>     : "が" U304C # HIRAGANA LETTER GA
+<Multi_key> <h> <g> <i>     : "ぎ" U304E # HIRAGANA LETTER GI
+<Multi_key> <h> <g> <u>     : "ぐ" U3050 # HIRAGANA LETTER GU
+<Multi_key> <h> <g> <e>     : "げ" U3052 # HIRAGANA LETTER GE
+<Multi_key> <h> <g> <o>     : "ご" U3054 # HIRAGANA LETTER GO
+<Multi_key> <h> <z> <a>     : "ざ" U3056 # HIRAGANA LETTER ZA
+<Multi_key> <h> <z> <i>     : "じ" U3058 # HIRAGANA LETTER ZI
+<Multi_key> <h> <z> <u>     : "ず" U305A # HIRAGANA LETTER ZU
+<Multi_key> <h> <z> <e>     : "ぜ" U305C # HIRAGANA LETTER ZE
+<Multi_key> <h> <z> <o>     : "ぞ" U305E # HIRAGANA LETTER ZO
+<Multi_key> <h> <d> <a>     : "だ" U3060 # HIRAGANA LETTER DA
+<Multi_key> <h> <d> <i>     : "ぢ" U3062 # HIRAGANA LETTER DI
+<Multi_key> <h> <d> <u>     : "づ" U3065 # HIRAGANA LETTER DU
+<Multi_key> <h> <d> <e>     : "で" U3067 # HIRAGANA LETTER DE
+<Multi_key> <h> <d> <o>     : "ど" U3069 # HIRAGANA LETTER DO
+<Multi_key> <h> <b> <a>     : "ば" U3070 # HIRAGANA LETTER BA
+<Multi_key> <h> <b> <i>     : "び" U3073 # HIRAGANA LETTER BI
+<Multi_key> <h> <b> <u>     : "ぶ" U3076 # HIRAGANA LETTER BU
+<Multi_key> <h> <b> <e>     : "べ" U3079 # HIRAGANA LETTER BE
+<Multi_key> <h> <b> <o>     : "ぼ" U307C # HIRAGANA LETTER BO
+<Multi_key> <h> <p> <a>     : "ぱ" U3071 # HIRAGANA LETTER PA
+<Multi_key> <h> <p> <i>     : "ぴ" U3074 # HIRAGANA LETTER PI
+<Multi_key> <h> <p> <u>     : "ぷ" U3077 # HIRAGANA LETTER PU
+<Multi_key> <h> <p> <e>     : "ぺ" U307A # HIRAGANA LETTER PE
+<Multi_key> <h> <p> <o>     : "ぽ" U307D # HIRAGANA LETTER PO
+# }}}
+
+# Katakana {{{
+<Multi_key> <k> <a>         : "ア" U30A2 # KATAKANA LETTER A
+<Multi_key> <k> <i>         : "イ" U30A4 # KATAKANA LETTER I
+<Multi_key> <k> <u>         : "ウ" U30A6 # KATAKANA LETTER U
+<Multi_key> <k> <e>         : "エ" U30A8 # KATAKANA LETTER E
+<Multi_key> <k> <o>         : "オ" U30AA # KATAKANA LETTER O
+<Multi_key> <k> <k> <a>     : "カ" U30AB # KATAKANA LETTER KA
+<Multi_key> <k> <k> <i>     : "キ" U30AD # KATAKANA LETTER KI
+<Multi_key> <k> <k> <u>     : "ク" U30AF # KATAKANA LETTER KU
+<Multi_key> <k> <k> <e>     : "ケ" U30B1 # KATAKANA LETTER KE
+<Multi_key> <k> <k> <o>     : "コ" U30B3 # KATAKANA LETTER KO
+<Multi_key> <k> <s> <a>     : "サ" U30B5 # KATAKANA LETTER SA
+<Multi_key> <k> <s> <i>     : "シ" U30B7 # KATAKANA LETTER SI
+<Multi_key> <k> <s> <u>     : "ス" U30B9 # KATAKANA LETTER SU
+<Multi_key> <k> <s> <e>     : "セ" U30BB # KATAKANA LETTER SE
+<Multi_key> <k> <s> <o>     : "ソ" U30BD # KATAKANA LETTER SO
+<Multi_key> <k> <t> <a>     : "タ" U30BF # KATAKANA LETTER TA
+<Multi_key> <k> <t> <i>     : "チ" U30C1 # KATAKANA LETTER TI
+<Multi_key> <k> <t> <u>     : "ツ" U30C4 # KATAKANA LETTER TU
+<Multi_key> <k> <t> <e>     : "テ" U30C6 # KATAKANA LETTER TE
+<Multi_key> <k> <t> <o>     : "ト" U30C8 # KATAKANA LETTER TO
+<Multi_key> <k> <n> <a>     : "ナ" U30CA # KATAKANA LETTER NA
+<Multi_key> <k> <n> <i>     : "ニ" U30CB # KATAKANA LETTER NI
+<Multi_key> <k> <n> <u>     : "ヌ" U30CC # KATAKANA LETTER NU
+<Multi_key> <k> <n> <e>     : "ネ" U30CD # KATAKANA LETTER NE
+<Multi_key> <k> <n> <o>     : "ノ" U30CE # KATAKANA LETTER NO
+<Multi_key> <k> <h> <a>     : "ハ" U30CF # KATAKANA LETTER HA
+<Multi_key> <k> <h> <i>     : "ヒ" U30D2 # KATAKANA LETTER HI
+<Multi_key> <k> <h> <u>     : "フ" U30D5 # KATAKANA LETTER HU
+<Multi_key> <k> <h> <e>     : "ヘ" U30D8 # KATAKANA LETTER HE
+<Multi_key> <k> <h> <o>     : "ホ" U30DB # KATAKANA LETTER HO
+<Multi_key> <k> <m> <a>     : "マ" U30DE # KATAKANA LETTER MA
+<Multi_key> <k> <m> <i>     : "ミ" U30DF # KATAKANA LETTER MI
+<Multi_key> <k> <m> <u>     : "ム" U30E0 # KATAKANA LETTER MU
+<Multi_key> <k> <m> <e>     : "メ" U30E1 # KATAKANA LETTER ME
+<Multi_key> <k> <m> <o>     : "モ" U30E2 # KATAKANA LETTER MO
+<Multi_key> <k> <y> <a>     : "ヤ" U30E4 # KATAKANA LETTER YA
+<Multi_key> <k> <y> <u>     : "ユ" U30E6 # KATAKANA LETTER YU
+<Multi_key> <k> <y> <o>     : "ヨ" U30E8 # KATAKANA LETTER YO
+<Multi_key> <k> <r> <a>     : "ラ" U30E9 # KATAKANA LETTER RA
+<Multi_key> <k> <r> <i>     : "リ" U30EA # KATAKANA LETTER RI
+<Multi_key> <k> <r> <u>     : "ル" U30EB # KATAKANA LETTER RU
+<Multi_key> <k> <r> <e>     : "レ" U30EC # KATAKANA LETTER RE
+<Multi_key> <k> <r> <o>     : "ロ" U30ED # KATAKANA LETTER RO
+<Multi_key> <k> <w> <a>     : "ワ" U30EF # KATAKANA LETTER WA
+<Multi_key> <k> <w> <i>     : "ヰ" U30F0 # KATAKANA LETTER WI
+<Multi_key> <k> <w> <e>     : "ヱ" U30F1 # KATAKANA LETTER WE
+<Multi_key> <k> <w> <o>     : "ヲ" U30F2 # KATAKANA LETTER WO
+<Multi_key> <k> <n>         : "ン" U30F3 # KATAKANA LETTER N
+<Multi_key> <k> <l> <y> <a> : "ッ" U30C3 # KATAKANA LETTER SMALL TU
+<Multi_key> <k> <l> <y> <u> : "ュ" U30E5 # KATAKANA LETTER SMALL YU
+<Multi_key> <k> <l> <y> <o> : "ョ" U30E7 # KATAKANA LETTER SMALL YO
+<Multi_key> <k> <l> <t> <u> : "ョ" U30E7 # KATAKANA LETTER SMALL YO
+<Multi_key> <k> <g> <a>     : "ガ" U30AC # KATAKANA LETTER GA
+<Multi_key> <k> <g> <i>     : "ギ" U30AE # KATAKANA LETTER GI
+<Multi_key> <k> <g> <u>     : "グ" U30B0 # KATAKANA LETTER GU
+<Multi_key> <k> <g> <e>     : "ゲ" U30B2 # KATAKANA LETTER GE
+<Multi_key> <k> <g> <o>     : "ゴ" U30B4 # KATAKANA LETTER GO
+<Multi_key> <k> <z> <a>     : "ザ" U30B6 # KATAKANA LETTER ZA
+<Multi_key> <k> <z> <i>     : "ジ" U30B8 # KATAKANA LETTER ZI
+<Multi_key> <k> <z> <u>     : "ズ" U30BA # KATAKANA LETTER ZU
+<Multi_key> <k> <z> <e>     : "ゼ" U30BC # KATAKANA LETTER ZE
+<Multi_key> <k> <z> <o>     : "ゾ" U30BE # KATAKANA LETTER ZO
+<Multi_key> <k> <d> <a>     : "ダ" U30C0 # KATAKANA LETTER DA
+<Multi_key> <k> <d> <i>     : "ヂ" U30C2 # KATAKANA LETTER DI
+<Multi_key> <k> <d> <u>     : "ヅ" U30C5 # KATAKANA LETTER DU
+<Multi_key> <k> <d> <e>     : "デ" U30C7 # KATAKANA LETTER DE
+<Multi_key> <k> <d> <o>     : "ド" U30C9 # KATAKANA LETTER DO
+<Multi_key> <k> <b> <a>     : "バ" U30D0 # KATAKANA LETTER BA
+<Multi_key> <k> <b> <i>     : "ビ" U30D3 # KATAKANA LETTER BI
+<Multi_key> <k> <b> <u>     : "ブ" U30D6 # KATAKANA LETTER BU
+<Multi_key> <k> <b> <e>     : "ベ" U30D9 # KATAKANA LETTER BE
+<Multi_key> <k> <b> <o>     : "ボ" U30DC # KATAKANA LETTER BO
+<Multi_key> <k> <p> <a>     : "パ" U30D1 # KATAKANA LETTER PA
+<Multi_key> <k> <p> <i>     : "ピ" U30D4 # KATAKANA LETTER PI
+<Multi_key> <k> <p> <u>     : "プ" U30D7 # KATAKANA LETTER PU
+<Multi_key> <k> <p> <e>     : "ペ" U30DA # KATAKANA LETTER PE
+<Multi_key> <k> <p> <o>     : "ポ" U30DD # KATAKANA LETTER PO
+# }}}
+
+# Japanese numerals {{{
+<Multi_key> <j> <O>     : "〇" U3007 # IDEOGRAPHIC NUMBER ZERO
+<Multi_key> <j> <0>     : "零" U96F6 # CJK Ideograph &#x96F6;
+<Multi_key> <j> <1>     : "一" U4E00 # <CJK Ideograph, First> &#x4E00;
+<Multi_key> <j> <2>     : "二" U4E8C # CJK Ideograph &#x4E8C;
+<Multi_key> <j> <3>     : "三" U4E09 # CJK Ideograph &#x4E09;
+<Multi_key> <j> <4>     : "四" U56DB # CJK Ideograph &#x56DB;
+<Multi_key> <j> <5>     : "五" U4E94 # CJK Ideograph &#x4E94;
+<Multi_key> <j> <6>     : "六" U516D # CJK Ideograph &#x516D;
+<Multi_key> <j> <7>     : "七" U4E03 # CJK Ideograph &#x4E03;
+<Multi_key> <j> <8>     : "八" U516B # CJK Ideograph &#x516B;
+<Multi_key> <j> <9>     : "九" U4E5D # CJK Ideograph &#x4E5D;
+<Multi_key> <j> <x> <1> : "十" U5341 # CJK Ideograph &#x5341;
+<Multi_key> <j> <x> <2> : "百" U767E # CJK Ideograph &#x767E;
+<Multi_key> <j> <x> <3> : "千" U5343 # CJK Ideograph &#x5343;
+<Multi_key> <j> <x> <4> : "万" U4E07 # CJK Ideograph &#x4E07;
+# }}}
+
+# Roman numerals {{{
+<Multi_key> <percent> <0> <1> : "Ⅰ" U2160 # ROMAN NUMERAL ONE
+<Multi_key> <percent> <0> <2> : "Ⅱ" U2161 # ROMAN NUMERAL TWO
+<Multi_key> <percent> <0> <3> : "Ⅲ" U2162 # ROMAN NUMERAL THREE
+<Multi_key> <percent> <0> <4> : "Ⅳ" U2163 # ROMAN NUMERAL FOUR
+<Multi_key> <percent> <0> <5> : "Ⅴ" U2164 # ROMAN NUMERAL FIVE
+<Multi_key> <percent> <0> <6> : "Ⅵ" U2165 # ROMAN NUMERAL SIX
+<Multi_key> <percent> <0> <7> : "Ⅶ" U2166 # ROMAN NUMERAL SEVEN
+<Multi_key> <percent> <0> <8> : "Ⅷ" U2167 # ROMAN NUMERAL EIGHT
+<Multi_key> <percent> <0> <9> : "Ⅸ" U2168 # ROMAN NUMERAL NINE
+<Multi_key> <percent> <X>     : "Ⅹ" U2169 # ROMAN NUMERAL TEN
+<Multi_key> <percent> <L>     : "Ⅼ" U216C # ROMAN NUMERAL FIFTY
+<Multi_key> <percent> <C>     : "Ⅽ" U216D # ROMAN NUMERAL ONE HUNDRED
+<Multi_key> <percent> <D>     : "Ⅾ" U216E # ROMAN NUMERAL FIVE HUNDRED
+<Multi_key> <percent> <M>     : "Ⅿ" U216F # ROMAN NUMERAL ONE THOUSAND
+# }}}
+
+# Ligatures {{{
+<Multi_key> <o> <e> : "œ" oelig # LATIN SMALL LIGATURE OE
+<Multi_key> <O> <E> : "Œ" OElig # LATIN CAPITAL LIGATURE OE
+<Multi_key> <a> <e> : "æ" aelig # LATIN SMALL LETTER AE
+<Multi_key> <A> <E> : "Æ" AElig # LATIN CAPITAL LETTER AE
+<Multi_key> <f> <f> : "ﬀ" fflig # LATIN SMALL LIGATURE FF
+<Multi_key> <f> <i> : "ﬁ" filig # LATIN SMALL LIGATURE FI
+<Multi_key> <f> <l> : "ﬂ" fllig # LATIN SMALL LIGATURE FL
+<Multi_key> <F> <i> : "ﬃ" ffilig # LATIN SMALL LIGATURE FFI
+<Multi_key> <F> <l> : "ﬄ" ffllig # LATIN SMALL LIGATURE FFL
+<Multi_key> <I> <J> : "Ĳ" IJlig # LATIN CAPITAL LIGATURE IJ
+# }}}
+
+# Other letters {{{
+<Multi_key> <acute> <A>                    : "Á" Aacute # LATIN CAPITAL LETTER A WITH ACUTE
+<Multi_key> <A> <acute>                    : "Á" Aacute # LATIN CAPITAL LETTER A WITH ACUTE
+<Multi_key> <asciicircum> <A>              : "Â" Acirc # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+<Multi_key> <A> <asciicircum>              : "Â" Acirc # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+<Multi_key> <grave> <A>                    : "À" Agrave # LATIN CAPITAL LETTER A WITH GRAVE
+<Multi_key> <A> <grave>                    : "À" Agrave # LATIN CAPITAL LETTER A WITH GRAVE
+<Multi_key> <underscore> <A>               : "Ā" Amacr # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <A> <underscore>               : "Ā" Amacr # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <quotedbl> <A>                 : "Ä" Auml # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <A> <quotedbl>                 : "Ä" Auml # LATIN CAPITAL LETTER A WITH DIAERESIS
+<Multi_key> <comma> <C>                    : "Ç" Ccedil # LATIN CAPITAL LETTER C WITH CEDILLA
+<Multi_key> <C> <comma>                    : "Ç" Ccedil # LATIN CAPITAL LETTER C WITH CEDILLA
+<Multi_key> <minus> <D>                    : "Đ" Dstrok # LATIN CAPITAL LETTER D WITH STROKE
+<Multi_key> <D> <minus>                    : "Đ" Dstrok # LATIN CAPITAL LETTER D WITH STROKE
+<Multi_key> <acute> <E>                    : "É" Eacute # LATIN CAPITAL LETTER E WITH ACUTE
+<Multi_key> <E> <acute>                    : "É" Eacute # LATIN CAPITAL LETTER E WITH ACUTE
+<Multi_key> <asciicircum> <E>              : "Ê" Ecirc # LATIN CAPITAL LETTER E WITH CIRCUMFLEX
+<Multi_key> <E> <asciicircum>              : "Ê" Ecirc # LATIN CAPITAL LETTER E WITH CIRCUMFLEX
+<Multi_key> <grave> <E>                    : "È" Egrave # LATIN CAPITAL LETTER E WITH GRAVE
+<Multi_key> <E> <grave>                    : "È" Egrave # LATIN CAPITAL LETTER E WITH GRAVE
+<Multi_key> <underscore> <E>               : "Ē" Emacr # LATIN CAPITAL LETTER E WITH MACRON
+<Multi_key> <E> <underscore>               : "Ē" Emacr # LATIN CAPITAL LETTER E WITH MACRON
+<Multi_key> <quotedbl> <E>                 : "Ë" Euml # LATIN CAPITAL LETTER E WITH DIAERESIS
+<Multi_key> <E> <quotedbl>                 : "Ë" Euml # LATIN CAPITAL LETTER E WITH DIAERESIS
+<Multi_key> <minus> <H>                    : "Ħ" Hstrok # LATIN CAPITAL LETTER H WITH STROKE
+<Multi_key> <H> <minus>                    : "Ħ" Hstrok # LATIN CAPITAL LETTER H WITH STROKE
+<Multi_key> <acute> <I>                    : "Í" Iacute # LATIN CAPITAL LETTER I WITH ACUTE
+<Multi_key> <I> <acute>                    : "Í" Iacute # LATIN CAPITAL LETTER I WITH ACUTE
+<Multi_key> <asciicircum> <I>              : "Î" Icirc # LATIN CAPITAL LETTER I WITH CIRCUMFLEX
+<Multi_key> <I> <asciicircum>              : "Î" Icirc # LATIN CAPITAL LETTER I WITH CIRCUMFLEX
+<Multi_key> <grave> <I>                    : "Ì" Igrave # LATIN CAPITAL LETTER I WITH GRAVE
+<Multi_key> <I> <grave>                    : "Ì" Igrave # LATIN CAPITAL LETTER I WITH GRAVE
+<Multi_key> <underscore> <I>               : "Ī" Imacr # LATIN CAPITAL LETTER I WITH MACRON
+<Multi_key> <I> <underscore>               : "Ī" Imacr # LATIN CAPITAL LETTER I WITH MACRON
+<Multi_key> <minus> <I>                    : "Ɨ" U0197 # LATIN CAPITAL LETTER I WITH STROKE
+<Multi_key> <I> <minus>                    : "Ɨ" U0197 # LATIN CAPITAL LETTER I WITH STROKE
+<Multi_key> <quotedbl> <I>                 : "Ï" Iuml # LATIN CAPITAL LETTER I WITH DIAERESIS
+<Multi_key> <I> <quotedbl>                 : "Ï" Iuml # LATIN CAPITAL LETTER I WITH DIAERESIS
+<Multi_key> <slash> <L>                    : "Ł" Lstrok # LATIN CAPITAL LETTER L WITH STROKE
+<Multi_key> <L> <slash>                    : "Ł" Lstrok # LATIN CAPITAL LETTER L WITH STROKE
+<Multi_key> <asciitilde> <N>               : "Ñ" Ntilde # LATIN CAPITAL LETTER N WITH TILDE
+<Multi_key> <N> <asciitilde>               : "Ñ" Ntilde # LATIN CAPITAL LETTER N WITH TILDE
+<Multi_key> <acute> <O>                    : "Ó" Oacute # LATIN CAPITAL LETTER O WITH ACUTE
+<Multi_key> <O> <acute>                    : "Ó" Oacute # LATIN CAPITAL LETTER O WITH ACUTE
+<Multi_key> <asciicircum> <O>              : "Ô" Ocirc # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
+<Multi_key> <O> <asciicircum>              : "Ô" Ocirc # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
+<Multi_key> <grave> <O>                    : "Ò" Ograve # LATIN CAPITAL LETTER O WITH GRAVE
+<Multi_key> <O> <grave>                    : "Ò" Ograve # LATIN CAPITAL LETTER O WITH GRAVE
+<Multi_key> <underscore> <O>               : "Ō" Omacr # LATIN CAPITAL LETTER O WITH MACRON
+<Multi_key> <O> <underscore>               : "Ō" Omacr # LATIN CAPITAL LETTER O WITH MACRON
+<Multi_key> <slash> <O>                    : "Ø" Oslash # LATIN CAPITAL LETTER O WITH STROKE
+<Multi_key> <O> <slash>                    : "Ø" Oslash # LATIN CAPITAL LETTER O WITH STROKE
+<Multi_key> <asciitilde> <O>               : "Õ" Otilde # LATIN CAPITAL LETTER O WITH TILDE
+<Multi_key> <O> <asciitilde>               : "Õ" Otilde # LATIN CAPITAL LETTER O WITH TILDE
+<Multi_key> <quotedbl> <O>                 : "Ö" Ouml # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <O> <quotedbl>                 : "Ö" Ouml # LATIN CAPITAL LETTER O WITH DIAERESIS
+<Multi_key> <acute> <U>                    : "Ú" Uacute # LATIN CAPITAL LETTER U WITH ACUTE
+<Multi_key> <U> <acute>                    : "Ú" Uacute # LATIN CAPITAL LETTER U WITH ACUTE
+<Multi_key> <asciicircum> <U>              : "Û" Ucirc # LATIN CAPITAL LETTER U WITH CIRCUMFLEX
+<Multi_key> <U> <asciicircum>              : "Û" Ucirc # LATIN CAPITAL LETTER U WITH CIRCUMFLEX
+<Multi_key> <grave> <U>                    : "Ù" Ugrave # LATIN CAPITAL LETTER U WITH GRAVE
+<Multi_key> <U> <grave>                    : "Ù" Ugrave # LATIN CAPITAL LETTER U WITH GRAVE
+<Multi_key> <underscore> <U>               : "Ū" Umacr # LATIN CAPITAL LETTER U WITH MACRON
+<Multi_key> <U> <underscore>               : "Ū" Umacr # LATIN CAPITAL LETTER U WITH MACRON
+<Multi_key> <quotedbl> <U>                 : "Ü" Uuml # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <U> <quotedbl>                 : "Ü" Uuml # LATIN CAPITAL LETTER U WITH DIAERESIS
+<Multi_key> <acute> <Y>                    : "Ý" Yacute # LATIN CAPITAL LETTER Y WITH ACUTE
+<Multi_key> <Y> <acute>                    : "Ý" Yacute # LATIN CAPITAL LETTER Y WITH ACUTE
+<Multi_key> <asciicircum> <Y>              : "Ŷ" Ycirc # LATIN CAPITAL LETTER Y WITH CIRCUMFLEX
+<Multi_key> <Y> <asciicircum>              : "Ŷ" Ycirc # LATIN CAPITAL LETTER Y WITH CIRCUMFLEX
+<Multi_key> <Y> <grave>                    : "Ỳ" U1EF2 # LATIN CAPITAL LETTER Y WITH GRAVE
+<Multi_key> <grave> <Y>                    : "Ỳ" U1EF2 # LATIN CAPITAL LETTER Y WITH GRAVE
+<Multi_key> <quotedbl> <Y>                 : "Ÿ" Yuml # LATIN CAPITAL LETTER Y WITH DIAERESIS
+<Multi_key> <Y> <quotedbl>                 : "Ÿ" Yuml # LATIN CAPITAL LETTER Y WITH DIAERESIS
+<Multi_key> <acute> <a>                    : "á" aacute # LATIN SMALL LETTER A WITH ACUTE
+<Multi_key> <a> <acute>                    : "á" aacute # LATIN SMALL LETTER A WITH ACUTE
+<Multi_key> <asciicircum> <a>              : "â" acirc # LATIN SMALL LETTER A WITH CIRCUMFLEX
+<Multi_key> <a> <asciicircum>              : "â" acirc # LATIN SMALL LETTER A WITH CIRCUMFLEX
+<Multi_key> <grave> <a>                    : "à" agrave # LATIN SMALL LETTER A WITH GRAVE
+<Multi_key> <a> <grave>                    : "à" agrave # LATIN SMALL LETTER A WITH GRAVE
+<Multi_key> <underscore> <a>               : "ā" amacr # LATIN SMALL LETTER A WITH MACRON
+<Multi_key> <a> <underscore>               : "ā" amacr # LATIN SMALL LETTER A WITH MACRON
+<Multi_key> <asciitilde> <a>               : "ã" atilde # LATIN SMALL LETTER A WITH TILDE
+<Multi_key> <a> <asciitilde>               : "ã" atilde # LATIN SMALL LETTER A WITH TILDE
+<Multi_key> <quotedbl> <a>                 : "ä" auml # LATIN SMALL LETTER A WITH DIAERESIS
+<Multi_key> <a> <quotedbl>                 : "ä" auml # LATIN SMALL LETTER A WITH DIAERESIS
+<Multi_key> <comma> <c>                    : "ç" ccedil # LATIN SMALL LETTER C WITH CEDILLA
+<Multi_key> <c> <comma>                    : "ç" ccedil # LATIN SMALL LETTER C WITH CEDILLA
+<Multi_key> <minus> <d>                    : "đ" dstrok # LATIN SMALL LETTER D WITH STROKE
+<Multi_key> <d> <minus>                    : "đ" dstrok # LATIN SMALL LETTER D WITH STROKE
+<Multi_key> <acute> <e>                    : "é" eacute # LATIN SMALL LETTER E WITH ACUTE
+<Multi_key> <e> <acute>                    : "é" eacute # LATIN SMALL LETTER E WITH ACUTE
+<Multi_key> <asciicircum> <e>              : "ê" ecirc # LATIN SMALL LETTER E WITH CIRCUMFLEX
+<Multi_key> <e> <asciicircum>              : "ê" ecirc # LATIN SMALL LETTER E WITH CIRCUMFLEX
+<Multi_key> <grave> <e>                    : "è" egrave # LATIN SMALL LETTER E WITH GRAVE
+<Multi_key> <e> <grave>                    : "è" egrave # LATIN SMALL LETTER E WITH GRAVE
+<Multi_key> <underscore> <e>               : "ē" emacr # LATIN SMALL LETTER E WITH MACRON
+<Multi_key> <e> <underscore>               : "ē" emacr # LATIN SMALL LETTER E WITH MACRON
+<Multi_key> <quotedbl> <e>                 : "ë" euml # LATIN SMALL LETTER E WITH DIAERESIS
+<Multi_key> <e> <quotedbl>                 : "ë" euml # LATIN SMALL LETTER E WITH DIAERESIS
+<Multi_key> <minus> <h>                    : "ħ" hstrok # LATIN SMALL LETTER H WITH STROKE
+<Multi_key> <h> <minus>                    : "ħ" hstrok # LATIN SMALL LETTER H WITH STROKE
+<Multi_key> <acute> <i>                    : "í" iacute # LATIN SMALL LETTER I WITH ACUTE
+<Multi_key> <i> <acute>                    : "í" iacute # LATIN SMALL LETTER I WITH ACUTE
+<Multi_key> <asciicircum> <i>              : "î" icirc # LATIN SMALL LETTER I WITH CIRCUMFLEX
+<Multi_key> <i> <asciicircum>              : "î" icirc # LATIN SMALL LETTER I WITH CIRCUMFLEX
+<Multi_key> <grave> <i>                    : "ì" igrave # LATIN SMALL LETTER I WITH GRAVE
+<Multi_key> <i> <grave>                    : "ì" igrave # LATIN SMALL LETTER I WITH GRAVE
+<Multi_key> <underscore> <i>               : "ī" imacr # LATIN SMALL LETTER I WITH MACRON
+<Multi_key> <i> <underscore>               : "ī" imacr # LATIN SMALL LETTER I WITH MACRON
+<Multi_key> <i> <period>                   : "ı" inodot # LATIN SMALL LETTER DOTLESS I
+<Multi_key> <period> <i>                   : "ı" inodot # LATIN SMALL LETTER DOTLESS I
+<Multi_key> <quotedbl> <i>                 : "ï" iuml # LATIN SMALL LETTER I WITH DIAERESIS
+<Multi_key> <i> <quotedbl>                 : "ï" iuml # LATIN SMALL LETTER I WITH DIAERESIS
+<Multi_key> <slash> <l>                    : "ł" lstrok # LATIN SMALL LETTER L WITH STROKE
+<Multi_key> <l> <slash>                    : "ł" lstrok # LATIN SMALL LETTER L WITH STROKE
+<Multi_key> <asciitilde> <n>               : "ñ" ntilde # LATIN SMALL LETTER N WITH TILDE
+<Multi_key> <n> <asciitilde>               : "ñ" ntilde # LATIN SMALL LETTER N WITH TILDE
+<Multi_key> <acute> <o>                    : "ó" oacute # LATIN SMALL LETTER O WITH ACUTE
+<Multi_key> <o> <acute>                    : "ó" oacute # LATIN SMALL LETTER O WITH ACUTE
+<Multi_key> <asciicircum> <o>              : "ô" ocirc # LATIN SMALL LETTER O WITH CIRCUMFLEX
+<Multi_key> <o> <asciicircum>              : "ô" ocirc # LATIN SMALL LETTER O WITH CIRCUMFLEX
+<Multi_key> <grave> <o>                    : "ò" ograve # LATIN SMALL LETTER O WITH GRAVE
+<Multi_key> <o> <grave>                    : "ò" ograve # LATIN SMALL LETTER O WITH GRAVE
+<Multi_key> <underscore> <o>               : "ō" omacr # LATIN SMALL LETTER O WITH MACRON
+<Multi_key> <o> <underscore>               : "ō" omacr # LATIN SMALL LETTER O WITH MACRON
+<Multi_key> <slash> <o>                    : "ø" oslash # LATIN SMALL LETTER O WITH STROKE
+<Multi_key> <o> <slash>                    : "ø" oslash # LATIN SMALL LETTER O WITH STROKE
+<Multi_key> <asciitilde> <o>               : "õ" otilde # LATIN SMALL LETTER O WITH TILDE
+<Multi_key> <o> <asciitilde>               : "õ" otilde # LATIN SMALL LETTER O WITH TILDE
+<Multi_key> <quotedbl> <o>                 : "ö" ouml # LATIN SMALL LETTER O WITH DIAERESIS
+<Multi_key> <o> <quotedbl>                 : "ö" ouml # LATIN SMALL LETTER O WITH DIAERESIS
+<Multi_key> <acute> <u>                    : "ú" uacute # LATIN SMALL LETTER U WITH ACUTE
+<Multi_key> <u> <acute>                    : "ú" uacute # LATIN SMALL LETTER U WITH ACUTE
+<Multi_key> <asciicircum> <u>              : "û" ucirc # LATIN SMALL LETTER U WITH CIRCUMFLEX
+<Multi_key> <u> <asciicircum>              : "û" ucirc # LATIN SMALL LETTER U WITH CIRCUMFLEX
+<Multi_key> <grave> <u>                    : "ù" ugrave # LATIN SMALL LETTER U WITH GRAVE
+<Multi_key> <u> <grave>                    : "ù" ugrave # LATIN SMALL LETTER U WITH GRAVE
+<Multi_key> <underscore> <u>               : "ū" umacr # LATIN SMALL LETTER U WITH MACRON
+<Multi_key> <u> <underscore>               : "ū" umacr # LATIN SMALL LETTER U WITH MACRON
+<Multi_key> <quotedbl> <u>                 : "ü" uuml # LATIN SMALL LETTER U WITH DIAERESIS
+<Multi_key> <u> <quotedbl>                 : "ü" uuml # LATIN SMALL LETTER U WITH DIAERESIS
+<Multi_key> <acute> <y>                    : "ý" yacute # LATIN SMALL LETTER Y WITH ACUTE
+<Multi_key> <y> <acute>                    : "ý" yacute # LATIN SMALL LETTER Y WITH ACUTE
+<Multi_key> <asciicircum> <y>              : "ŷ" ycirc # LATIN SMALL LETTER Y WITH CIRCUMFLEX
+<Multi_key> <y> <asciicircum>              : "ŷ" ycirc # LATIN SMALL LETTER Y WITH CIRCUMFLEX
+<Multi_key> <grave> <y>                    : "ỳ" U1EF3 # LATIN SMALL LETTER Y WITH GRAVE
+<Multi_key> <y> <grave>                    : "ỳ" U1EF3 # LATIN SMALL LETTER Y WITH GRAVE
+<Multi_key> <quotedbl> <y>                 : "ÿ" yuml # LATIN SMALL LETTER Y WITH DIAERESIS
+<Multi_key> <y> <quotedbl>                 : "ÿ" yuml # LATIN SMALL LETTER Y WITH DIAERESIS
+<Multi_key> <N> <G>                        : "Ŋ" ENG # LATIN CAPITAL LETTER ENG
+<Multi_key> <n> <g>                        : "ŋ" eng # LATIN SMALL LETTER ENG
+<Multi_key> <D> <H>                        : "Ð" ETH # LATIN CAPITAL LETTER ETH
+<Multi_key> <d> <h>                        : "ð" eth # LATIN SMALL LETTER ETH
+<Multi_key> <T> <H>                        : "Þ" THORN # LATIN CAPITAL LETTER THORN
+<Multi_key> <t> <h>                        : "þ" thorn # LATIN SMALL LETTER THORN
+<Multi_key> <S> <S>                        : "ẞ" U1E9E # LATIN CAPITAL LETTER SHARP S
+<Multi_key> <s> <s>                        : "ß" szlig # LATIN SMALL LETTER SHARP S
+<Multi_key> <f> <s>                        : "ſ" U017F # LATIN SMALL LETTER LONG S
+<Multi_key> <e> <e>                        : "ə" U0259 # LATIN SMALL LETTER SCHWA
+<Multi_key> <s> <h>                        : "ʃ" U0283 # LATIN SMALL LETTER ESH
+<Multi_key> <z> <h>                        : "ʒ" U0292 # LATIN SMALL LETTER EZH
+# }}}
+
+# vim:fdl=0:fdm=marker:ic:scs:
+

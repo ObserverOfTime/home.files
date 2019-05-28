@@ -1,0 +1,36 @@
+* text=auto linguist-detectable=true
+
+.gitconfig linguist-language=gitconfig
+
+*.json linguist-language=JSON
+
+*.conf linguist-language=INI
+config linguist-language=INI
+htoprc linguist-language=INI
+konsole/* linguist-language=INI
+konsolerc linguist-language=INI
+plasma-localerc linguist-language=INI
+pycodestyle linguist-language=INI
+
+config.py linguist-language=Python
+
+Gemfile linguist-language=Ruby
+
+*.sh linguist-language=Shell
+.bash* linguist-language=Shell
+
+vifmrc linguist-language=viml
+
+fonts.conf linguist-language=XML
+
+.clang-* linguist-language=YAML
+
+# skews the stats due to its size
+.XCompose linguist-language=XCompose linguist-detectable=false
+
+# these aren't part of the dotfiles
+.gitattributes linguist-detectable=false
+.gitignore linguist-detectable=false
+LICENSE linguist-detectable=false
+README.md linguist-detectable=false
+

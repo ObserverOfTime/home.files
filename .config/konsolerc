@@ -1,0 +1,28 @@
+[Desktop Entry]
+DefaultProfile=Default.profile
+
+[DownloadDialog Settings]
+Height 768=510
+Width 1366=700
+
+[Favorite Profiles]
+Favorites=Default.profile,NvimTerm.profile
+
+[FileDialogSize]
+Height 768=619
+Width 1366=1004
+
+[MainWindow]
+Height 1080=619
+Height 720=370
+Height 768=619
+State=AAAA/wAAAAD9AAAAAAAAA+wAAAJNAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1024=648
+Width 1280=640
+Width 1366=1004
+Width 1920=1004
+Window-Maximized 768x1024=true
+
+[TabBar]
+TabBarVisibility=ShowTabBarWhenNeeded

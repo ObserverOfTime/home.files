@@ -1,0 +1,56 @@
+# XDG user dirs
+Desktop/
+Documents/
+Downloads/
+Music/
+Pictures/
+Public/
+Templates/
+Videos/
+
+# Security
+.gnupg/*
+!.gnupg/*.conf
+.ssh/
+
+# Common caches
+.adobe/
+.atom/
+.*cache/
+.gem/
+.macromedia/
+.node-gyp/
+.npm/
+.cargo/
+.thumbnails/
+.wget-hsts
+.v8flags*
+
+# Misc commonly generated files
+.bash_history
+.zsh_history
+.bazaar/
+.dbus/
+.dropbox/
+.ICEauthority
+.lesshst
+.python_history
+.sqlite_history
+.psql_history
+.subversion/
+.wine/
+.Xauthority
+.xsession-errors
+
+# Misc junk files
+*~
+*.bak
+*.bkp
+*.log
+*.swp
+*.tmp
+
+# Automatically appended
+node_modules/
+.yarn/
+.yarnrc

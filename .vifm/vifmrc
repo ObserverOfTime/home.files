@@ -1,0 +1,391 @@
+" Settings {{{
+" This is the actual command used to start vi
+set vicmd=nvim
+
+" This makes vifm perform file operations on its own
+" instead of relying on standard utilities like cp
+set syscalls
+
+" Use vim help format
+set vimhelp
+
+" Show list of matches on tab completion in command-line mode
+set wildmenu
+
+" Display completions in a form of popup with descriptions of the matches
+set wildstyle=popup
+
+" Controls how size of directories is displayed in file views
+set dirsize=nitems
+
+" Sets characters used to fill borders
+set fillchars=vborder:┊
+
+" Use ripgrep instead of grep
+set grepprg=rg\ --color=never\ -n\ %i\ %a\ %s
+
+" Use fd instead of find
+set findprg=fd\ --color=never\ %a\ %s
+
+" What should be saved automatically between vifm runs
+set vifminfo=chistory,shistory,bookmarks,bmarks
+
+" Maximum number of stored items in all histories
+set history=100
+
+" Path to trash directory
+set trashdir=~/.Trash
+
+" Ignore case in search patterns unless
+" it contains at least one uppercase letter
+set ignorecase smartcase
+
+" Automatically resolve symbolic links on l or Enter
+set followlinks
+
+" Highlight search results automatically
+set hlsearch
+
+" Use increment searching (search while typing)
+set incsearch
+
+" Format for displaying time in file list
+set timefmt=%F\ %T
+
+" Set custom status line look
+set statusline='  %t%= %A %10u:%-7g %15E %20d '
+
+" Selected color scheme
+colorscheme ph
+
+" Single pane when started via vim plugin
+if $MYVIMRC != '' | only | endif
+" }}}
+
+" Commands {{{
+" The following macros can be used in a command
+" %a is replaced with the user arguments
+" %c the current file under the cursor
+" %C the current file under the cursor in the other directory
+" %f the current selected file, or files
+" %F the current selected file, or files in the other directory
+" %b same as %f %F
+" %d the current directory name
+" %D the other window directory name
+" %m run the command in a menu window
+command! df df -h %m 2>/dev/null
+command! diff nvim -d %f %F
+command! make !!make %a
+command! run !!./%f
+" }}}
+
+" File types {{{
+" The file type is for the default programs to be used with a file extension
+" The other programs for the file type can be accessed with the :file command
+" The command macros %c, %C, %f, %F, %b, %d, %D may be used in the commands
+
+" Documents {{{
+filextype *.pdf,*.epub
+    \ {Zathura} zathura %f %i &,
+    \ {Okular} okular %f &,
+    \ {MComix} mcomix %f &,
+    \ {QComicBook} qcomicbook %f &
+filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx
+    \ {Libre Office} libreoffice %f &
+fileviewer *.pdf pdftotext -nopgbrk %c -
+fileviewer *.epub epub2txt %c
+fileviewer *.docx docx2txt %f -
+fileviewer *.odt odt2txt %f
+" }}}
+
+" Audio {{{
+filetype *.aac,
+    \*.au,
+    \*.axa,
+    \*.flac,
+    \*.mid,
+    \*.midi,
+    \*.mka,
+    \*.mp3,
+    \*.mpc,
+    \*.oga,
+    \*.ogg,
+    \*.ra,
+    \*.spx,
+    \*.wav,
+    \*.xspf
+    \ {MPV} mpv %f &
+filextype *.aac,
+    \*.au,
+    \*.axa,
+    \*.flac,
+    \*.mid,
+    \*.midi,
+    \*.mka,
+    \*.mp3,
+    \*.mpc,
+    \*.oga,
+    \*.ogg,
+    \*.ra,
+    \*.spx,
+    \*.wav,
+    \*.xspf
+    \ {SMPlayer} smplayer %f &
+fileviewer *.aac,
+    \*.au,
+    \*.axa,
+    \*.flac,
+    \*.mid,
+    \*.midi,
+    \*.mka,
+    \*.mp3,
+    \*.mpc,
+    \*.oga,
+    \*.ogg,
+    \*.ra,
+    \*.spx,
+    \*.wav,
+    \*.xspf
+    \ ffprobe -pretty %c 2>&1
+" }}}
+
+" Videos {{{
+filextype *.anx,
+    \*.asf,
+    \*.avi,
+    \*.axv,
+    \*.cgm,
+    \*.dl,
+    \*.emf,
+    \*.flc,
+    \*.fli,
+    \*.flv,
+    \*.gl,
+    \*.m2v,
+    \*.m4v,
+    \*.mkv,
+    \*.mov,
+    \*.mp4,
+    \*.mp4v,
+    \*.mpeg,
+    \*.mpg,
+    \*.nuv,
+    \*.ogm,
+    \*.ogv,
+    \*.ogx,
+    \*.pak,
+    \*.qt,
+    \*.rm,
+    \*.rmvb,
+    \*.vob,
+    \*.wmv,
+    \*.xcf,
+    \*.xwd,
+    \*.yuv
+    \ {MPV} mpv %f &,
+    \ {SMPlayer} smplayer %f &
+fileviewer *.anx,
+    \*.asf,
+    \*.avi,
+    \*.axv,
+    \*.cgm,
+    \*.dl,
+    \*.emf,
+    \*.flc,
+    \*.fli,
+    \*.flv,
+    \*.gl,
+    \*.m2v,
+    \*.m4v,
+    \*.mkv,
+    \*.mov,
+    \*.mp4,
+    \*.mp4v,
+    \*.mpeg,
+    \*.mpg,
+    \*.nuv,
+    \*.ogm,
+    \*.ogv,
+    \*.ogx,
+    \*.pak,
+    \*.qt,
+    \*.rm,
+    \*.rmvb,
+    \*.vob,
+    \*.wmv,
+    \*.xcf,
+    \*.xwd,
+    \*.yuv
+    \ ffprobe -pretty %c 2>&1
+" }}}
+
+" Images {{{
+filextype *.apng,
+    \*.bmp,
+    \*.gif,
+    \*.ico,
+    \*.icon,
+    \*.j2k,
+    \*.jp2,
+    \*.jpeg,
+    \*.jpf,
+    \*.jpg,
+    \*.jpm,
+    \*.jpx,
+    \*.mng,
+    \*.pbm,
+    \*.pcx,
+    \*.pgm,
+    \*.png,
+    \*.ppm,
+    \*.svg,
+    \*.svgz,
+    \*.tga,
+    \*.tif,
+    \*.tiff,
+    \*.webp,
+    \*.xbm,
+    \*.xpm
+    \ {Eye of Gnome} eog %f &,
+    \ {Gwenview} gwenview %f &
+" }}}
+
+" Archives {{{
+filextype *.7z,
+    \*.apk,
+    \*.cb7,
+    \*.cbr,
+    \*.cbz,
+    \*.deb,
+    \*.ear,
+    \*.jar,
+    \*.oxt
+    \*.rar,
+    \*.rpm,
+    \*.tar.br
+    \*.tar.bz2,
+    \*.tar.gz,
+    \*.tar.xz,
+    \*.tbz2,
+    \*.tgz,
+    \*.txz,
+    \*.war,
+    \*.zip
+    \ {Ark} ark %f &,
+    \ {7zFM} 7zFM %f &,
+    \ {File Roller} file-roller %f &
+filextype *.7z,
+    \*.cb7,
+    \*.cbr,
+    \*.cbz,
+    \*.rar,
+    \*.zip
+    \ {MComix} mcomix %f &,
+    \ {Zathura} zathura %f &,
+    \ {QComicBook} qcomicbook %f &
+" filetype *.deb {Install} sudo dpkg -i %f
+" filetype *.rpm {Install} sudo dnf install %f
+filetype *.pkg.tar,*.pkg.tar.* {Install} yay -U %f
+fileviewer *.7z 7z l %c
+fileviewer *.asar asar l %c
+fileviewer *.rar unrar v %c
+fileviewer *.tar tar tf %c
+fileviewer *.tar.bz2,*.tbz2 tar tjf %c
+fileviewer *.tar.gz,*.tgz tar tzf %c
+fileviewer *.tar.xz,*.txz tar tJf %c
+fileviewer *.zip,*.jar,*.war,*.ear,*.apk,*.oxt zip -sf %c
+" }}}
+
+" Web {{{
+filextype *.html,*.htm
+        \ {Qutebrowser} qutebrowser %f %i &,
+        \ {Firefox} firefox %f &,
+        \ {Iridium} iridium %f &
+" }}}
+
+" Hashes {{{
+filetype *.md5 {Check MD5 hash} md5sum -c %f %S
+filetype *.sha1 {Check SHA1 hash} sha1sum -c %f %S
+filetype *.sha256 {Check SHA256 hash} sha256sum -c %f %S
+filetype *.sha512 {Check SHA512 hash} sha512sum -c %f %S
+" }}}
+
+" Torrents {{{
+filetype *.torrent {Aria2} aria2c %f &
+filextype *.torrent {Deluge} deluge %f &
+fileviewer *.torrent dump_torrent -v %c
+" }}}
+
+" GPG files {{{
+filetype *.asc,*.sig {Check signature} gpg2 --verify %c
+fileviewer *.gpg gpg2 --decrypt %f
+" }}}
+
+" Binaries & objects {{{
+filextype *.out,*.exe,*.bin okteta %f &
+fileviewer *.out,*.exe,*.bin xxd -u %c
+fileviewer *.o nm %c
+" }}}
+
+" IDE projects {{{
+filextype *.pro
+    \ {Qt Creator} qtcreator %f &,
+    \ {CLion} clion %d &
+filextype .idea/
+    \ {CLion} clion %d &,
+    \ {IntelliJ} intellij-idea-ultimate-edition %d &,
+    \ {PhpStorm} phpstorm %d &,
+    \ {PyCharm} pycharm %d &,
+" }}}
+
+" Directories {{{
+filextype */
+    \ {Dolphin} dolphin %f &,
+    \ {Gwenview} gwenview %f &,
+    \ {SMPlayer} smplayer ^f &,
+    \ {MPV} mpv %f &
+" }}}
+
+" Other {{{
+filetype * {Default} xdg-open
+" }}}
+
+" }}}
+
+" Marks {{{
+mark g ~/Documents/Code/GitHub/
+mark h ~/
+mark t /tmp/
+mark u ~/Windows/
+mark w /media/windows/
+" }}}
+
+" Mappings {{{
+" Start shell in current directory
+nnoremap S :shell<CR>
+
+" Start terminal in current directory
+nnoremap T :!konsole --workdir "%d" &<CR>
+
+" Display sorting dialog
+nnoremap s :sort<CR>
+
+" Toggle wrap setting
+nnoremap W :set wrap!<CR>
+
+" Toggle visibility of preview window
+nnoremap w :view<CR>
+vnoremap w :view<CR>gv
+
+" Yank current directory path into the clipboard
+nnoremap yd :!xclip %i <<< "%d"<CR>
+
+" Yank current file path into the clipboard
+nnoremap yf :!xclip %i <<< "%c:p"<CR>
+
+" Quit vifm
+nnoremap Q :quit<CR>
+" }}}
+
+" vim:fdm=marker:fdl=1:
+

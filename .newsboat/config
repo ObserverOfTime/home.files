@@ -1,0 +1,56 @@
+# All feeds will be automatically reloaded at start up
+# and then continuously after a certain time has passed.
+auto-reload "yes"
+
+# Set the browser command to use when opening an article in the browser.
+browser "firefox -- %u"
+
+# This format specifies the date/time format in the article list.
+datetime-format "%Y-%m-%d"
+
+# User errors will be logged to this file.
+error-log "~/.newsboat/error.log"
+
+# Specifies which feed property shall be used for sorting.
+feed-sort-order "title"
+
+# Format string that is used for formatting notifications.
+notify-format "%d new articles"
+
+# The configured program will be executed if new articles arrived.
+notify-program "~/.newsboat/notif.sh"
+
+# The default path where articles shall be saved to.
+save-path "~/Documents/RSS"
+
+# This value will be used as HTTP User-Agent header.
+user-agent "Mozilla/5.0 (X11; Linux x86_64) newsboat/2.15.0"
+
+# Keybindings {{{
+bind-key j next
+bind-key k prev
+bind-key J next-feed
+bind-key K prev-feed
+bind-key j down article
+bind-key k up article
+bind-key J next article
+bind-key K prev article
+# }}}
+
+# Colors based on gruvbox {{{
+color background        color187 color235
+color listnormal        color187 color235
+color listfocus         color187 color237 bold
+color listnormal_unread color107 color235
+color listfocus_unread  color107 color237 bold
+color info              color109 color233
+color article           color187 color235
+
+highlight article "^[A-Z][a-z]+:"        color214 color235 bold
+highlight article "^\\[[0-9]+\\]:"       color203 color235 bold
+highlight article "(https?|ftp)://[^ ]+" color175 color235
+highlight article " \\(link\\)$"         color235 color235
+# }}}
+
+# vim:ft=conf:fdm=marker:fdl=1:
+

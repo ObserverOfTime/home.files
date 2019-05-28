@@ -1,0 +1,141 @@
+[user]
+	email = chronobserver@disroot.org
+	name = ObserverOfTime
+	signingkey = 8A2DEA1DBAEBCA9E
+
+[core]
+	editor = ${EDITOR:-nvim}
+	pager = ${PAGER:-vimpager}
+	whitespace = tabwidth=4,cr-at-eol
+
+[credential]
+	helper = store
+
+[github]
+	user = ObserverOfTime
+
+[web]
+	browser = ${BROWSER:-firefox}
+
+[gpg]
+	program = gpg2
+
+[commit]
+	gpgSign = false
+	status = true
+
+[status]
+	submoduleSummary = 1
+
+[color "diff"]
+	meta = yellow
+
+[diff]
+	algorithm = patience
+	wsErrorHighlight = all
+	mnemonicPrefix = true
+
+[diff "hex"]
+	textconv = hexdump -v -C
+
+[diff "pdf"]
+	textconv = pdfinfo
+
+[difftool]
+	prompt = false
+
+[difftool "imgdiff"]
+	cmd = compare "$REMOTE" "$LOCAL" png:- | \
+		montage -geometry 400x -font \
+		Liberation-Sans -label "l/%f" "$LOCAL" \
+		-label "diff" - -label "r/%f" "$REMOTE" x:
+
+[merge]
+	tool = fugitive
+
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
+	keepBackup = false
+
+[pretty]
+	log = format:%h %s%d [%cn] (%ad)
+	log-color = format:%C(cyan)%h \
+		%Creset%s%C(white)%d %C(yellow)[%an] %Cred(%ad)
+
+[grep]
+	lineNumber = true
+	patternType = perl
+	fallbackToNoIndex = true
+
+[alias]
+	last = log -1 HEAD
+	hist = log --date=short --graph --pretty=log
+	ls   = log --date=short --graph --pretty=log-color --decorate
+	ll   = log --date=short --graph --pretty=log-color --decorate --numstat
+	amend = commit --amend -uno -a
+	repush = !git commit --amend -a --no-edit && git push --force
+	fork-sync = "!( \
+		git fetch --verbose upstream && git checkout --progress master && \
+		git reset --hard upstream/master && git push --verbose --force )"
+	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
+	create-lab = "!( \
+		if [ -z \"$GITLAB_TOKEN\" ]; then \
+		if [ -f \"$HOME/.local/tokens/gitlab\" ]; then \
+		GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/gitlab\" )\"; \
+		else \
+		printf \"%s%s%s\\n\" \"export GITLAB_TOKEN\" \
+		\"or save it in \\$HOME/.local/tokens/gitlab\" \
+		\"to use this command\" >2; \
+		fi; \
+		fi; \
+		curl -H \"Content-Type: application/json\" \
+		-H \"Private-Token: $GITLAB_TOKEN\" \
+		-sSX POST https://gitlab.com/api/v4/projects \
+		-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
+		printf '\n' )"
+	rename = "!( \
+		if [ -z \"$GITHUB_TOKEN\" ]; then \
+		if [ -f \"$HOME/.local/tokens/github\" ]; then \
+		GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/github\" )\"; \
+		else \
+		printf \"%s%s%s\\n\" \"export GITHUB_TOKEN\" \
+		\"or save it in \\$HOME/.local/tokens/github\" \
+		\"to use this command\" >2; \
+		fi; \
+		fi; \
+		user=\"$(git config --get user.name)\"; \
+		root=\"$(basename \"$(git rev-parse --show-toplevel)\")\"; \
+		curl -H \"Content-Type: application/json\" \
+		-H \"Authorization: Token $GITHUB_TOKEN\" \
+		-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
+		-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
+		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\" )"
+	open-page = "!xdg-open \"$(basename \"$(git root)\")\""
+	conflicts = diff --name-only --diff-filter=U
+	wdiff = diff --word-diff
+	cdiff = diff --word-diff-regex=. --color-words
+	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
+	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
+	tmp = !git clone "${@:2}" -- "$1" "/tmp/${1##*/}" "#"
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = http://github.com/
+	insteadOf = @gh:
+
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+	insteadOf = http://gitlab.com/
+	insteadOf = @gl:
+
+[url "ssh://aur@aur.archlinux.org/"]
+	insteadOf = https://aur.achlinux.org/
+	insteadOf = http://aur.archlinux.org/
+	insteadOf = @aur:
+
+[url "https://bitbucket.org/"]
+	insteadOf = http://bitbucket.org/
+	insteadOf = @bb:
+
+# vim:set noet sw=4 ts=4:
+
