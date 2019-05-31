@@ -10,6 +10,9 @@
 # Give these arguments to the external downloader.
 --external-downloader-args "--file-allocation=none"
 
+# Video format code.
+--format "bestvideo[height<=?1080]+bestaudio/best"
+
 # Do not use .part files - write directly into output file.
 --no-part
 

@@ -15,14 +15,15 @@ Width 1366=1004
 [MainWindow]
 Height 1080=619
 Height 720=370
-Height 768=619
-State=AAAA/wAAAAD9AAAAAAAAA+wAAAJNAAAABAAAAAQAAAAIAAAACPwAAAAA
+Height 768=590
+State=AAAA/wAAAAD9AAAAAAAABVYAAALHAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
 Width 1024=648
 Width 1280=640
 Width 1366=1004
 Width 1920=1004
 Window-Maximized 768x1024=true
+Window-Maximized 768x1366=true
 
 [TabBar]
 TabBarVisibility=ShowTabBarWhenNeeded

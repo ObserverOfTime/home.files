@@ -20,6 +20,10 @@ notify-format "%d new articles"
 # The configured program will be executed if new articles arrived.
 notify-program "~/.newsboat/notif.sh"
 
+# The number of parallel reload threads that
+# shall be started when all feeds are reloaded.
+reload-threads 4
+
 # The default path where articles shall be saved to.
 save-path "~/Documents/RSS"
 
@@ -45,6 +49,8 @@ color listnormal_unread color107 color235
 color listfocus_unread  color107 color237 bold
 color info              color109 color233
 color article           color187 color235
+
+search-highlight-colors color109 color237 underline
 
 highlight article "^[A-Z][a-z]+:"        color214 color235 bold
 highlight article "^\\[[0-9]+\\]:"       color203 color235 bold
