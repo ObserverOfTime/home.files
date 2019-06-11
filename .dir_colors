@@ -27,26 +27,26 @@ TERM xterm-256color
 # for ((n=0;++n<256;)) { printf "\033[48;5;${n}m$n\033[000m "; }
 
 # File types {{{
-BLK 48;5;232;38;5;11 # block device driver
-CAPABILITY 48;5;196;38;5;226 # file with capability
-CHR 48;5;232;38;5;3 # character device driver
-DIR 38;5;27 # directory
-DOOR 38;5;5 # door
-EXEC 38;5;34 # file with execute permission (+x)
-FIFO 40;38;5;11 # pipe
-FILE 00 # normal file, use no color at all
-LINK 38;5;51 # symbolic link
-MISSING 48;5;232;38;5;15 # file pointed to by an orphan link
-MULTIHARDLINK 44;38;5;15 # regular file with more than one link
-NORMAL 00 # global default, no color code at all
-ORPHAN 48;5;232;38;5;9 # symlink to nonexistent file, or non-stat'able file
-OTHER_WRITABLE 48;5;10;38;5;21 # dir that is other-writable (o+w) and not sticky
-RESET 0 # reset to "normal" color
-SETGID 48;5;11;38;5;16 # file that is setgid (g+s)
-SETUID 48;5;196;38;5;15 # file that is setuid (u+s)
-SOCK 38;5;13 # socket
-STICKY 48;5;21;38;5;15 # dir with the sticky bit set (+t) and not other-writable
-STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+t,o+w)
+BLK                   48;5;232;38;5;11  # block device driver
+CAPABILITY            48;5;196;38;5;226 # file with capability
+CHR                   48;5;232;38;5;3   # character device driver
+DIR                   38;5;27           # directory
+DOOR                  38;5;5            # door
+EXEC                  38;5;34           # file with execute permission (+x)
+FIFO                  40;38;5;11        # pipe
+FILE                  00                # normal file, use no color at all
+LINK                  38;5;51           # symbolic link
+MISSING               48;5;232;38;5;15  # file pointed to by an orphan link
+MULTIHARDLINK         44;38;5;15        # regular file with more than one link
+NORMAL                00                # global default, no color code at all
+ORPHAN                48;5;232;38;5;9   # symlink to nonexistent file, or non-stat'able file
+OTHER_WRITABLE        48;5;10;38;5;21   # dir that is other-writable (o+w) and not sticky
+RESET                 0                 # reset to "normal" color
+SETGID                48;5;11;38;5;16   # file that is setgid (g+s)
+SETUID                48;5;196;38;5;15  # file that is setuid (u+s)
+SOCK                  38;5;13           # socket
+STICKY                48;5;21;38;5;15   # dir with the sticky bit set (+t) and not other-writable
+STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable (+t,o+w)
 # }}}
 
 # File extensions {{{
@@ -70,16 +70,24 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+
 .ace  38;5;247
 .apk  38;5;247
 .arj  38;5;247
+.br   38;5;247
 .bz   38;5;247
 .bz2  38;5;247
+.cb7  38;5;247
+.cbr  38;5;247
+.cbz  38;5;247
+.cbt  38;5;247
 .cpio 38;5;247
 .deb  38;5;247
 .dz   38;5;247
+.egg  38;5;247
 .gz   38;5;247
 .jar  38;5;247
+.kra  38;5;247
 .lz   38;5;247
 .lzh  38;5;247
 .lzma 38;5;247
+.ora  38;5;247
 .rar  38;5;247
 .rpm  38;5;247
 .rz   38;5;247
@@ -91,9 +99,10 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+
 .tlz  38;5;247
 .txz  38;5;247
 .tz   38;5;247
+.whl  38;5;247
 .xz   38;5;247
-.z    38;5;247
 .Z    38;5;247
+.z    38;5;247
 .zip  38;5;247
 .zoo  38;5;247
 # }}}
@@ -102,6 +111,8 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+
 .apng 38;5;13
 .bmp  38;5;13
 .bpg  38;5;13
+.eps  38;5;13
+.exr  38;5;13
 .flif 38;5;13
 .gif  38;5;13
 .heic 38;5;13
@@ -120,6 +131,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16 # dir that is sticky and other-writable (+
 .pcx  38;5;13
 .pgm  38;5;13
 .png  38;5;13
+.psd  38;5;13
 .ppm  38;5;13
 .svg  38;5;13
 .svgz 38;5;13

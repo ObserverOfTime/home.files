@@ -1,8 +1,7 @@
-# shellcheck disable=SC2155
+# shellcheck disable=SC2183,SC2155
 
 # Print date on login
-printf '\e[1m\e[91m%s \e[90m- \e[36m%s\e[m\n\n' \
-  "$(date +%A,\ %B\ %e,\ %Y)" "$(date +%Z\ %:::z)"
+printf '\e[1m\e[91m%(%A, %B%e, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
 # Ctrl + Space to expand command
 bind '\C-Space':magic-space

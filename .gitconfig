@@ -53,9 +53,11 @@
 [merge]
 	tool = fugitive
 
+[mergetool]
+	keepBackup = false
+
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
-	keepBackup = false
 
 [pretty]
 	log = format:%h %s%d [%cn] (%ad)

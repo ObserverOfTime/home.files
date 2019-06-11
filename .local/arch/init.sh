@@ -186,8 +186,8 @@ Target = usr/bin/firefox-developer-edition
 [Action]
 Description = Disabling Firefox downgrade protection
 When = PostTransaction
-Exec = /bin/sed -e 's/"\$@"/-allow-downgrade &/' \
-  -i /usr/bin/firefox-developer-edition
+Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
+  -e 's/exec/GTK_USE_PORTAl=1 &/;s/"\$@"/-allow-downgrade &/'
 EOF
 # }}}
 
