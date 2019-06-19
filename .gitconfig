@@ -75,6 +75,12 @@
 	ls   = log --date=short --graph --pretty=log-color --decorate
 	ll   = log --date=short --graph --pretty=log-color --decorate --numstat
 	amend = commit --amend -uno -a
+	wdiff = diff --word-diff
+	cdiff = diff --word-diff-regex=. --color-words
+	conflicts = diff --name-only --diff-filter=U
+	shallow = clone --single-branch --depth=1
+	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
+	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
 	repush = !git commit --amend -a --no-edit && git push --force
 	fork-sync = "!( \
 		git fetch --verbose upstream && git checkout --progress master && \
@@ -82,43 +88,36 @@
 	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
 	create-lab = "!( \
 		if [ -z \"$GITLAB_TOKEN\" ]; then \
-		if [ -f \"$HOME/.local/tokens/gitlab\" ]; then \
-		GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/gitlab\" )\"; \
-		else \
-		printf \"%s%s%s\\n\" \"export GITLAB_TOKEN\" \
-		\"or save it in \\$HOME/.local/tokens/gitlab\" \
-		\"to use this command\" >2; \
-		fi; \
+			if [ -f \"$HOME/.local/tokens/gitlab\" ]; then \
+				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/gitlab\" )\"; \
+			else \
+				printf \"%s%s%s\\n\" \"export GITLAB_TOKEN\" \
+					\"or save it in \\$HOME/.local/tokens/gitlab\" \
+					\"to use this command\" >2; \
+			fi; \
 		fi; \
 		curl -H \"Content-Type: application/json\" \
-		-H \"Private-Token: $GITLAB_TOKEN\" \
-		-sSX POST https://gitlab.com/api/v4/projects \
-		-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
-		printf '\n' )"
+			-H \"Private-Token: $GITLAB_TOKEN\" \
+			-sSX POST https://gitlab.com/api/v4/projects \
+			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; printf '\n' )"
 	rename = "!( \
 		if [ -z \"$GITHUB_TOKEN\" ]; then \
-		if [ -f \"$HOME/.local/tokens/github\" ]; then \
-		GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/github\" )\"; \
-		else \
-		printf \"%s%s%s\\n\" \"export GITHUB_TOKEN\" \
-		\"or save it in \\$HOME/.local/tokens/github\" \
-		\"to use this command\" >2; \
-		fi; \
+			if [ -f \"$HOME/.local/tokens/github\" ]; then \
+				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/github\" )\"; \
+			else \
+				printf \"%s%s%s\\n\" \"export GITHUB_TOKEN\" \
+					\"or save it in \\$HOME/.local/tokens/github\" \
+					\"to use this command\" >2; \
+			fi; \
 		fi; \
 		user=\"$(git config --get user.name)\"; \
 		root=\"$(basename \"$(git rev-parse --show-toplevel)\")\"; \
 		curl -H \"Content-Type: application/json\" \
-		-H \"Authorization: Token $GITHUB_TOKEN\" \
-		-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
-		-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
+			-H \"Authorization: Token $GITHUB_TOKEN\" \
+			-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
+			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
 		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\" )"
 	open-page = "!xdg-open \"$(basename \"$(git root)\")\""
-	conflicts = diff --name-only --diff-filter=U
-	wdiff = diff --word-diff
-	cdiff = diff --word-diff-regex=. --color-words
-	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
-	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
-	tmp = !git clone "${@:2}" -- "$1" "/tmp/${1##*/}" "#"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

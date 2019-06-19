@@ -1,7 +1,7 @@
 # shellcheck disable=SC2183,SC2155
 
 # Print date on login
-printf '\e[1m\e[91m%(%A, %B%e, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
+printf '\e[1m\e[91m%(%A, %B %e, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
 # Ctrl + Space to expand command
 bind '\C-Space':magic-space
@@ -19,6 +19,9 @@ shopt -s cmdhist
 test -f ~/.local/tokens/github && export GITHUB_TOKEN="$(<"$_")"
 test -f ~/.local/tokens/gitlab && export GITLAB_TOKEN="$(<"$_")"
 # }}}
+
+# Make pipenv use .venv
+export PIPENV_VENV_IN_PROJECT=1
 
 # Set the default command used by fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'

@@ -8,7 +8,8 @@ c.content.headers.accept_language = 'en_GB,en'
 c.content.headers.user_agent = ' '.join([
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.12.3',
+    'QtWebEngine/5.12.4',
+    'Chromium/69.0.3497.128',
     'qutebrowser/1.6.2'
 ])
 

@@ -22,7 +22,7 @@ set dirsize=nitems
 set fillchars=vborder:┊
 
 " Use ripgrep instead of grep
-set grepprg=rg\ --color=never\ -n\ %i\ %a\ %s
+set grepprg=rg\ --color=never\ -Hn\ %i\ %a\ %s
 
 " Use fd instead of find
 set findprg=fd\ --color=never\ %a\ %s
