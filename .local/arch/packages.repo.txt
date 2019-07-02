@@ -33,7 +33,7 @@ gdb
 gimp
 git
 git-lfs
-gnome-maps
+glances
 go
 goldendict
 gradle
@@ -72,6 +72,7 @@ neovim
 network-manager-applet
 networkmanager-openvpn
 networkmanager-pptp
+nodejs
 ntfs-3g
 odt2txt
 okteta
@@ -84,11 +85,14 @@ p7zip
 pacman-contrib
 ppsspp
 pygmentize
-python-jedi
+python-isort
+python-netifaces
+python-neovim
 python-pip
+python-py-cpuinfo
 python-sphinx
-python-virtualenv
 python2-pip
+qbittorrent
 qutebrowser
 r
 rclone
@@ -106,6 +110,7 @@ steam
 tor
 ttf-hack
 ttf-inconsolata
+thunderbird
 unzip
 valgrind
 vifm

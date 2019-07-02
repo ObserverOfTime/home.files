@@ -1,3 +1,0 @@
-glances[cpuinfo,ip,web,wifi]; python_version > '2.7'
-ptpython
-pynvim
