@@ -54,15 +54,6 @@ alias l1='ls -ANFH1'
 alias l='ls -lhNFHB'
 # }}}
 
-# Switch between git & hub commands {{{
-git() {
-    case "$1" in
-        alias|fork|pr) command git "$@" ;;
-        *) command hub "$@" ;;
-    esac
-}
-# }}}
-
 # Add an alert function for long running commands {{{
 alert() { # Use like so: sleep 10; alert
   # shellcheck disable=SC2181

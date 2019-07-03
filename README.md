@@ -83,7 +83,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Pip](https://pypi.org/project/pip/)
 
 * [.config/pip/pip.conf](.config/pip/pip.conf): configuration file
-* [.config/pip/requirements.txt](.config/pip/requirements.txt): package list
 
 ## [Pycodestyle](http://pycodestyle.pycqa.org/en/latest/)
 
@@ -96,10 +95,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Pug-lint](https://github.com/pugjs/pug-lint)
 
 * [.pug-lintrc.json](.pug-lintrc.json): configuration file
-
-## [Ruby](https://www.ruby-lang.org/en/)
-
-* [.local/ruby/Gemfile](.local/ruby/Gemfile): package list
 
 ## [Stylelint](https://stylelint.io/)
 

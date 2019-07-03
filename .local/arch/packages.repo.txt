@@ -99,8 +99,8 @@ rclone
 ripgrep
 rstcheck
 ruby
-ruby-bundler
-rubygems
+ruby-jekyll
+ruby-travis
 screenfetch
 scribus
 sddm-kcm

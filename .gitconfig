@@ -11,12 +11,6 @@
 [credential]
 	helper = store
 
-[github]
-	user = ObserverOfTime
-
-[web]
-	browser = ${BROWSER:-firefox}
-
 [gpg]
 	program = gpg2
 
@@ -78,6 +72,7 @@
 	wdiff = diff --word-diff
 	cdiff = diff --word-diff-regex=. --color-words
 	conflicts = diff --name-only --diff-filter=U
+	root = rev-parse --show-toplevel
 	shallow = clone --single-branch --depth=1
 	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
 	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
@@ -117,7 +112,6 @@
 			-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
 			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
 		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\" )"
-	open-page = "!xdg-open \"$(basename \"$(git root)\")\""
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

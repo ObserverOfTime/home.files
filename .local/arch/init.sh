@@ -1,12 +1,13 @@
 #!/bin/bash -e
 
-# Enable multilib & add oracle repo {{{
+# Enable multilib & add extra repos {{{
 sudo cp /etc/pacman.conf{,.bak}
 sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
-  -e '$ a [oracle]\nSigLevel = OptionalTrustAll' \
-  -e '$ a Server = http://linux.shikadi.net/arch/$repo/$arch'
+  -e '$ a [oracle]\nSigLevel = Optional TrustAll' \
+  -e '$ a Server = http://linux.shikadi.net/arch/$repo/$arch' \
+  -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/'
 # }}}
 
 # Update system and install basic packages {{{

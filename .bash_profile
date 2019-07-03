@@ -35,11 +35,9 @@ export EDITOR=nvim
 # Set the default browser to firefox
 export BROWSER=firefox
 
-# Set the android sdk directory
-export ANDROID_HOME=~/.android/sdk/
-
-# Set the path used by go
+# Set the paths used by go {{{
 export GOPATH="$HOME/.local/go"
+# }}}
 
 # Set the paths used by rubygems {{{
 export GEM_HOME="$HOME/.local/ruby"
@@ -47,10 +45,16 @@ export GEM_SPEC_CACHE="$GEM_HOME/specs"
 export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.6.0"
 # }}}
 
-# Set the path used by perl5 {{{
+# Set the paths used by perl5 {{{
 export PERL5LIB="$HOME/.local/perl/lib/perl5"
 export PERL_CPANM_OPT="-l ~/.local/perl"
 export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
+# }}}
+
+# Set the paths used by the android sdk {{{
+export ANDROID_EMULATOR_HOME="$HOME/.local/android/emulator"
+export ANDROID_AVD_HOME="$HOME/.local/android/avd"
+export ANDROID_SDK_ROOT="$HOME/.local/android/sdk"
 # }}}
 
 # Set the search path for commands
