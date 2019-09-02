@@ -37,7 +37,6 @@ glances
 go
 goldendict
 gradle
-handbrake
 htop
 httpie
 hub
@@ -50,7 +49,6 @@ jq
 kcolorchooser
 kde-servicemenu-rootactions
 kdegraphics-thumbnailers
-kdenlive
 kio-extras
 kio-gdrive
 kipi-plugins
@@ -83,6 +81,7 @@ otf-fantasque-sans-mono
 otf-fira-code
 p7zip
 pacman-contrib
+perl-test-perltidy
 ppsspp
 pygmentize
 python-isort
@@ -93,6 +92,7 @@ python-py-cpuinfo
 python-sphinx
 python2-pip
 qbittorrent
+qemu
 qutebrowser
 r
 rclone
@@ -102,7 +102,6 @@ ruby
 ruby-jekyll
 ruby-travis
 screenfetch
-scribus
 sddm-kcm
 shfmt
 smplayer
@@ -116,7 +115,7 @@ valgrind
 vifm
 vim
 vint
-virtualbox
+virt-manager
 vulkan-intel
 wget
 whois

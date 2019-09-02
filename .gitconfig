@@ -77,11 +77,11 @@
 	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
 	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
 	repush = !git commit --amend -a --no-edit && git push --force
-	fork-sync = "!( \
+	fork-sync = "\
 		git fetch --verbose upstream && git checkout --progress master && \
-		git reset --hard upstream/master && git push --verbose --force )"
+		git reset --hard upstream/master && git push --verbose --force"
 	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
-	create-lab = "!( \
+	create-lab = "!f() { \
 		if [ -z \"$GITLAB_TOKEN\" ]; then \
 			if [ -f \"$HOME/.local/tokens/gitlab\" ]; then \
 				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/gitlab\" )\"; \
@@ -94,8 +94,8 @@
 		curl -H \"Content-Type: application/json\" \
 			-H \"Private-Token: $GITLAB_TOKEN\" \
 			-sSX POST https://gitlab.com/api/v4/projects \
-			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; printf '\n' )"
-	rename = "!( \
+			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; printf '\n';}; f"
+	rename = "!f() { \
 		if [ -z \"$GITHUB_TOKEN\" ]; then \
 			if [ -f \"$HOME/.local/tokens/github\" ]; then \
 				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/github\" )\"; \
@@ -111,7 +111,7 @@
 			-H \"Authorization: Token $GITHUB_TOKEN\" \
 			-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
 			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
-		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\" )"
+		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\";}; f"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
@@ -132,5 +132,10 @@
 	insteadOf = http://bitbucket.org/
 	insteadOf = @bb:
 
-# vim:set noet sw=4 ts=4:
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
+# vim:set noet sw=4 ts=4:

@@ -26,13 +26,13 @@ export PIPENV_VENV_IN_PROJECT=1
 # Set the default command used by fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
 
-# Set the default pager to vimpager
-export PAGER=vimpager
+# Set the default pager
+export PAGER='nvimpager -p'
 
-# Set the default editor to neovim
+# Set the default editor
 export EDITOR=nvim
 
-# Set the default browser to firefox
+# Set the default browser
 export BROWSER=firefox
 
 # Set the paths used by go {{{
@@ -52,13 +52,24 @@ export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
 # }}}
 
 # Set the paths used by the android sdk {{{
-export ANDROID_EMULATOR_HOME="$HOME/.local/android/emulator"
-export ANDROID_AVD_HOME="$HOME/.local/android/avd"
-export ANDROID_SDK_ROOT="$HOME/.local/android/sdk"
+export ANDROID_HOME="$HOME/.local/android"
 # }}}
 
-# Set the search path for commands
-export PATH="$HOME/.local/bin:$PATH:$GOPATH/bin:$GEM_HOME/bin:$HOME/.yarn/bin"
+# Set the search path for commands {{{
+export PATH="$HOME/.local/bin:\
+/usr/sbin:/usr/local/bin:/usr/bin:\
+/usr/lib/jvm/default/bin:\
+/usr/bin/site_perl:\
+/usr/bin/vendor_perl:\
+/usr/bin/core_perl:\
+$HOME/.local/perl/bin:\
+$GOPATH/bin:\
+$GEM_HOME/bin:\
+$HOME/.yarn/bin:\
+$HOME/.poetry/bin:\
+$ANDROID_HOME/tools:\
+$ANDROID_HOME/platform-tools:"
+# }}}
 
 # Use a 256color terminal if one exists {{{
 for t in {konsole,xterm,gnome}-256color; do
@@ -71,4 +82,3 @@ done
 test -f ~/.bashrc && source ~/.bashrc
 
 # vim:set fdm=marker fdl=1:
-

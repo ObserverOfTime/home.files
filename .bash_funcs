@@ -109,8 +109,8 @@ cht() { # Searches cht.sh cheatsheet
 }
 
 weather() { # Show weather info from wttr.in
-  __usage $# 1 '<place>' && return 1
-  curl -sS4 "wttr.in/~${1}+${2:-Greece}" | head -n -1
+  __usage $# 1 '<place> [country]' && return 1
+  curl -sS4 "wttr.in/~${1}+${2:-Greece}" | head -n -2
 }
 
 sri() { # Prints the SRI hash of a resource

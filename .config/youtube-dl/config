@@ -20,7 +20,6 @@
 --output "%(title)s.%(ext)s"
 
 # Specify a custom user agent.
---user-agent "Mozilla/5.0 (X11; Linux x86_64) youtube-dl/2019.07.02"
+--user-agent "Mozilla/5.0 (X11; Linux x86_64) youtube-dl/2019.08.13"
 
 # vim:ft=conf:
-
