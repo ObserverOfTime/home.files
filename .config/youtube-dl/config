@@ -1,11 +1,8 @@
 # Force resume of partially downloaded files.
 --continue
 
-# Embed thumbnail in the audio as cover art.
---embed-thumbnail
-
 # Use the specified external downloader.
---external-downloader aria2c
+--external-downloader "aria2c"
 
 # Give these arguments to the external downloader.
 --external-downloader-args "--file-allocation=none"
@@ -20,6 +17,6 @@
 --output "%(title)s.%(ext)s"
 
 # Specify a custom user agent.
---user-agent "Mozilla/5.0 (X11; Linux x86_64) youtube-dl/2019.08.13"
+--user-agent "Mozilla/5.0 (X11; Linux x86_64) youtube-dl/2019.09.12"
 
 # vim:ft=conf:

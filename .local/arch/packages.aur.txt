@@ -4,7 +4,6 @@ cfr
 clion
 clion-jre
 clion-lldb
-discord
 discord-canary
 discord-ptb
 drawio-desktop-bin
@@ -32,7 +31,6 @@ typora
 vale-bin
 waifu2x-converter-cpp
 webp-pixbuf-loader
-webtorrent-desktop-bin
 winetricks-git
 yarn-completion-git
 yay

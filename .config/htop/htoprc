@@ -26,4 +26,3 @@ right_meters=CPU LoadAverage Tasks Uptime Clock
 right_meter_modes=2 2 2 2 2
 
 # vim:ft=cfg:
-

@@ -5,7 +5,7 @@
 
 [core]
 	editor = ${EDITOR:-nvim}
-	pager = ${PAGER:-vimpager}
+	pager = ${PAGER:-nvimpager}
 	whitespace = tabwidth=4,cr-at-eol
 
 [credential]
@@ -51,7 +51,7 @@
 	keepBackup = false
 
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 [pretty]
 	log = format:%h %s%d [%cn] (%ad)

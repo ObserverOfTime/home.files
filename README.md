@@ -12,8 +12,8 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Aria2](https://aria2.github.io/)
 
-* [.aria2/aria2.conf](.aria2/aria2.conf): configuration file
-* [.aria2/notif.sh](.aria2/notif.sh): `on-bt-download-complete` hook
+* [.config/aria2/aria2.conf](.config/aria2/aria2.conf): configuration file
+* [.config/aria2/notif.sh](.config/aria2/notif.sh): `on-bt-download-complete` hook
 
 ## [Bash](https://www.gnu.org/software/bash/)
 
@@ -22,6 +22,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 * [.bash\_profile](.bash_profile): login shell configuration file
 * [.bashrc](.bashrc): interactive shell configuration file
 
+## [Ccache](https://github.com/ccache/ccache)
+
+* [.config/ccache.cfg](.config/ccache.cfg): configuration file
+
 ## [Clang](https://clang.llvm.org/)
 
 * [.clang-format](.clang-format): configuration file for `clang-format`
@@ -29,7 +33,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Coreutils](https://www.gnu.org/software/coreutils/)
 
-* [.dir\_colors](.dir_colors): configuration file for `dircolors`
+* [.config/dircolors](.config/dircolors): configuration file for `dircolors`
 
 ## [ESLint](https://eslint.org/)
 
@@ -49,7 +53,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Git](https://git-scm.com/)
 
-* [.gitconfig](.gitconfig): configuration file
+* [.config/git/config](.config/git/config): configuration file
 
 ## [GnuPG](https://gnupg.org/)
 
@@ -77,12 +81,16 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Newsboat](https://newsboat.org/)
 
-* [.newsboat/config](.newsboat/config): configuration file
-* [.newsboat/notif.sh](.newsboat/notif.sh): notification wrapper
+* [.config/newsboat/config](.config/newsboat/config): configuration file
+* [.config/newsboat/notif.sh](.config/newsboat/notif.sh): notification wrapper
 
 ## [Pip](https://pypi.org/project/pip/)
 
 * [.config/pip/pip.conf](.config/pip/pip.conf): configuration file
+
+## [Poetry](https://github.com/sdispater/poetry)
+
+* [.config/pypoetry/config.toml](.config/pypoetry/config.toml): configuration file
 
 ## [Pycodestyle](http://pycodestyle.pycqa.org/en/latest/)
 
@@ -102,7 +110,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Vifm](https://vifm.info/)
 
-* [.vifm/vifmrc](.vifm/vifmrc): configuration file
+* [.config/vifm/vifmrc](.config/vifm/vifmrc): configuration file
 
 ## [X.Org](https://www.x.org/wiki/)
 
@@ -119,4 +127,3 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Youtube-dl](https://ytdl-org.github.io/youtube-dl/)
 
 * [.config/youtube-dl/config](.config/youtube-dl/config): configuration file
-

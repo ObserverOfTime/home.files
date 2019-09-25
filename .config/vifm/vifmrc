@@ -388,4 +388,3 @@ nnoremap Q :quit<CR>
 " }}}
 
 " vim:fdm=marker:fdl=1:
-

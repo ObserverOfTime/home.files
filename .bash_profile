@@ -35,11 +35,17 @@ export EDITOR=nvim
 # Set the default browser
 export BROWSER=firefox
 
+# Set the XDG directories {{{
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+# }}}
+
 # Set the paths used by go {{{
 export GOPATH="$HOME/.local/go"
 # }}}
 
-# Set the paths used by rubygems {{{
+# Set the paths used by ruby {{{
 export GEM_HOME="$HOME/.local/ruby"
 export GEM_SPEC_CACHE="$GEM_HOME/specs"
 export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.6.0"
@@ -51,13 +57,22 @@ export PERL_CPANM_OPT="-l ~/.local/perl"
 export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
 # }}}
 
+# Set the paths used by rust {{{
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# }}}
+
+# Set the paths used by node {{{
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/.node_repl_history"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+# }}}
+
 # Set the paths used by the android sdk {{{
 export ANDROID_HOME="$HOME/.local/android"
 # }}}
 
 # Set the search path for commands {{{
 export PATH="$HOME/.local/bin:\
-/usr/sbin:/usr/local/bin:/usr/bin:\
+/usr/bin:/usr/local/bin:/usr/sbin:\
 /usr/lib/jvm/default/bin:\
 /usr/bin/site_perl:\
 /usr/bin/vendor_perl:\
@@ -66,9 +81,13 @@ $HOME/.local/perl/bin:\
 $GOPATH/bin:\
 $GEM_HOME/bin:\
 $HOME/.yarn/bin:\
-$HOME/.poetry/bin:\
 $ANDROID_HOME/tools:\
 $ANDROID_HOME/platform-tools:"
+# }}}
+
+# Set the paths used by ccache {{{
+export CCACHE_CONFIGPATH="$XDG_CONFIG_HOME/ccache.cfg"
+export CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 # }}}
 
 # Use a 256color terminal if one exists {{{

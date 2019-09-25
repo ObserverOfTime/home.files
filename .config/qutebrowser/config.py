@@ -1,3 +1,5 @@
+config, c = config, c
+
 # Default encoding to use for websites.
 c.content.default_encoding = 'utf-8'
 
@@ -8,9 +10,9 @@ c.content.headers.accept_language = 'en_GB,en'
 c.content.headers.user_agent = ' '.join([
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.12.4',
-    'Chromium/69.0.3497.128',
-    'qutebrowser/1.6.2'
+    'QtWebEngine/5.13.0',
+    'Chromium/73.0.3683.105',
+    'qutebrowser/1.7.0'
 ])
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -90,8 +92,8 @@ c.url.start_pages = [  # {{{1
 # Search engines which can be used via the address bar.
 c.url.searchengines = {
     'DEFAULT': c.url.start_pages[0] + '&q={}',
-    'g': 'https://google.com/?q={}',
-    'q': 'https://qwant.com/?q={}'
+    'G': 'https://google.com/?q={}',
+    'Q': 'https://qwant.com/?q={}'
 }
 
 # Keybindings {{{0
@@ -103,5 +105,4 @@ config.bind(';M', 'hint links spawn mpv {hint-url}')
 # Load autoconfig.yml
 config.load_autoconfig()
 
-# vim:fdm=marker:fdl=0:fdt=getline(v\:foldstart):
-
+# vim:fdm=marker:fdl=0:

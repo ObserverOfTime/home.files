@@ -30,4 +30,3 @@ ScrollBarPosition=2
 BlinkingCursorEnabled=true
 
 # vim:ft=cfg:
-

@@ -148,6 +148,8 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .asf  38;5;202
 .avi  38;5;202
 .axv  38;5;202
+.bik  38;5;202
+.bk2  38;5;202
 .cgm  38;5;202
 .dl   38;5;202
 .emf  38;5;202
@@ -167,11 +169,11 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .ogm  38;5;202
 .ogv  38;5;202
 .ogx  38;5;202
-.pak  38;5;202
 .qt   38;5;202
 .rm   38;5;202
 .rmvb 38;5;202
 .vob  38;5;202
+.webm 38;5;202
 .wmv  38;5;202
 .xcf  38;5;202
 .xwd  38;5;202
@@ -180,6 +182,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 
 # audio formats (cyan) {{{
 .aac  38;5;45
+.ac3  38;5;45
 .au   38;5;45
 .axa  38;5;45
 .flac 38;5;45
@@ -190,6 +193,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .mpc  38;5;45
 .oga  38;5;45
 .ogg  38;5;45
+.opus 38;5;45
 .ra   38;5;45
 .spx  38;5;45
 .wav  38;5;45
@@ -197,5 +201,4 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 # }}}
 # }}}
 
-# vim:fdm=marker:fdl=1:
-
+# vim:ft=dircolors:fdm=marker:fdl=1:

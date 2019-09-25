@@ -3,13 +3,13 @@
 auto-reload "yes"
 
 # Set the browser command to use when opening an article in the browser.
-browser "firefox -- %u"
+browser "firefox %u"
 
 # This format specifies the date/time format in the article list.
 datetime-format "%Y-%m-%d"
 
 # User errors will be logged to this file.
-error-log "~/.newsboat/error.log"
+error-log "~/.local/share/newsboat/error.log"
 
 # Specifies which feed property shall be used for sorting.
 feed-sort-order "title"
@@ -18,7 +18,7 @@ feed-sort-order "title"
 notify-format "%d new articles"
 
 # The configured program will be executed if new articles arrived.
-notify-program "~/.newsboat/notif.sh"
+notify-program "~/.config/newsboat/notif.sh"
 
 # The number of parallel reload threads that
 # shall be started when all feeds are reloaded.
@@ -58,5 +58,6 @@ highlight article "(https?|ftp)://[^ ]+" color175 color235
 highlight article " \\(link\\)$"         color235 color235
 # }}}
 
-# vim:ft=conf:fdm=marker:fdl=1:
+include "~/.config/newsboat/filters"
 
+# vim:ft=conf:fdm=marker:fdl=1:

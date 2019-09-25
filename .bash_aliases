@@ -21,18 +21,17 @@ alias vcat='vimcat -c "colors gruvbox"'
 alias vim='nvim'
 # neovim terminal shell
 alias vish='nvim +term'
-# youtube-dl download as flac
-alias ytdl-flac='youtube-dl -x --audio-format flac --audio-quality 9'
-# youtube-dl download as mp3
-alias ytdl-mp3='youtube-dl -x --audio-format mp3 --audio-quality 320K'
 # maximum zip compression
 alias zip-max='7z a -tzip -mm=Deflate -mx=9 -mfb=128 -mpass=10 -aoa'
 # }}}
 
 # Enable color support of commands {{{
 if test -x /usr/bin/dircolors; then
-  if test -r ~/.dir_colors; then eval "$(dircolors -b "$_")"
-  else eval "$(dircolors -b)"; fi
+  if test -r "$XDG_CONFIG_HOME/dircolors"; then
+    eval "$(dircolors -b "$_")"
+  else
+    eval "$(dircolors -b)"
+  fi
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -57,8 +56,8 @@ alias l='ls -lhNFHB'
 # Add an alert function for long running commands {{{
 alert() { # Use like so: sleep 10; alert
   # shellcheck disable=SC2181
-  notify-send --urgency=low -i "$([ $? -eq 0 ] && printf terminal || printf error)" \
-    "$(history | tail -1 | sed -e 's/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//')"
+  notify-send -u low -i "$( (($?)) && printf error || printf terminal)" \
+    "$(history | sed -e '$!d;s/^[^}]\+}\s*//;s/[;&|]\s*alert$//')"
 }
 # }}}
 
@@ -69,4 +68,3 @@ test -f ~/.bash_funcs && . "$_"
 test -f ~/.ssh/aliases && . "$_"
 
 # vim:set fdm=marker fdl=1:
-

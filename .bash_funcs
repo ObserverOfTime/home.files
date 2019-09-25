@@ -45,9 +45,9 @@ rot13() { # Encodes/Decodes string in rot13
 
 pictshare() { # Uploads image to pictshare
   __usage $# 1 '<file>' && return 1
-  curl -SsX POST -F "postimage=@$1" \
-    https://pictshare.net/backend.php | \
-    awk 'BEGIN { FS="\"" } { gsub(/\\/,""); print $16 }'
+  curl -sSF "file=@$1" \
+    https://pictshare.net/api/upload.php | \
+    awk -F'"' '{gsub(/\\/,""); print $12}'
 }
 
 transh() { # Uploads file to transfer.sh
@@ -59,17 +59,17 @@ transh() { # Uploads file to transfer.sh
     "https://transfer.sh/$file" && printf '\n'
 }
 
-svgmin() { # Minifies and formats svg for css
+svgmin() { # Minifies and formats svg into a data URI
   __usage $# 2 '< -i FILE | -s STRING >' && return 1
-  declare plugins randstr
+  declare plugins tmpfile
   plugins="$(svgo --show-plugins | awk '
     BEGIN { printf "{" }
     /cleanup|remove/ { printf c $2; c="," }
     END   { printf "}" }')"
-  randstr=$(tr -cd '[:alnum:]' </dev/urandom | fold -w8 | head -1)
-  svgo --enable="$plugins" "$@" --datauri=encoded -o "/tmp/$randstr.svg.b64"
-  printf "'data:image/svg+xml;UTF8,%s'\\n" "$(<"/tmp/$randstr.svg.b64")"
-  rm "/tmp/$randstr.svg.b64"
+  tmpfile="$(mktemp svgmin.XXXXXXXX)"
+  svgo --enable="$plugins" "$@" --datauri=encoded -o "$tmpfile"
+  printf "'data:image/svg+xml;UTF8,%s'\\n" "$(<"$tmpfile")"
+  rm "$tmpfile"
 }
 
 tempconv() { # Converts Fahrenheit to Celsius and vice versa
@@ -115,10 +115,8 @@ weather() { # Show weather info from wttr.in
 
 sri() { # Prints the SRI hash of a resource
   __usage $# 1 '<URL> [algorithm]' && return 1
-  declare sha
-  sha="$(curl -Ss "$1" | shasum -b \
-    -a "${2:-384}" - | xxd -r -p | base64)"
-  printf 'sha%d-%s\n' "${2:-384}" "$sha"
+  printf 'sha%d-%s\n' "${2:-384}" \
+    "$(curl -Ss "$1" | shasum -ba "${2:-384}" - | xxd -r -p | base64)"
 }
 
 myip() { # What's my ip
@@ -144,9 +142,8 @@ urldecode() { # Decodes urlencoded string
 
 utf8decode() { # Decodes =?UTF-8?B?...?= string
   __usage $# 1 '<string>' && return 1
-  [[ $1 =~ ^=\?[Uu][Tt][Ff]-8\?[Bb]\?([^?]+)\?=$ ]]
+  [[ $* =~ ^=\?[Uu][Tt][Ff]-8\?[Bb]\?([^?]+)\?=$ ]]
   printf '%s\n' "$(base64 -d <<< "${BASH_REMATCH[1]}")"
 }
 
 # vim:set ft=sh fdm=syntax fdl=0:
-

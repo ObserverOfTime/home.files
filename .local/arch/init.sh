@@ -66,20 +66,17 @@ unset NAME PACKAGER ARIA WGET
 
 # Install packages via yay {{{
 # shellcheck disable=SC2046,SC2086
-_yay() { yay -S --$1 --needed ${*:2} $(<~/.local/arch/packages.$1.txt); }
+_yay() (yay -S --$1 --needed ${*:2} $(<~/.local/arch/packages.$1.txt))
 _yay repo --noconfirm && _yay aur
 unset -f _yay
 # }}}
 
-# Install local packages {{{
-pip3 install --user -r ~/.config/pip/requirements.txt
-pip2 install --user -r ~/.config/pip/requirements.txt
-yarn global add # ~/.config/yarn/global/package.json
-(cd "$GEM_HOME" && bundle install)
+# Install node packages {{{
+yarn global install
 # }}}
 
 # Download binaries from github {{{
-ghdl() { wget https://git.io/"$1" -qO ~/.local/bin/"$2"; chmod +x "$_"; }
+ghdl() (curl -L https://git.io/"$1" -o ~/.local/bin/"$2"; chmod +x "$_")
 ghdl vhMor aria2magnet
 ghdl fjlNS lnk-parse
 unset -f ghdl
@@ -87,7 +84,7 @@ unset -f ghdl
 
 # Install bash completions {{{
 DIRECTORY=/etc/bash_completion.d
-raw() { printf 'https://raw.githubusercontent.com/%s' "$1/$2/master/$3"; }
+raw() (printf 'https://raw.githubusercontent.com/%s' "$1/$2/master/$3")
 sudo wget -P "$DIRECTORY" \
   "$(raw mbrubeck android-completion android)" \
   "$(raw clerk67 ffmpeg-completion ffmpeg)" \
@@ -101,8 +98,7 @@ grunt --completion=bash | sudo tee \
   "$DIRECTORY/grunt-completion.bash" >/dev/null
 gulp --completion=bash | sudo tee \
   "$DIRECTORY/gulp-completion.bash" >/dev/null
-pip completion -b | awk '1;/^complete/{print $0"2"}' | \
-  sudo tee "$DIRECTORY/pip-completion.bash" >/dev/null
+pip completion -b | sudo tee "$DIRECTORY/pip-completion.bash" >/dev/null
 unset -f DIRECTORY raw
 # }}}
 
@@ -124,7 +120,8 @@ sudo -E /tmp/sddm-patema/install.sh
 
 # Configure grub {{{
 THEME=/boot/grub/themes/Lain
-PARTITION="$(df / | awk 'FNR==2 {print $1}')"
+SWAP="$(swapon --show=NAME --noheadings)"
+SWAP="${SWAP+ resume=$SWAP}"
 clone ObserverOfTime/grub2-theme-lain
 sudo cp -r /tmp/grub2-theme-lain/Lain "$THEME"
 sudo cp /etc/default/grub{,.bak}
@@ -132,7 +129,7 @@ sudo tee /etc/default/grub >/dev/null <<EOF
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="profile ipv6.disable=1 resume=${PARTITION:?}"
+GRUB_CMDLINE_LINUX_DEFAULT="profile ipv6.disable=1${SWAP}"
 GRUB_CMDLINE_LINUX=""
 GRUB_TERMINAL_INPUT=console
 GRUB_GFXMODE=1600x1200x24
@@ -146,10 +143,7 @@ GRUB_FONT=$THEME/fonts/DejaVuSansMono14.pf2
 EOF
 sudo cp /boot/grub/grub.cfg{,.bak}
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo sed -i /boot/grub/grub.cfg \
-  -re "s/(menuentry '.* )Linux -( Fallback')/\1\2/" \
-  -re "s/(menuentry 'Windows)[^']*'/\1 8.1'/"
-unset -f URL THEME PARTITION clone
+unset -f URL THEME SWAP clone
 # }}}
 
 # Setup neovim {{{
@@ -188,21 +182,8 @@ Target = usr/bin/firefox-developer-edition
 Description = Disabling Firefox downgrade protection
 When = PostTransaction
 Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/GTK_USE_PORTAl=1 &/;s/"\$@"/-allow-downgrade &/'
+  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"\$@"/-allow-downgrade &/'
 EOF
-# }}}
-
-# Create symlinks {{{
-WIN_USER=/media/windows/Users/Johnnie
-winsl() { ln -s "$WIN_USER/Desktop/$1" "$HOME/${3:-$1}/$2"; }
-ln -s ~/.config/yarn/global/node_modules ~/node_modules
-ln -s "$WIN_USER" ~/Windows
-winsl Pictures WindowsPics
-winsl Music WindowsMusic
-winsl Videos WindowsVids
-winsl Documents WindowsDocs
-winsl 'Nerd Stuff/Code' WindowsCode Documents
-unset -f WIN_USER winsl
 # }}}
 
 # Set tty font {{{
@@ -217,4 +198,3 @@ sudo mkinitcpio -p linux
 # }}}
 
 # vim:fdm=marker:fdl=0:
-

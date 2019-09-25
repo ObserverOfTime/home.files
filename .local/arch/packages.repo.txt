@@ -13,6 +13,7 @@ clang
 cmake
 ctags
 desmume
+discord
 docx2txt
 dolphin
 dolphin-plugins
@@ -86,9 +87,9 @@ ppsspp
 pygmentize
 python-isort
 python-netifaces
-python-neovim
 python-pip
 python-py-cpuinfo
+python-pynvim
 python-sphinx
 python2-pip
 qbittorrent

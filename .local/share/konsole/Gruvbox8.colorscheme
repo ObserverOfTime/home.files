@@ -1,5 +1,10 @@
 # Based on lifepillar/vim-gruvbox8
 
+[General]
+Description=Gruvbox8
+Opacity=1.0
+Wallpaper=
+
 [Background]
 Color=40,40,40
 
@@ -60,10 +65,4 @@ Color=235,219,178
 [ForegroundIntense]
 Color=213,196,161
 
-[General]
-Description=Gruvbox8
-Opacity=1.0
-Wallpaper=
-
 # vim:ft=cfg:
-

@@ -18,7 +18,7 @@ HISTIGNORE='&:[ ]*:exit:ls:cd:history:clear'
 HISTCONTROL='erasedups'
 
 # Move the history file away from $HOME
-HISTFILE="$HOME/.cache/.bash_history"
+HISTFILE="$XDG_CACHE_HOME/.bash_history"
 
 # Print time of command in history
 HISTTIMEFORMAT='{%Y-%m-%d %T} '
@@ -44,4 +44,3 @@ test -f ~/.unirc.sh && . "$_"
 : # ensure 0 exit code
 
 # vim:set wrap lbr bri briopt=shift\:4:
-
