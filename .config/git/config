@@ -88,7 +88,7 @@
 			else \
 				printf \"%s%s%s\\n\" \"export GITLAB_TOKEN\" \
 					\"or save it in \\$HOME/.local/tokens/gitlab\" \
-					\"to use this command\" >2; \
+					\"to use this command\" >&2; \
 			fi; \
 		fi; \
 		curl -H \"Content-Type: application/json\" \
@@ -102,16 +102,16 @@
 			else \
 				printf \"%s%s%s\\n\" \"export GITHUB_TOKEN\" \
 					\"or save it in \\$HOME/.local/tokens/github\" \
-					\"to use this command\" >2; \
+					\"to use this command\" >&2; \
 			fi; \
 		fi; \
-		user=\"$(git config --get user.name)\"; \
-		root=\"$(basename \"$(git rev-parse --show-toplevel)\")\"; \
+		user=\"${2:-$(git config --get user.name)}\"; \
+		old=\"${3:-$(basename \"$(git rev-parse --show-toplevel)\")}\"; \
 		curl -H \"Content-Type: application/json\" \
 			-H \"Authorization: Token $GITHUB_TOKEN\" \
-			-sSX PATCH \"https://api.github.com/repos/$user/${2:-$root}\" \
+			-sSX PATCH \"https://api.github.com/repos/$user/$old\" \
 			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
-		git remote set-url \"${3:-origin}\" \"https://github.com/$user/$1\";}; f"
+		git remote set-url \"${4:-origin}\" \"https://github.com/$user/$1\";}; f"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

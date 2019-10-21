@@ -146,4 +146,15 @@ utf8decode() { # Decodes =?UTF-8?B?...?= string
   printf '%s\n' "$(base64 -d <<< "${BASH_REMATCH[1]}")"
 }
 
+pwned() { # Checks if a password has been compromised
+  __usage $# 1 '<password>' && return 1
+  declare pass results tmp
+  pass="$(printf '%s' "$1" | sha1sum | cut -d ' ' -f1)"
+  readarray -t results < <(curl -Ss \
+    https://api.pwnedpasswords.com/range/"${pass:0:5}")
+  for tmp in "${results[@]}"; do
+    [ "${tmp%:*}" != "${pass^^}" ] || printf '%s\n' "$tmp"
+  done
+}
+
 # vim:set ft=sh fdm=syntax fdl=0:

@@ -7,13 +7,13 @@ c.content.default_encoding = 'utf-8'
 c.content.headers.accept_language = 'en_GB,en'
 
 # User agent to send.
-c.content.headers.user_agent = ' '.join([
+c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.13.0',
+    'QtWebEngine/5.13.1',
     'Chromium/73.0.3683.105',
-    'qutebrowser/1.7.0'
-])
+    'qutebrowser/1.8.1'
+))
 
 # Allow JavaScript to read from or write to the clipboard.
 c.content.javascript.can_access_clipboard = True
@@ -36,13 +36,13 @@ c.editor.command = [
 ]
 
 # Default monospace fonts.
-c.fonts.monospace = ','.join([
+c.fonts.monospace = ','.join((
     'Hack',
     'Fira Code',
     'Code New Roman',
     'Fantasque Sans Mono',
     'DejaVu Sans Mono'
-])
+))
 
 # Which Chromium process model to use.
 c.qt.process_model = 'process-per-site'
@@ -86,7 +86,7 @@ c.url.start_pages = [  # {{{1
     04J8A_RpGjiRi9bqvj8NCiKWkONo0xnzWy6hcHhbLDs
     v8makXlUX6493d59O_iGeW21s039-ix9Syq54et7vi-
     g7omFVXueL8gm0kTfooem4oJz9sHMTuL4eaCf8=
-    """.replace('\n', '').replace(' ', '')
+    """.replace('\n', '').replace(' ', ''),
 ]  # }}}
 
 # Search engines which can be used via the address bar.

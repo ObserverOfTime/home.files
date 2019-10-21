@@ -5,8 +5,6 @@ sudo cp /etc/pacman.conf{,.bak}
 sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
-  -e '$ a [oracle]\nSigLevel = Optional TrustAll' \
-  -e '$ a Server = http://linux.shikadi.net/arch/$repo/$arch' \
   -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/'
 # }}}
 
@@ -139,7 +137,7 @@ GRUB_DISABLE_SUBMENU=true
 GRUB_THEME=$THEME/theme.txt
 GRUB_FONT=$THEME/fonts/DejaVuSansMono14.pf2
 
-# vim:set ft=dosini et sw=4 ts=4:
+# vim:set ft=cfg et sw=4 ts=4:
 EOF
 sudo cp /boot/grub/grub.cfg{,.bak}
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -179,7 +177,7 @@ Type = File
 Target = usr/bin/firefox-developer-edition
 
 [Action]
-Description = Disabling Firefox downgrade protection
+Description = Setting GTK_USE_PORTAL=1 for Firefox...
 When = PostTransaction
 Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
   -e 's/exec/GTK_USE_PORTAL=1 &/;s/"\$@"/-allow-downgrade &/'

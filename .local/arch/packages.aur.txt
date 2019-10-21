@@ -16,6 +16,7 @@ kde-servicemenus-rootactions
 kde-thumbnailer-apk
 kde-thumbnailer-epub
 korla-icon-theme
+luacheck
 mkv-extractor-qt
 pandoc-bin
 phpstorm
