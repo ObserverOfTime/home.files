@@ -109,6 +109,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 
 # image formats (magenta) {{{
 .apng 38;5;13
+.avif 38;5;13
 .bmp  38;5;13
 .bpg  38;5;13
 .eps  38;5;13
@@ -152,11 +153,13 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .bk2  38;5;202
 .cgm  38;5;202
 .dl   38;5;202
+.drc  38;5;202
 .emf  38;5;202
 .flc  38;5;202
 .fli  38;5;202
 .flv  38;5;202
 .gl   38;5;202
+.hevc 38;5;202
 .m2v  38;5;202
 .m4v  38;5;202
 .mkv  38;5;202

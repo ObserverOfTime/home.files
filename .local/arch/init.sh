@@ -15,6 +15,15 @@ sudo pacman -Syyu
 sudo pacman -S base-devel git aria2 reflector go --noconfirm
 git clone https://aur.archlinux.org/yay.git /tmp/yay
 (cd /tmp/yay && makepkg -sic --noconfirm)
+git clone https://github.com/alfunx/dotfiles.sh \
+  --single-branch --branch=sparse-edit /tmp/dotfiles.sh
+(cd /tmp/dotfiles.sh && sudo make install)
+# }}}
+
+# Clone dotfiles {{{
+mkdir -p ~/Documents/Code/GitHub
+dotfiles clone https://github.com/ObserverOfTime/home.files \
+  ~/Documents/Code/GitHub/home.files && dotfiles checkout -f
 # }}}
 
 # Rank pacman mirrors {{{
@@ -35,9 +44,7 @@ Target = pacman-mirrorlist
 Description = Updating pacman-mirrorlist with reflector
 When = PostTransaction
 Depends = reflector
-Exec = /bin/bash -c $(printf '"reflector %s; %s"' \
-  "$(eval 'echo ${REF_OPTS[*]}')" \
-  'rm -f /etc/pacman.d/mirrorlist.pacnew')
+Exec = /usr/bin/reflector ${REF_OPTS[*]}
 EOF
 unset REF_OPTS
 # }}}
@@ -45,7 +52,7 @@ unset REF_OPTS
 # Use aria2 for makepkg & set packager {{{
 NAME="$(awk -F'[:,]' -vu="$USER" '$1 == u {print $5}' /etc/passwd)"
 PACKAGER="${NAME:-ObserverOfTime} <chronobserver@disroot.org>"
-ARIA='::/usr/bin/aria2c --no-conf --conf-path=/etc/aria2.conf %u -o %o'
+ARIA='::/usr/bin/aria2c --conf-path=/etc/aria2.conf -o %o %u'
 WGET="$(wget -V | awk 'NR == 1 {print $2"/"$3}')"
 sudo tee /etc/aria2.conf >/dev/null <<EOF
 user-agent=${WGET:-Wget}
@@ -58,7 +65,7 @@ sudo sed -i /etc/makepkg.conf \
   -e "s#'ftp::.*'#'ftp$ARIA'#" \
   -e "s#'http::.*'#'http$ARIA'#" \
   -e "s#'https::.*'#'https$ARIA'#" \
-  -e "s/^#PACKAGER.*/PACKAGER='$PACKAGER'"
+  -e "s/^#PACKAGER.*/PACKAGER='$PACKAGER'/"
 unset NAME PACKAGER ARIA WGET
 # }}}
 
@@ -154,7 +161,7 @@ sudo tee --append /etc/sudoers <<< \
 
 # Setup mozilla profiles {{{
 mkdir -p ~/.thunderbird ~/.mozilla/firefox
-rclone sync -vv mega:/Thunderbird \
+rclone sync -vv Mega:/Thunderbird \
   ~/.thunderbird/o8q08m34.default
 cat > ~/.thunderbird/profiles.ini <<'EOF'
 [Profile0]
@@ -162,7 +169,7 @@ Name=default
 IsRelative=1
 Path=o8q08m34.default
 EOF
-rclone sync -vv mega:/Firefox \
+rclone sync -vv Mega:/Firefox \
   ~/.mozilla/firefox/6fgcqba8.dev-edition-default
 cat > ~/.mozilla/firefox/profiles.ini <<'EOF'
 [Profile0]
