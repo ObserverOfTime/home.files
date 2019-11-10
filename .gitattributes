@@ -43,12 +43,15 @@
 
 .config/pypoetry/config.toml linguist-language=TOML
 
-.config/vifm/vifmrc linguist-language=Vim
+.config/vifm/vifmrc linguist-language=Vim-script
 
 .config/fontconfig/fonts.conf linguist-language=XML
 
 .clang-format linguist-language=YAML
 .clang-tidy linguist-language=YAML
+
+# not actually YAML yet
+# .yarnrc linguist-language=YAML
 
 # skews the stats due to its size
 .XCompose linguist-language=XCompose linguist-detectable=false

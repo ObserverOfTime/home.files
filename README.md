@@ -17,9 +17,9 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Bash](https://www.gnu.org/software/bash/)
 
-* [.bash\_aliases](.bash_aliases): contains various aliases
-* [.bash\_funcs](.bash_funcs): contains various functions
-* [.bash\_profile](.bash_profile): login shell configuration file
+* [.bash_aliases](.bash_aliases): contains various aliases
+* [.bash_funcs](.bash_funcs): contains various functions
+* [.bash_profile](.bash_profile): login shell configuration file
 * [.bashrc](.bashrc): interactive shell configuration file
 
 ## [Ccache](https://github.com/ccache/ccache)
@@ -88,7 +88,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 * [.config/pip/pip.conf](.config/pip/pip.conf): configuration file
 
-## [Poetry](https://github.com/sdispater/poetry)
+## [Poetry](https://poetry.eustace.io/)
 
 * [.config/pypoetry/config.toml](.config/pypoetry/config.toml): configuration file
 
@@ -119,6 +119,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Yarn](https://yarnpkg.com/lang/en/)
 
 * [.config/yarn/global/package.json](.config/yarn/global/package.json): package list
+* [.yarnrc](.yarnrc): configuration file
 
 ## [Yay](https://github.com/Jguer/yay)
 

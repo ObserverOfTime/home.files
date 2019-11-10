@@ -88,6 +88,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .lzh  38;5;247
 .lzma 38;5;247
 .ora  38;5;247
+.piz  38;5;247
 .rar  38;5;247
 .rpm  38;5;247
 .rz   38;5;247

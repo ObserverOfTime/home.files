@@ -47,6 +47,4 @@ Videos/
 
 # Automatically appended
 node_modules/
-.yarn/
-.yarnrc
 .*history

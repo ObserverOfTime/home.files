@@ -53,7 +53,7 @@ export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.6.0"
 
 # Set the paths used by perl5 {{{
 export PERL5LIB="$HOME/.local/perl/lib/perl5"
-export PERL_CPANM_OPT="-l ~/.local/perl"
+export PERL_CPANM_OPT="-l $HOME/.local/perl"
 export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
 # }}}
 
@@ -80,7 +80,6 @@ export PATH="$HOME/.local/bin:\
 $HOME/.local/perl/bin:\
 $GOPATH/bin:\
 $GEM_HOME/bin:\
-$HOME/.yarn/bin:\
 $ANDROID_HOME/tools:\
 $ANDROID_HOME/platform-tools:"
 # }}}
