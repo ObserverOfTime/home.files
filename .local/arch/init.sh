@@ -88,23 +88,39 @@ unset -f ghdl
 # }}}
 
 # Install bash completions {{{
-DIRECTORY=/etc/bash_completion.d
+DIRECTORY="$XDG_DATA_HOME/bash-completion/completions"
+declare -A ALIASES=(
+  [adb]=android
+  [emulator]=android
+  [fastboot]=android
+  [clang++]=clang
+  [ffprobe]=ffmpeg
+  [goapp]=go
+  [godoc]=go
+  [gradlew]=gradle
+)
+mkdir -p "$DIRECTORY"
 raw() (printf 'https://raw.githubusercontent.com/%s' "$1/$2/master/$3")
-sudo wget -P "$DIRECTORY" \
-  "$(raw mbrubeck android-completion android)" \
-  "$(raw clerk67 ffmpeg-completion ffmpeg)" \
-  "$(raw eriwn gradle-completion-bash gradle-completion.bash)" \
-  "$(raw omakoto go-completion.bash go-completion.bash)"
-sudo wget -P "$DIRECTORY" -i - <<< "$(\
-  for name in 7z chmod chown jq openssl usermod; do \
-    printf '%s\n' "$(raw scop bash-completion "completions/$name")"; \
-  done)"
-grunt --completion=bash | sudo tee \
-  "$DIRECTORY/grunt-completion.bash" >/dev/null
-gulp --completion=bash | sudo tee \
-  "$DIRECTORY/gulp-completion.bash" >/dev/null
-pip completion -b | sudo tee "$DIRECTORY/pip-completion.bash" >/dev/null
-unset -f DIRECTORY raw
+aria2c -d "$DIRECTORY" -i - <<EOF
+$(raw mbrubeck android-completion android)
+$(raw clerk67 ffmpeg-completion ffmpeg)
+$(raw gradle gradle-completion gradle-completion.bash)
+  out=gradle
+$(raw omakoto go-completion.bash go-completion.bash)
+  out=go
+$(raw llvm-mirror clang utils/bash-autocomplete.sh)
+  out=clang
+EOF
+printf 'complete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
+printf 'complete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"
+for key in "${!ALIASES[@]}"; do
+  ln -fvs "$DIRECTORY/${ALIASES[$key]}" "$DIRECTORY/$key"
+done
+grunt --completion=bash > "$DIRECTORY/grunt"
+gulp --completion=bash > "$DIRECTORY/gulp"
+pandoc --bash-completion > "$DIRECTORY/pandoc"
+poetry completions bash > "$DIRECTORY/poetry"
+unset -f DIRECTORY ALIASES raw
 # }}}
 
 # Install from github reporisotories {{{

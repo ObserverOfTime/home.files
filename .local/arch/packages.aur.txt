@@ -12,12 +12,12 @@ google-java-format
 intellij-idea-ultimate-edition
 intellij-idea-ultimate-edition-jre
 iridium-deb
-kde-servicemenus-rootactions
 kde-thumbnailer-apk
-kde-thumbnailer-epub
 korla-icon-theme
 luacheck
+mcomix-gtk3-git
 mkv-extractor-qt
+opustags
 pandoc-bin
 phpstorm
 pycharm-professional

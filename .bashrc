@@ -29,6 +29,10 @@ PROMPT_DIRTRIM=2
 # Don't complete files with the following extensions
 FIGNORE='~:.o:.swp:.pyc'
 
+# Show hints in ./configure --option=
+# shellcheck disable=SC2034
+COMP_CONFIGURE_HINTS=1
+
 # Alias definitions
 test -f ~/.bash_aliases && . "$_"
 

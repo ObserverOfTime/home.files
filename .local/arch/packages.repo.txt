@@ -39,12 +39,10 @@ go
 goldendict
 gradle
 htop
-httpie
 hub
 iftop
 imagemagick
 inkscape
-jdk-openjdk
 jdk8-openjdk
 jq
 kcolorchooser
@@ -61,7 +59,6 @@ libreoffice-fresh
 lldb
 llvm
 maven
-mcomix
 mesa
 mkvtoolnix-cli
 mkvtoolnix-gui
@@ -77,7 +74,6 @@ odt2txt
 okteta
 okular
 optipng
-oracle-instantclient-sqlplus
 otf-fantasque-sans-mono
 otf-fira-code
 p7zip
@@ -117,12 +113,10 @@ vifm
 vim
 vint
 virt-manager
-vulkan-intel
 wget
 whois
 wine
 words
-xf86-video-intel
 yarn
 youtube-dl
 zathura
