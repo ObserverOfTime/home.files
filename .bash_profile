@@ -20,9 +20,6 @@ test -f ~/.local/tokens/github && export GITHUB_TOKEN="$(<"$_")"
 test -f ~/.local/tokens/gitlab && export GITLAB_TOKEN="$(<"$_")"
 # }}}
 
-# Make pipenv use .venv
-export PIPENV_VENV_IN_PROJECT=1
-
 # Set the default command used by fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
 
@@ -39,6 +36,10 @@ export BROWSER=firefox
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+# }}}
+
+# Set the paths used by python {{{
+export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/__pycache__"
 # }}}
 
 # Set the paths used by go {{{

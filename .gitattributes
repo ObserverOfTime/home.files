@@ -1,7 +1,6 @@
 * text=auto linguist-detectable=true
 
-# no linguist language for dircolors as of yet
-# .config/dircolors linguist-language=dircolors
+.config/dircolors linguist-language=dircolors
 
 .config/git/config linguist-language=gitconfig
 

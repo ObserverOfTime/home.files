@@ -26,12 +26,8 @@ alias zip-max='7z a -tzip -mm=Deflate -mx=9 -mfb=128 -mpass=10 -aoa'
 # }}}
 
 # Enable color support of commands {{{
-if test -x /usr/bin/dircolors; then
-  if test -r "$XDG_CONFIG_HOME/dircolors"; then
-    eval "$(dircolors -b "$_")"
-  else
-    eval "$(dircolors -b)"
-  fi
+if test -r "$XDG_CONFIG_HOME/dircolors"; then
+  eval "$(dircolors -b "$_")"
   alias ls='ls --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'

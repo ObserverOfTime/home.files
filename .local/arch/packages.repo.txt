@@ -52,6 +52,7 @@ kio-extras
 kio-gdrive
 kipi-plugins
 kleopatra
+kmix
 krita
 lib32-mesa
 lib32-vulkan-intel
