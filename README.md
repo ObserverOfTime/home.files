@@ -17,10 +17,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Bash](https://www.gnu.org/software/bash/)
 
-* [.bash_aliases](.bash_aliases): contains various aliases
-* [.bash_funcs](.bash_funcs): contains various functions
 * [.bash_profile](.bash_profile): login shell configuration file
-* [.bashrc](.bashrc): interactive shell configuration file
+* [.local/share/bash/aliases.sh](.local/share/bash/aliases.sh): contains various aliases
+* [.local/share/bash/bashrc.sh](.local/share/bash/bashrc.sh): interactive shell configuration file
+* [.local/share/bash/functions.sh](.local/share/bash/functions.sh): contains various functions
 
 ## [Ccache](https://github.com/ccache/ccache)
 
@@ -57,7 +57,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [GnuPG](https://gnupg.org/)
 
-* [.gnupg/gpg.conf](.gnupg/gpg.conf): configuration file
+* [.local/share/gnupgp/gpg.conf](.local/share/gnupg/gpg.conf): configuration file
 
 ## [KDE Plasma](https://kde.org/plasma-desktop)
 
@@ -65,7 +65,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Konsole](https://konsole.kde.org/)
 
-* [.config/konsolerc](.config/konsolerc): configuration file
 * [.local/share/konsole/Default.profile](.local/share/konsole/Default.profile): default profile
 * [.local/share/konsole/NvimTerm.profile](.local/share/konsole/NvimTerm.profile): `nvim +term` profile
 * [.local/share/konsole/Gruvbox8.colorscheme](.local/share/konsole/Gruvbox8.colorscheme): `Gruvbox8` colorscheme
@@ -96,6 +95,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 * [.config/pycodestyle](.config/pycodestyle): configuration file
 
+## [Python](https://www.python.org/)
+
+* [.config/pythonrc.py](.config/pythonrc.py): startup file
+
 ## [Qutebrowser](https://www.qutebrowser.org/)
 
 * [.config/qutebrowser/config.py](.config/qutebrowser/config.py): configuration file
@@ -103,6 +106,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Pug-lint](https://github.com/pugjs/pug-lint)
 
 * [.pug-lintrc.json](.pug-lintrc.json): configuration file
+
+## [Readline](https://tiswww.case.edu/php/chet/readline/rltop.html)
+
+* [.config/inputrc](.config/inputrc): configuration file
 
 ## [Stylelint](https://stylelint.io/)
 
@@ -114,7 +121,7 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [X.Org](https://www.x.org/wiki/)
 
-* [.XCompose](.XCompose): X client character mappings
+* [.config/X11/XCompose](.config/X11/XCompose): X client character mappings
 
 ## [Yarn](https://yarnpkg.com/lang/en/)
 

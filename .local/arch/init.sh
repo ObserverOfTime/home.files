@@ -98,6 +98,7 @@ declare -A ALIASES=(
   [goapp]=go
   [godoc]=go
   [gradlew]=gradle
+  [bundler]=bundle
 )
 mkdir -p "$DIRECTORY"
 raw() (printf 'https://raw.githubusercontent.com/%s' "$1/$2/master/$3")
@@ -110,9 +111,18 @@ $(raw omakoto go-completion.bash go-completion.bash)
   out=go
 $(raw llvm-mirror clang utils/bash-autocomplete.sh)
   out=clang
+$(raw mernen completion-ruby completion-ruby)
+  out=ruby
+$(raw mernen completion-ruby completion-gem)
+  out=gem
+$(raw mernen completion-ruby completion-bundle)
+  out=bundle
+$(raw mernen completion-ruby completion-rake)
+  out=rake
 EOF
 printf 'complete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
 printf 'complete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"
+printf 'complete -o default -F __bundle bundler\n' >> "$DIRECTORY/bundle"
 for key in "${!ALIASES[@]}"; do
   ln -fvs "$DIRECTORY/${ALIASES[$key]}" "$DIRECTORY/$key"
 done
@@ -120,6 +130,8 @@ grunt --completion=bash > "$DIRECTORY/grunt"
 gulp --completion=bash > "$DIRECTORY/gulp"
 pandoc --bash-completion > "$DIRECTORY/pandoc"
 poetry completions bash > "$DIRECTORY/poetry"
+ln -fvs "$(gem contents travis | grep 'travis.sh$')" "$DIRECTORY/travis"
+ln -fvs /usr/share/fzf/completion.bash "$DIRECTORY/fzf"
 unset -f DIRECTORY ALIASES raw
 # }}}
 
@@ -167,12 +179,17 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 unset -f URL THEME SWAP clone
 # }}}
 
+# Make maven use XDG_CACHE_HOME {{{
+sudo sed -i /opt/maven/conf/settings.xml \
+  -e "\%xsi:schema%a \\
+  <localRepository>\\
+    \${env.XDG_CACHE_HOME}/maven/repository\\
+  </localRepository>"
+# }}}
+
 # Setup neovim {{{
 nvim --headless +q >/dev/null
 nvim --headless +PlugInstall +qa >/dev/null
-sudo update-alternatives --set editor /usr/bin/nvim
-sudo tee --append /etc/sudoers <<< \
-  'Defaults env_keep += "EDITOR"' >/dev/null
 # }}}
 
 # Setup mozilla profiles {{{

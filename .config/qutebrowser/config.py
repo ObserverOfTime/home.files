@@ -10,9 +10,9 @@ c.content.headers.accept_language = 'en_GB,en'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.13.1',
+    'QtWebEngine/5.13.2',
     'Chromium/73.0.3683.105',
-    'qutebrowser/1.8.1'
+    'qutebrowser/1.8.2'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -48,20 +48,10 @@ c.fonts.monospace = ','.join((
 c.qt.process_model = 'process-per-site'
 
 # Languages to use for spell checking.
-c.spellcheck.languages = [
-    'en-GB',
-    'en-US',
-    'el-GR'
-]
+c.spellcheck.languages = ['en-GB', 'en-US', 'el-GR']
 
 # List of widgets displayed in the statusbar.
-c.statusbar.widgets = [
-    'keypress',
-    'url',
-    'history',
-    'tabs',
-    'progress'
-]
+c.statusbar.widgets = ['keypress', 'url', 'history', 'tabs', 'progress']
 
 # Page(s) to open at the start.
 c.url.start_pages = [  # {{{1

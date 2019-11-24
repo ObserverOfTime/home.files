@@ -1,9 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- =~ i ]] || return
 
-# Make less more friendly for non-text input files
-[ -x /usr/bin/lesspipe.sh ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
-
 # Define where cd looks for targets
 [ -d ~/Documents/Code/GitHub ] && CDPATH='.:~/Documents/Code/GitHub'
 
@@ -34,17 +31,11 @@ FIGNORE='~:.o:.swp:.pyc'
 COMP_CONFIGURE_HINTS=1
 
 # Alias definitions
-test -f ~/.bash_aliases && . "$_"
-
-# Travis completion
-test -f ~/.travis/travis.sh && . "$_"
-
-# FZF completion
-test -f /usr/share/fzf/completion.bash && . "$_"
+test -f "$XDG_DATA_HOME/bash/aliases.sh" && . "$_"
 
 # Uni configuration
 test -f ~/.unirc.sh && . "$_"
 
 : # ensure 0 exit code
 
-# vim:set wrap lbr bri briopt=shift\:4:
+# vim:wrap:lbr:bri:briopt=shift\:4:

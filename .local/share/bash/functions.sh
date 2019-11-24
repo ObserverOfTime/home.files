@@ -157,4 +157,4 @@ pwned() { # Checks if a password has been compromised
   done
 }
 
-# vim:set ft=sh fdm=syntax fdl=0:
+# vim:fdm=syntax:fdl=0:

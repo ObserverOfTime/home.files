@@ -58,9 +58,6 @@ alert() { # Use like so: sleep 10; alert
 # }}}
 
 # Functions kept separately
-test -f ~/.bash_funcs && . "$_"
+test -f "$XDG_DATA_HOME/bash/functions.sh" && . "$_"
 
-# Secret ssh aliases
-test -f ~/.ssh/aliases && . "$_"
-
-# vim:set fdm=marker fdl=1:
+# vim:fdm=marker:fdl=1:

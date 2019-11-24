@@ -1,0 +1,48 @@
+# Bindings {{{
+
+# Expand history with Ctrl + Space
+Control-Space: magic-space
+
+# Complete items with Insert
+"\e[2~": menu-complete
+
+# }}}
+
+# Settings {{{
+
+# Disable the bell
+set bell-style none
+
+# Enable file colors
+set colored-stats on
+
+# Enable case-insensitive completion
+set completion-ignore-case on
+
+# Don't ask to show all completions
+set completion-query-items -1
+
+# Set the maximum number of history entries
+set history-size 500
+
+# Disable completion pages
+set page-completions off
+
+# Print completions horizontally
+set print-completions-horizontally on
+
+# Show ambiguous completions immediately
+set show-all-if-ambiguous on
+
+# Show full completions immediately
+set show-all-if-unmodified on
+
+# Skip completed text after the cursor
+set skip-completed-text on
+
+# Show file type characters
+set visible-stats on
+
+# }}}
+
+# vim:fdm=marker:fdl=1:

@@ -14,7 +14,6 @@
 .config/aria2/aria2.conf linguist-language=INI
 .config/ccache.cfg linguist-language=INI
 .config/htop/htoprc linguist-language=INI
-.config/konsolerc linguist-language=INI
 .config/mpv/input.conf linguist-language=INI
 .config/mpv/mpv.conf linguist-language=INI
 .config/newsboat/config linguist-language=INI
@@ -22,20 +21,23 @@
 .config/plasma-localerc linguist-language=INI
 .config/pycodestyle linguist-language=INI
 .config/youtube-dl/config linguist-language=INI
-.gnupg/gpg.conf linguist-language=INI
+.local/share/gnupg/gpg.conf linguist-language=INI
 .local/share/konsole/Default.profile linguist-language=INI
 .local/share/konsole/Gruvbox8.colorscheme linguist-language=INI
 .local/share/konsole/NvimTerm.profile linguist-language=INI
 
+.config/pythonrc.py linguist-language=Python
 .config/qutebrowser/config.py linguist-language=Python
 
-.bash_aliases linguist-language=Shell
-.bash_funcs linguist-language=Shell
+.config/inputrc linguist-language=Readline-Config
+
 .bash_profile linguist-language=Shell
-.bashrc linguist-language=Shell
 .config/aria2/notif.sh linguist-language=Shell
 .config/newsboat/notif.sh linguist-language=Shell
 .local/arch/init.sh linguist-language=Shell
+.local/share/bash/aliases.sh linguist-language=Shell
+.local/share/bash/bashrc.sh linguist-language=Shell
+.local/share/bash/functions.sh linguist-language=Shell
 
 .local/arch/packages.aur.txt linguist-language=Text
 .local/arch/packages.repo.txt linguist-language=Text
@@ -53,7 +55,7 @@
 # .yarnrc linguist-language=YAML
 
 # skews the stats due to its size
-.XCompose linguist-language=XCompose linguist-detectable=false
+.config/X11/XCompose linguist-language=XCompose linguist-detectable=false
 
 # these aren't part of the dotfiles
 .gitattributes linguist-detectable=false
