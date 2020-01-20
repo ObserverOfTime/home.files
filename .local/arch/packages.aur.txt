@@ -21,7 +21,6 @@ opustags
 pandoc-bin
 phpstorm
 pycharm-professional
-python2-neovim
 rar
 shellcheck-static
 snapd

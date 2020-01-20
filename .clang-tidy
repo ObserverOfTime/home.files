@@ -2,6 +2,7 @@
 # See https://clang.llvm.org/extra/clang-tidy/checks/list.html
 # All enabled checks are explicitly defined
 Checks: >
+  -*,
   bugprone-argument-comment,
   bugprone-assert-side-effect,
   bugprone-bool-pointer-implicit-conversion,
@@ -50,6 +51,36 @@ Checks: >
   cert-err60-cpp,
   cert-flp30-c,
   cert-msc51-cpp,
+  clang-analyzer-core.DivideZero,
+  clang-analyzer-core.NonNullParamChecker,
+  clang-analyzer-core.NullDereference,
+  clang-analyzer-core.StackAddrEscapeBase,
+  clang-analyzer-core.StackAddressEscape,
+  clang-analyzer-core.UndefinedBinaryOperatorResult,
+  clang-analyzer-core.VLASize,
+  clang-analyzer-core.uninitialized.Assign,
+  clang-analyzer-core.uninitialized.Branch,
+  clang-analyzer-core.uninitialized.CapturedBlockVariable,
+  clang-analyzer-core.uninitialized.UndefReturn,
+  clang-analyzer-deadcode.DeadStores,
+  clang-analyzer-security.FloatLoopCounter,
+  clang-analyzer-security.insecureAPI.bcmp,
+  clang-analyzer-security.insecureAPI.bcopy,
+  clang-analyzer-security.insecureAPI.bzero,
+  clang-analyzer-security.insecureAPI.getpw,
+  clang-analyzer-security.insecureAPI.gets,
+  clang-analyzer-security.insecureAPI.mktemp,
+  clang-analyzer-security.insecureAPI.rand,
+  clang-analyzer-security.insecureAPI.strcpy,
+  clang-analyzer-security.insecureAPI.vfork,
+  clang-analyzer-unix.API,
+  clang-analyzer-unix.DynamicMemoryModeling,
+  clang-analyzer-unix.Malloc,
+  clang-analyzer-unix.MallocSizeof,
+  clang-analyzer-unix.MismatchedDeallocator,
+  clang-analyzer-unix.cstring.BadSizeArg,
+  clang-analyzer-unix.cstring.CStringModeling,
+  clang-analyzer-unix.cstring.NullArg,
   cppcoreguidelines-avoid-goto,
   cppcoreguidelines-interfaces-global-init,
   cppcoreguidelines-narrowing-conversions,
@@ -147,6 +178,11 @@ WarningsAsErrors: >
   bugprone-string-literal-with-embedded-nul,
   bugprone-suspicious-memset-usage,
   cppcoreguidelines-interfaces-global-init,
+  clang-analyzer-core.DivideZero,
+  clang-analyzer-core.NonNullParamChecker,
+  clang-analyzer-core.NullDereference,
+  clang-analyzer-core.uninitialized.UndefReturn,
+  clang-analyzer-security.insecureAPI.UncheckedReturn,
   hicpp-exception-baseclass,
   misc-non-copyable-objects,
   performance-implicit-conversion-in-loop,
@@ -179,9 +215,11 @@ CheckOptions:
   - key: readability-inconsistent-declaration-parameter-name.Strict
     value: true
   - key: readability-magic-numbers.IgnoredIntegerValues
-    value: "1;2;4;8;10"
+    value: "1;10"
   - key: readability-magic-numbers.IgnoredFloatingPointValues
     value: "1.0"
+  - key: readability-magic-numbers.IgnorePowersOf2IntegerValues
+    value: true
   - key: readability-simplify-boolean-expr.ChainedConditionalReturn
     value: true
   - key: readability-simplify-boolean-expr.ChainedConditionalAssignment

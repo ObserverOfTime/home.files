@@ -28,7 +28,7 @@ reload-threads 4
 save-path "~/Documents/RSS"
 
 # This value will be used as HTTP User-Agent header.
-user-agent "Mozilla/5.0 (X11; Linux x86_64) newsboat/2.15.0"
+user-agent "Mozilla/5.0 (Linux x86_64) newsboat/2.18.0"
 
 # Keybindings {{{
 bind-key j next

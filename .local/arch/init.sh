@@ -88,7 +88,7 @@ unset -f ghdl
 # }}}
 
 # Install bash completions {{{
-DIRECTORY="$XDG_DATA_HOME/bash-completion/completions"
+DIRECTORY="$XDG_DATA_HOME/bash/completions"
 declare -A ALIASES=(
   [adb]=android
   [emulator]=android

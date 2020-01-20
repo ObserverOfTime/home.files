@@ -10,9 +10,9 @@ c.content.headers.accept_language = 'en_GB,en'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.13.2',
-    'Chromium/73.0.3683.105',
-    'qutebrowser/1.8.2'
+    'QtWebEngine/5.14.0',
+    'Chromium/77.0.3865.129',
+    'qutebrowser/1.8.3'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -53,31 +53,37 @@ c.spellcheck.languages = ['en-GB', 'en-US', 'el-GR']
 # List of widgets displayed in the statusbar.
 c.statusbar.widgets = ['keypress', 'url', 'history', 'tabs', 'progress']
 
-# Page(s) to open at the start.
-c.url.start_pages = [  # {{{1
+c.url.start_pages = [
+    # {{{1
     """https://search.disroot.org/?preferences=
-    eJx1lMFu2zAMhp9mvhgZtvWwkw_DimEFBrRY0l0FWmJ
-    szrJoiHIS7-lHJXHsdt3Fhkjx50eKUkQZfRLDwQQ8mg
-    R19Q28YOGYTERhf8BYiaVNO9bv07HwEJoRGqwwbJ63h
-    WcLPi8KRwK1R2cGPzYUpCqo131miHyaql0csYAxseV-
-    8JiwKgT2KAjRttWHIrXYY8ViIRYYXgo9Dhgyi4IaT6G
-    70daRj4IxU8u7T18fwp4CJTRiI3uvlu-73dNWQ49Rzb
-    reRbCdBjz__KHWnrU2tf6ifuOpQ9Ny6nDKUlv0e6N6H
-    HtIxOFiy6w5t4WEDcfJCHq0SX1nxC_Wooi5f3yYUy5N
-    waCloFT7iFgK79MRIpaOosZnJUNZ5sCQjBG2BL7s0RG
-    okQIYcyCHnCnGIIMHaTUitzebGubGY6nmqYRhEGP25M
-    -e-9Epl2kwYITcEGvtJh1Wcg01CgiS1rtaqCPkzxUrT
-    AD_ydePQtaY809dEwSHp7UW2EZ4XHY0iF2iHuWF9uzt
-    SY8ut6cECw77rK3Dh8Hm43PU1GkFP2sv1azJ-EA5y83
-    58bSqQRDdgDoKS2r-rWhvob8RdBNFHUFy66g9RGaT5z
-    P7PWkr41Rmv5C8kNdpogOWL601pXrUIU3X_kzQZrmVf
-    tQrQGBXXIm7iRNLyx2EpaIryRJ66fWNvZ96vQMKlyIE
-    8TrU7q3y52Fqz829Yi2tmN0X8Xn1CumW83qEM-KrbXO
-    04J8A_RpGjiRi9bqvj8NCiKWkONo0xnzWy6hcHhbLDs
-    v8makXlUX6493d59O_iGeW21s039-ix9Syq54et7vi-
-    g7omFVXueL8gm0kTfooem4oJz9sHMTuL4eaCf8=
-    """.replace('\n', '').replace(' ', ''),
-]  # }}}
+    eJx1VU3P2zYM_jXzxUixroedfBg2DCtQ4C2adFeDlmi
+    bjSS6opy83q8fFX_EedNeElgm-XyQoiPK6JLUHOqA1z
+    pBU_0NTrCwTHVEYXfBWImhQz8279K1cBC6ETqsMBy-H
+    gvHBlx-KCwJNA5tPbixoyDVv-QPjs5Y95zOOMkvv_35
+    MmDIVRWydhTOG24T-SoYM36O-xhaCpSwFhPZuTXzD2N
+    QpP7r5aMWuUYNKMgrl3qI_DpVpzhiAWNiw35wmLAqBF
+    oUhGj66tci9eixYjEQCwyPZI_o2lphOXpIxCGzOEUwZ
+    yX19csnxfOsTujpP6fT5-OKr8_HW_ksxEDCjuNUCzo0
+    6e4IBsVAqVhFAEUcxsaRmXFq1UgYTC7VRsRSuE1XiFh
+    ajTQp16sp6dsLQ9JoNgSu9GgJ9LABwX2JMAHU9YUscp
+    YwBhkcSK8lslH5qGPuHJZ6PJUwDEqgJXd7Y6lr0v1xs
+    M1D6Y46lQOiIR0GjJD7EtFa0hNtYs7RdolEbPd5gh5C
+    IlOK6dlBfKa7cVsNspBUV3owZ8_bj0Kmrm9_GdWYQ7r
+    sZK-s7jw7xHMij7KYSWFvk6dMXI0vwYBFn4vfkRdftu
+    iFyfy8OwfTCY_PgTNlvhDuo9-_7oTb0ep87_gKoh1Qh
+    28Tqe8S80LfjDEqu2mf4unVOB7tPeX7VY0v54l5mhzU
+    K0d2X6CFmAGWVvbQRMg_C2SecrpgSbLPWTWvkG3Ua01
+    gdtoSnydOLD2fIewiZ7QfSd48aiN4cNREXEhM0DOXme
+    HG009e72acyhQhiNM7aH9EcJ1qz990FPYRs0sPNR03k
+    vBdXKelvzVyebjzXGu-UbjRXwZnVfwmbM0W_C-Af3DC
+    QIilpDiaNEaUN8PYPfVyXnGGLZb5ZyGqa8ZnM-7J7z9
+    8-P11R3CXZ9ksadZ2pcXbAp4X1LOZc2-3Jbrut2XeH6
+    3U7oF2JxeRx9lZwn-6FlaD1tv8RnS3NOWp4MxuN4ENp
+    WbUVZ4WhWvBLWDGu_Wp8Jh6ttXnl-OpWDY6ZW0zSnH7
+    fBwkTfrVc9xRNu9ysBDP_wMVWr6s
+    """.replace('\n', '').replace(' ', '')
+    # }}}
+]
 
 # Search engines which can be used via the address bar.
 c.url.searchengines = {

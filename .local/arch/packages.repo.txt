@@ -48,6 +48,7 @@ jq
 kcolorchooser
 kde-servicemenu-rootactions
 kdegraphics-thumbnailers
+keepassxc
 kio-extras
 kio-gdrive
 kipi-plugins
@@ -85,10 +86,10 @@ pygmentize
 python-isort
 python-netifaces
 python-pip
+python-poetry
 python-py-cpuinfo
 python-pynvim
 python-sphinx
-python2-pip
 qbittorrent
 qemu
 qutebrowser

@@ -38,6 +38,9 @@
 [difftool]
 	prompt = false
 
+[difftool "meld"]
+	cmd = meld "$REMOTE" "$LOCAL"
+
 [difftool "imgdiff"]
 	cmd = compare "$REMOTE" "$LOCAL" png:- | \
 		montage -geometry 400x -font \
@@ -52,6 +55,9 @@
 
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
 
 [pretty]
 	log = format:%h %s%d [%cn] (%ad)
@@ -138,4 +144,4 @@
 	process = git-lfs filter-process
 	required = true
 
-# vim:set noet sw=4 ts=4:
+# vim:noet:sw=4:ts=4:

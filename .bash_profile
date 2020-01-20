@@ -32,6 +32,10 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 # }}}
 
+# Set the paths used by bash {{{
+export BASH_COMPLETION_USER_DIR="$XDG_DATA_HOME/bash"
+# }}}
+
 # Set the paths used by python {{{
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/__pycache__"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc.py"

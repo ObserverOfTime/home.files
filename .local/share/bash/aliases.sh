@@ -17,6 +17,8 @@ alias gdiff='git diff --no-index'
 alias ultra7z='7z a -t7z -m0=lzma2:d=1024m -mx=9 -md=32m -ms=on -mfb=64 -aoa'
 # vimcat with gruvbox colorscheme
 alias vcat='vimcat -c "colors gruvbox"'
+# Activate virtualenv
+alias venv='. .venv/bin/activate'
 # Use neovim instead of vim
 alias vim='nvim'
 # neovim terminal shell
@@ -49,7 +51,7 @@ alias l1='ls -ANFH1'
 alias l='ls -lhNFHB'
 # }}}
 
-# Add an alert function for long running commands {{{
+# Alert for long running commands {{{
 alert() { # Use like so: sleep 10; alert
   # shellcheck disable=SC2181
   notify-send -u low -i "$( (($?)) && printf error || printf terminal)" \
