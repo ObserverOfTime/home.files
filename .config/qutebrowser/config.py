@@ -36,7 +36,7 @@ c.editor.command = [
 ]
 
 # Default monospace fonts.
-c.fonts.monospace = ','.join((
+c.fonts.web.family.fixed = ','.join((
     'Hack',
     'Fira Code',
     'Code New Roman',

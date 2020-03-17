@@ -149,7 +149,6 @@ Checks: >
   readability-deleted-default,
   readability-implicit-bool-conversion,
   readability-inconsistent-declaration-parameter-name,
-  readability-magic-numbers,
   readability-misleading-indentation,
   readability-misplaced-array-index,
   readability-named-parameter,
@@ -213,12 +212,6 @@ CheckOptions:
   - key: performance-inefficient-string-concatenation.StrictMode
     value: true
   - key: readability-inconsistent-declaration-parameter-name.Strict
-    value: true
-  - key: readability-magic-numbers.IgnoredIntegerValues
-    value: "1;10"
-  - key: readability-magic-numbers.IgnoredFloatingPointValues
-    value: "1.0"
-  - key: readability-magic-numbers.IgnorePowersOf2IntegerValues
     value: true
   - key: readability-simplify-boolean-expr.ChainedConditionalReturn
     value: true

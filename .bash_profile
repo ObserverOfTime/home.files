@@ -51,7 +51,7 @@ export GOPATH="$HOME/.local/go"
 # Set the paths used by ruby {{{
 export GEM_HOME="$HOME/.local/ruby"
 export GEM_SPEC_CACHE="$GEM_HOME/specs"
-export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.6.0"
+export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.7.0"
 export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"

@@ -5,25 +5,38 @@ sudo cp /etc/pacman.conf{,.bak}
 sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
-  -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/'
+  -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/' \
+  -e '$ a [chaotic-aur]\nServer = https://repo.kitsuna.net/x86_64/' \
+  -e '$ a Server = http://lonewolf-builder.duckdns.org/chaotic-aur/x86_64/' \
+  -e '$ a Server = http://chaotic.bangl.de/chaotic-aur/x86_64/'
 # }}}
 
 # Update system and install basic packages {{{
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
-sudo pacman -Syyu
-sudo pacman -S base-devel git aria2 reflector go --noconfirm
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-(cd /tmp/yay && makepkg -sic --noconfirm)
-git clone https://github.com/alfunx/dotfiles.sh \
-  --single-branch --branch=sparse-edit /tmp/dotfiles.sh
-(cd /tmp/dotfiles.sh && sudo make install)
+sudo pacman-key --recv-keys 0x3056513887B78AEB
+sudo pacman -Syyu --noconfirm
+sudo pacman -S git aria2 reflector yay --noconfirm
 # }}}
 
 # Clone dotfiles {{{
-mkdir -p ~/Documents/Code/GitHub
+(cd /tmp; yay -G dotfiles.sh-git)
+pushd /tmp/dotfiles.sh-git >/dev/null
+patch -n PKGBUILD <<'EOF'
+12,13c12,14
+< source=("${pkgname%-git}::git+$url")
+< md5sums=("SKIP")
+---
+> source=("${pkgname%-git}::git+$url" "sparse-edit.patch::$url/pull/10.diff")
+> md5sums=("SKIP" "6ecafcc0206a730aa40cc751435922ef")
+> prepare() (git -C "$srcdir/${pkgname%-git}" apply "$srcdir/sparse-edit.patch")
+EOF
+makepkg -sic
+popd >/dev/null
+rm -r /tmp/dotfiles.sh-git
 dotfiles clone https://github.com/ObserverOfTime/home.files \
-  ~/Documents/Code/GitHub/home.files && dotfiles checkout -f
+  "${XDG_CONFIG_HOME:=$HOME/.config}/dotfiles"
+dotfiles checkout --force
 # }}}
 
 # Rank pacman mirrors {{{
@@ -50,7 +63,7 @@ unset REF_OPTS
 # }}}
 
 # Use aria2 for makepkg & set packager {{{
-NAME="$(awk -F'[:,]' -vu="$USER" '$1 == u {print $5}' /etc/passwd)"
+NAME="$(getent passwd "$USER" | awk -F'[:,]' '{print $5}')"
 PACKAGER="${NAME:-ObserverOfTime} <chronobserver@disroot.org>"
 ARIA='::/usr/bin/aria2c --conf-path=/etc/aria2.conf -o %o %u'
 WGET="$(wget -V | awk 'NR == 1 {print $2"/"$3}')"
@@ -70,25 +83,23 @@ unset NAME PACKAGER ARIA WGET
 # }}}
 
 # Install packages via yay {{{
-# shellcheck disable=SC2046,SC2086
-_yay() (yay -S --$1 --needed ${*:2} $(<~/.local/arch/packages.$1.txt))
-_yay repo --noconfirm && _yay aur
-unset -f _yay
-# }}}
-
-# Install node packages {{{
-yarn global install
+# shellcheck disable=SC2046
+yay -S --repo --needed --noconfirm \
+  $(<~/.local/arch/packages.repo.txt)
+# shellcheck disable=SC2046
+yay -S --aur --needed \
+  $(<~/.local/arch/packages.aur.txt)
 # }}}
 
 # Download binaries from github {{{
-ghdl() (curl -L https://git.io/"$1" -o ~/.local/bin/"$2"; chmod +x "$_")
-ghdl vhMor aria2magnet
-ghdl fjlNS lnk-parse
-unset -f ghdl
+mkdir -p ~/.local/bin
+curl -LSs https://git.io/vhMor -o ~/.local/bin/aria2magnet
+curl -LSs https://git.io/fjlNS -o ~/.local/bin/lnk-parse
+chmod +x ~/.local/bin/{aria2magnet,lnk-parse}
 # }}}
 
 # Install bash completions {{{
-DIRECTORY="$XDG_DATA_HOME/bash/completions"
+DIRECTORY="${XDG_DATA_HOME:=.local/share}/bash/completions"
 declare -A ALIASES=(
   [adb]=android
   [emulator]=android
@@ -101,23 +112,22 @@ declare -A ALIASES=(
   [bundler]=bundle
 )
 mkdir -p "$DIRECTORY"
-raw() (printf 'https://raw.githubusercontent.com/%s' "$1/$2/master/$3")
 aria2c -d "$DIRECTORY" -i - <<EOF
-$(raw mbrubeck android-completion android)
-$(raw clerk67 ffmpeg-completion ffmpeg)
-$(raw gradle gradle-completion gradle-completion.bash)
+https://raw.githubusercontent.com/mbrubeck/android-completion/master/android
+https://raw.githubusercontent.com/clerk67/ffmpeg-completion/master/ffmpeg
+https://raw.githubusercontent.com/gradle/gradle-completion/master/gradle-completion.bash
   out=gradle
-$(raw omakoto go-completion.bash go-completion.bash)
+https://raw.githubusercontent.com/omakoto/go-completion.bash/master/go-completion.bash
   out=go
-$(raw llvm-mirror clang utils/bash-autocomplete.sh)
+https://raw.githubusercontent.com/llvm-mirror/clang/master/utils/bash-autocomplete.sh
   out=clang
-$(raw mernen completion-ruby completion-ruby)
+https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-ruby
   out=ruby
-$(raw mernen completion-ruby completion-gem)
+https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-gem
   out=gem
-$(raw mernen completion-ruby completion-bundle)
+https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-bundle
   out=bundle
-$(raw mernen completion-ruby completion-rake)
+https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-rake
   out=rake
 EOF
 printf 'complete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
@@ -132,31 +142,17 @@ pandoc --bash-completion > "$DIRECTORY/pandoc"
 poetry completions bash > "$DIRECTORY/poetry"
 ln -fvs "$(gem contents travis | grep 'travis.sh$')" "$DIRECTORY/travis"
 ln -fvs /usr/share/fzf/completion.bash "$DIRECTORY/fzf"
-unset -f DIRECTORY ALIASES raw
-# }}}
-
-# Install from github reporisotories {{{
-clone() { hub clone --depth=1 "$@" "/tmp/${1##*/}"; }
-
-clone eli-schwartz/dotfiles.sh
-(cd /tmp/dotfiles.sh && sudo make)
-
-clone rkitover/vimpager
-(cd /tmp/vimpager && sudo make PREFIX=/usr/local docs install)
-
-clone ObserverOfTime/sddm-patema
-sudo -E /tmp/sddm-patema/install.sh
-
-# clone ObserverOfTime/PKGBUILDS
-# TODO: wait for Jguer/yay#694
+unset DIRECTORY ALIASES
 # }}}
 
 # Configure grub {{{
 THEME=/boot/grub/themes/Lain
 SWAP="$(swapon --show=NAME --noheadings)"
 SWAP="${SWAP+ resume=$SWAP}"
-clone ObserverOfTime/grub2-theme-lain
-sudo cp -r /tmp/grub2-theme-lain/Lain "$THEME"
+git clone https://git.disroot.org/chronobserver/grub2-theme-lain \
+  /tmp/grub2-theme-lain --depth=1
+rm -rf /tmp/grub2-theme-lain/{.git*,README.md}
+sudo cp -r /tmp/grub2-theme-lain "$THEME"
 sudo cp /etc/default/grub{,.bak}
 sudo tee /etc/default/grub >/dev/null <<EOF
 GRUB_DEFAULT=0
@@ -172,11 +168,20 @@ GRUB_DISABLE_SUBMENU=true
 GRUB_THEME=$THEME/theme.txt
 GRUB_FONT=$THEME/fonts/DejaVuSansMono14.pf2
 
-# vim:set ft=cfg et sw=4 ts=4:
+# vim:ft=cfg:
 EOF
 sudo cp /boot/grub/grub.cfg{,.bak}
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-unset -f URL THEME SWAP clone
+unset URL THEME SWAP
+# }}}
+
+# Configure SDDM {{{
+git clone https://git.disroot.org/chronobserver/sddm-patema \
+  /tmp/sddm-patema --depth=1
+rm -rf /tmp/sddm-patema/{.git*,README.md}
+sudo cp -r /tmp/sddm-patema /usr/share/sddm/themes/patema
+sudo sed -i /etc/sddm.conf.d/kde_settings.conf \
+  -e 's/^Current=.*$/Current=patema/'
 # }}}
 
 # Make maven use XDG_CACHE_HOME {{{
@@ -210,7 +215,7 @@ Name=dev-edition-default
 IsRelative=1
 Path=6fgcqba8.dev-edition-default
 EOF
-sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<EOF
+sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<'EOF'
 [Trigger]
 Operation = Upgrade
 Type = File
@@ -220,8 +225,15 @@ Target = usr/bin/firefox-developer-edition
 Description = Setting GTK_USE_PORTAL=1 for Firefox...
 When = PostTransaction
 Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"\$@"/-allow-downgrade &/'
+  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"$@"/-allow-downgrade &/'
 EOF
+# }}}
+
+# Set user dirs {{{
+xdg-user-dirs-update --set \
+  TEMPLATES "$HOME/.local/templates"
+xdg-user-dirs-update --set \
+  PUBLICSHARE "$HOME/.local/public"
 # }}}
 
 # Set tty font {{{
@@ -232,7 +244,7 @@ FONT_MAP=8859-2
 EOF
 sudo sed -i /etc/mkinitcpio.conf \
   -re 's/(^HOOKS="[^"]*)"/\1 consolefont"/'
-sudo mkinitcpio -p linux
+sudo mkinitcpio -p linux-zen
 # }}}
 
 # vim:fdm=marker:fdl=0:

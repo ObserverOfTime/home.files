@@ -80,44 +80,11 @@
 	conflicts = diff --name-only --diff-filter=U
 	root = rev-parse --show-toplevel
 	shallow = clone --single-branch --depth=1
-	lab = !git clone git@gitlab.com:"$1" "${@:2}" "#"
-	aur = !git clone aur@aur.archlinux.org:"$1" "${@:2}" "#"
 	repush = !git commit --amend -a --no-edit && git push --force
-	fork-sync = "\
+	fork-sync = "! \
 		git fetch --verbose upstream && git checkout --progress master && \
 		git reset --hard upstream/master && git push --verbose --force"
 	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
-	create-lab = "!f() { \
-		if [ -z \"$GITLAB_TOKEN\" ]; then \
-			if [ -f \"$HOME/.local/tokens/gitlab\" ]; then \
-				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/gitlab\" )\"; \
-			else \
-				printf \"%s%s%s\\n\" \"export GITLAB_TOKEN\" \
-					\"or save it in \\$HOME/.local/tokens/gitlab\" \
-					\"to use this command\" >&2; \
-			fi; \
-		fi; \
-		curl -H \"Content-Type: application/json\" \
-			-H \"Private-Token: $GITLAB_TOKEN\" \
-			-sSX POST https://gitlab.com/api/v4/projects \
-			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; printf '\n';}; f"
-	rename = "!f() { \
-		if [ -z \"$GITHUB_TOKEN\" ]; then \
-			if [ -f \"$HOME/.local/tokens/github\" ]; then \
-				GITHUB_TOKEN=\"$(< \"$HOME/.local/tokens/github\" )\"; \
-			else \
-				printf \"%s%s%s\\n\" \"export GITHUB_TOKEN\" \
-					\"or save it in \\$HOME/.local/tokens/github\" \
-					\"to use this command\" >&2; \
-			fi; \
-		fi; \
-		user=\"${2:-$(git config --get user.name)}\"; \
-		old=\"${3:-$(basename \"$(git rev-parse --show-toplevel)\")}\"; \
-		curl -H \"Content-Type: application/json\" \
-			-H \"Authorization: Token $GITHUB_TOKEN\" \
-			-sSX PATCH \"https://api.github.com/repos/$user/$old\" \
-			-d \"{\\\"name\\\": \\\"${1:?}\\\"}\"; \
-		git remote set-url \"${4:-origin}\" \"https://github.com/$user/$1\";}; f"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/

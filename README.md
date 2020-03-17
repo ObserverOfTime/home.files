@@ -125,7 +125,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Yarn](https://yarnpkg.com/lang/en/)
 
-* [.config/yarn/global/package.json](.config/yarn/global/package.json): package list
 * [.yarnrc](.yarnrc): configuration file
 
 ## [Yay](https://github.com/Jguer/yay)

@@ -3,7 +3,6 @@
     "plugins": ["stylelint-scss"],
     "rules": {
         "at-rule-name-case": "lower",
-        "at-rule-name-space-after": "never",
         "at-rule-semicolon-newline-after": "always",
         "at-rule-semicolon-space-before": "never",
         "block-closing-brace-empty-line-before": "never",
