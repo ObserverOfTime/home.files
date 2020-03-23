@@ -17,13 +17,12 @@ mcomix-gtk3-git
 mkv-extractor-qt
 mpv-bash-completion-git
 nodejs-neovim
-nodejs-pug
+nodejs-pug-cli
 nvimpager-git
 opustags
 pandoc-bin
 protontricks-git
 pug-lint
-pycharm-professional
 sha3sum
 shellcheck-static
 stylelint

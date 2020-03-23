@@ -6,7 +6,7 @@ sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
   -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/' \
-  -e '$ a [chaotic-aur]\nServer = https://repo.kitsuna.net/x86_64/' \
+  -e '$ a \n[chaotic-aur]\nServer = https://repo.kitsuna.net/x86_64/' \
   -e '$ a Server = http://lonewolf-builder.duckdns.org/chaotic-aur/x86_64/' \
   -e '$ a Server = http://chaotic.bangl.de/chaotic-aur/x86_64/'
 # }}}
@@ -15,6 +15,7 @@ sudo sed -i /etc/pacman.conf \
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo pacman-key --recv-keys 0x3056513887B78AEB
+sudo pacman-key --refresh-keys
 sudo pacman -Syyu --noconfirm
 sudo pacman -S git aria2 reflector yay --noconfirm
 # }}}
@@ -72,6 +73,10 @@ user-agent=${WGET:-Wget}
 summary-interval=0
 file-allocation=none
 split=4
+continue=true
+follow-metalink=mem
+metalink-location=gr,de,us,fr,jp
+metalink-preferred-protocol=https
 EOF
 sudo cp /etc/makepkg.conf{,.bak}
 sudo sed -i /etc/makepkg.conf \
@@ -99,7 +104,7 @@ chmod +x ~/.local/bin/{aria2magnet,lnk-parse}
 # }}}
 
 # Install bash completions {{{
-DIRECTORY="${XDG_DATA_HOME:=.local/share}/bash/completions"
+DIRECTORY="${XDG_DATA_HOME:=$HOME/.local/share}/bash/completions"
 declare -A ALIASES=(
   [adb]=android
   [emulator]=android
@@ -147,8 +152,6 @@ unset DIRECTORY ALIASES
 
 # Configure grub {{{
 THEME=/boot/grub/themes/Lain
-SWAP="$(swapon --show=NAME --noheadings)"
-SWAP="${SWAP+ resume=$SWAP}"
 git clone https://git.disroot.org/chronobserver/grub2-theme-lain \
   /tmp/grub2-theme-lain --depth=1
 rm -rf /tmp/grub2-theme-lain/{.git*,README.md}
@@ -158,7 +161,7 @@ sudo tee /etc/default/grub >/dev/null <<EOF
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="profile ipv6.disable=1${SWAP}"
+GRUB_CMDLINE_LINUX_DEFAULT="profile ipv6.disable=1"
 GRUB_CMDLINE_LINUX=""
 GRUB_TERMINAL_INPUT=console
 GRUB_GFXMODE=1600x1200x24
@@ -180,8 +183,8 @@ git clone https://git.disroot.org/chronobserver/sddm-patema \
   /tmp/sddm-patema --depth=1
 rm -rf /tmp/sddm-patema/{.git*,README.md}
 sudo cp -r /tmp/sddm-patema /usr/share/sddm/themes/patema
-sudo sed -i /etc/sddm.conf.d/kde_settings.conf \
-  -e 's/^Current=.*$/Current=patema/'
+sudo mkdir -p /etc/sddm.conf.d
+sudo tee "$_/theme.conf" >/dev/null <<< $'[Theme]\nCurrent=patema'
 # }}}
 
 # Make maven use XDG_CACHE_HOME {{{
@@ -197,25 +200,8 @@ nvim --headless +q >/dev/null
 nvim --headless +PlugInstall +qa >/dev/null
 # }}}
 
-# Setup mozilla profiles {{{
-mkdir -p ~/.thunderbird ~/.mozilla/firefox
-rclone sync -vv Mega:/Thunderbird \
-  ~/.thunderbird/o8q08m34.default
-cat > ~/.thunderbird/profiles.ini <<'EOF'
-[Profile0]
-Name=default
-IsRelative=1
-Path=o8q08m34.default
-EOF
-rclone sync -vv Mega:/Firefox \
-  ~/.mozilla/firefox/6fgcqba8.dev-edition-default
-cat > ~/.mozilla/firefox/profiles.ini <<'EOF'
-[Profile0]
-Name=dev-edition-default
-IsRelative=1
-Path=6fgcqba8.dev-edition-default
-EOF
-sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<'EOF'
+# Set firefox update hook {{{
+sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<EOF
 [Trigger]
 Operation = Upgrade
 Type = File
@@ -225,15 +211,13 @@ Target = usr/bin/firefox-developer-edition
 Description = Setting GTK_USE_PORTAL=1 for Firefox...
 When = PostTransaction
 Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"$@"/-allow-downgrade &/'
+  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"\$@"/-allow-downgrade &/'
 EOF
 # }}}
 
 # Set user dirs {{{
-xdg-user-dirs-update --set \
-  TEMPLATES "$HOME/.local/templates"
-xdg-user-dirs-update --set \
-  PUBLICSHARE "$HOME/.local/public"
+xdg-user-dirs-update --set TEMPLATES "$HOME/.local/templates"
+xdg-user-dirs-update --set PUBLICSHARE "$HOME/.local/public"
 # }}}
 
 # Set tty font {{{

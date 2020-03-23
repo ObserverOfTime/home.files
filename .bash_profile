@@ -102,6 +102,11 @@ export CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 # }}}
 
+# Set the paths used by idea {{{
+export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
+export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea.vmoptions"
+# }}}
+
 # Set the search path for commands {{{
 export PATH="$HOME/.local/bin:\
 /usr/bin:/usr/local/bin:/usr/sbin:\

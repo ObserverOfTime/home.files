@@ -12,7 +12,7 @@ c.content.headers.user_agent = ' '.join((
     '(X11; Linux x86_64)',
     'QtWebEngine/5.14.0',
     'Chromium/77.0.3865.129',
-    'qutebrowser/1.8.3'
+    'qutebrowser/1.10.1'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.

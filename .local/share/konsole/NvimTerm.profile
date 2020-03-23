@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=Gruvbox8
-Font=Hack,12,-1,0,50,0,0,0,0,0,Regular
+Font=Hack,16,-1,0,50,0,0,0,0,0
 LineSpacing=1
 UseFontLineChararacters=true
 

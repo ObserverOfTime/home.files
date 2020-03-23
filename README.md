@@ -83,6 +83,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 * [.config/newsboat/config](.config/newsboat/config): configuration file
 * [.config/newsboat/notif.sh](.config/newsboat/notif.sh): notification wrapper
 
+## [Nvimpager](https://github.com/lucc/nvimpager)
+
+* [.config/nvimpager/init.vim](.config/nvimpager/init.vim): configuration file
+
 ## [Pip](https://pypi.org/project/pip/)
 
 * [.config/pip/pip.conf](.config/pip/pip.conf): configuration file

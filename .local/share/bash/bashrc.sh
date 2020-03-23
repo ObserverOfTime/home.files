@@ -2,7 +2,7 @@
 [[ $- =~ i ]] || return
 
 # Define where cd looks for targets
-[ -d ~/Documents/Code/GitHub ] && CDPATH='.:~/Documents/Code/GitHub'
+[ -d ~/Documents/Code ] && CDPATH='.:~/Documents/Code'
 
 # Set the primary prompt string
 # shellcheck disable=SC2154

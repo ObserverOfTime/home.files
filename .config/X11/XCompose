@@ -246,7 +246,7 @@
 <Multi_key> <asterisk> <0>            : "°" U00B0 # DEGREE SIGN
 <Multi_key> <0> <asterisk>            : "°" U00B0 # DEGREE SIGN
 <Multi_key> <exclam> <bar>            : "¦" U00A6 # BROKEN BAR
-<Multi_key> <bar> <eclam>             : "¦" U00A6 # BROKEN BAR
+<Multi_key> <bar> <exclam>            : "¦" U00A6 # BROKEN BAR
 <Multi_key> <bar> <minus>             : "†" U2020 # DAGGER
 <Multi_key> <bar> <equal>             : "‡" U2021 # DOUBLE DAGGER
 <Multi_key> <bar> <bar>               : "‖" U2016 # DOUBLE VERTICAL LINE

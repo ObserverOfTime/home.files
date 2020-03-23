@@ -86,7 +86,6 @@ kmix
 konsole
 kotlin
 krita
-kwin-lowlatency
 lib32-alsa-plugins
 lib32-ffmpeg
 lib32-mesa-aco-git
@@ -124,7 +123,6 @@ parallel
 pdfjs
 perl-tidy
 plantuml
-plasma-desktop
 ppsspp
 python-isort
 python-netifaces
@@ -133,6 +131,7 @@ python-poetry
 python-py-cpuinfo
 python-pynvim
 python-sphinx
+python-urwid
 qbittorrent
 qemu
 qutebrowser
@@ -151,6 +150,7 @@ spectacle
 sshfs
 steam
 syncplay
+terminus-font
 texlive-langgreek
 texlive-latexextra
 thunderbird
@@ -166,9 +166,6 @@ wine
 words
 xclip
 xdg-user-dirs
-xf86-video-amdgpu
-xf86-video-intel
-xorg-server
 yarn
 yay
 youtube-dl

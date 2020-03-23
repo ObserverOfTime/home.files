@@ -15,7 +15,7 @@
 	program = gpg2
 
 [commit]
-	gpgSign = false
+	gpgSign = true
 	status = true
 
 [status]

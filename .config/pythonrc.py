@@ -4,7 +4,7 @@ import readline
 import sys
 
 histfile = os.path.join(os.getenv(
-    'XDG_CACHE_HOME', os.path.expanduser('~/.config')
+    'XDG_CACHE_HOME', os.path.expanduser('~/.cache')
 ), '.python_history')
 
 try:
