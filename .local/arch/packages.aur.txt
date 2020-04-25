@@ -8,7 +8,6 @@ google-java-format
 gulp-cli
 htmlhint
 hyperfine-bin
-iridium-deb
 kde-thumbnailer-apk
 korla-icon-theme
 lab-bin
@@ -27,9 +26,7 @@ sha3sum
 shellcheck-static
 stylelint
 svgo
-syncplay-git
 trackma-git
-ttf-ms-fonts
 ttf-twemoji-color
 vale-bin
 waifu2x-ncnn-vulkan-git

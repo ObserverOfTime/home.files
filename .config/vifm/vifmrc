@@ -25,16 +25,16 @@ set fillchars=vborder:┊
 set grepprg=rg\ --color=never\ -Hn\ %i\ %a\ %s
 
 " Use fd instead of find
-set findprg=fd\ --color=never\ %a\ %s
+set findprg=fd\ --color=never\ %p\ %s
 
 " What should be saved automatically between vifm runs
-set vifminfo=chistory,shistory,bookmarks,bmarks
+set vifminfo=chistory,shistory
 
 " Maximum number of stored items in all histories
 set history=100
 
 " Path to trash directory
-set trashdir=~/.Trash
+set trashdir=~/.cache/trash
 
 " Ignore case in search patterns unless
 " it contains at least one uppercase letter
@@ -58,6 +58,9 @@ set statusline='  %t%= %A %10u:%-7g %15E %20d '
 " Selected color scheme
 colorscheme ph
 
+" Set --login flag for bash shell
+let $SHELL = '/bin/bash --login'
+
 " Single pane when started via vim plugin
 if $MYVIMRC != '' | only | endif
 " }}}
@@ -73,10 +76,11 @@ if $MYVIMRC != '' | only | endif
 " %d the current directory name
 " %D the other window directory name
 " %m run the command in a menu window
-command! df df -h %m 2>/dev/null
-command! diff nvim -d %f %F
+command! df df -h %a %m
+command! diff diff %a %b %m
 command! make !!make %a
-command! run !!./%f
+command! run !!./%f %a
+command! vdiff nvim -d %a %b
 " }}}
 
 " File types {{{
@@ -87,15 +91,19 @@ command! run !!./%f
 " Documents {{{
 filextype *.pdf,*.epub
     \ {Zathura} zathura %f %i &,
-    \ {Okular} okular %f &,
-    \ {MComix} mcomix %f &,
-    \ {QComicBook} qcomicbook %f &
-filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx
-    \ {Libre Office} libreoffice %f &
+    \ {Okular} okular %f %i &,
+    \ {MComix} mcomix %f %i &
+filextype *.doc,*.docx,*.odt
+    \ {Calligra} calligrawords %f %i &
+filextype *.ppt,*.pptx,*.odp
+    \ {Calligra} calligrastage %f %i &
+filextype *.xls,*.xlsx,*.csv
+    \ {Calligra} calligrasheets %f %i &
 fileviewer *.pdf pdftotext -nopgbrk %c -
-fileviewer *.epub epub2txt %c
-fileviewer *.docx docx2txt %f -
-fileviewer *.odt odt2txt %f
+fileviewer *.epub pandoc -f epub -t plain %c
+fileviewer *.docx pandoc -f docx -t plain %c
+fileviewer *.odt pandoc -f odt -t plain %c
+fileviewer *.ipynb pandoc -f ipynb -t gfm %c
 " }}}
 
 " Audio {{{
@@ -115,22 +123,6 @@ filetype *.aac,
     \*.wav,
     \*.xspf
     \ {MPV} mpv %f &
-filextype *.aac,
-    \*.au,
-    \*.axa,
-    \*.flac,
-    \*.mid,
-    \*.midi,
-    \*.mka,
-    \*.mp3,
-    \*.mpc,
-    \*.oga,
-    \*.ogg,
-    \*.ra,
-    \*.spx,
-    \*.wav,
-    \*.xspf
-    \ {SMPlayer} smplayer %f &
 fileviewer *.aac,
     \*.au,
     \*.axa,
@@ -182,8 +174,7 @@ filextype *.anx,
     \*.xcf,
     \*.xwd,
     \*.yuv
-    \ {MPV} mpv %f &,
-    \ {SMPlayer} smplayer %f &
+    \ {MPV} mpv %f &
 fileviewer *.anx,
     \*.asf,
     \*.avi,
@@ -238,6 +229,41 @@ filextype *.apng,
     \*.pgm,
     \*.png,
     \*.ppm,
+    \*.tga,
+    \*.tif,
+    \*.tiff,
+    \*.webp,
+    \*.xbm,
+    \*.xpm
+    \ {ImageMagick} display %f %i &,
+    \ {Eye of Gnome} eog %f %i &,
+    \ {Gwenview} gwenview %f %i &,
+    \ {GIMP} gimp %f %i &,
+    \ {Krita} krita %f %i &
+filextype *.svg,*.svgz
+    \ {ImageMagick} display %f %i &,
+    \ {Eye of Gnome} eog %f %i &,
+    \ {Gwenview} gwenview %f %i &,
+    \ {Inkscape} inkscape %f %i &,
+    \ {Karbon} karbon %f %i &
+fileviewer *.apng,
+    \*.bmp,
+    \*.gif,
+    \*.ico,
+    \*.icon,
+    \*.j2k,
+    \*.jp2,
+    \*.jpeg,
+    \*.jpf,
+    \*.jpg,
+    \*.jpm,
+    \*.jpx,
+    \*.mng,
+    \*.pbm,
+    \*.pcx,
+    \*.pgm,
+    \*.png,
+    \*.ppm,
     \*.svg,
     \*.svgz,
     \*.tga,
@@ -246,8 +272,7 @@ filextype *.apng,
     \*.webp,
     \*.xbm,
     \*.xpm
-    \ {Eye of Gnome} eog %f &,
-    \ {Gwenview} gwenview %f &
+    \ identify %c
 " }}}
 
 " Archives {{{
@@ -266,98 +291,119 @@ filextype *.7z,
     \*.tar.bz2,
     \*.tar.gz,
     \*.tar.xz,
+    \*.tar.zst,
     \*.tbz2,
     \*.tgz,
     \*.txz,
     \*.war,
     \*.zip
-    \ {Ark} ark %f &,
-    \ {7zFM} 7zFM %f &,
-    \ {File Roller} file-roller %f &
+    \ {Ark} ark %f %i &
 filextype *.7z,
     \*.cb7,
     \*.cbr,
     \*.cbz,
     \*.rar,
     \*.zip
-    \ {MComix} mcomix %f &,
-    \ {Zathura} zathura %f &,
-    \ {QComicBook} qcomicbook %f &
-" filetype *.deb {Install} sudo dpkg -i %f
-" filetype *.rpm {Install} sudo dnf install %f
-filetype *.pkg.tar,*.pkg.tar.* {Install} yay -U %f
-fileviewer *.7z 7z l %c
+    \ {MComix} mcomix %f %i &,
+    \ {Zathura} zathura %f %i &
+filetype *.7z,*.cb7 {Extract} 7z x %f
+filetype *.asar {Extract} asar e %f %f:r
+filetype *.rar,*.cbr {Extract} unrar %f
+filetype *.tar {Extract} tar xf %f
+filetype *.tar.br {Extract} tar -I brotli -xf %f
+filetype *.tar.bz2,*.tbz2 {Extract} tar xjf %f
+filetype *.tar.gz,*.tgz {Extract} tar xzf %f
+filetype *.tar.xz,*.txz {Extract} tar xJf %f
+filetype *.tar.zst {Extract} tar -I zst -xf %f
+filetype *.apk,
+    \*.cbz,
+    \*.ear,
+    \*.jar,
+    \*.oxt,
+    \*.war,
+    \*.zip
+    \ {Extract} unzip %f
+filetype *.pkg.tar,*.pkg.tar.*
+    \ {Install} sudo pacman -U %f
+fileviewer *.7z,*.cb7 7z l %c
 fileviewer *.asar asar l %c
-fileviewer *.rar unrar v %c
+fileviewer *.rar,*.cbr unrar v %c
 fileviewer *.tar tar tf %c
+fileviewer *.tar.br tar -I brotli -tf %c
 fileviewer *.tar.bz2,*.tbz2 tar tjf %c
 fileviewer *.tar.gz,*.tgz tar tzf %c
 fileviewer *.tar.xz,*.txz tar tJf %c
-fileviewer *.zip,*.jar,*.war,*.ear,*.apk,*.oxt zip -sf %c
+fileviewer *.tar.zst tar -I zst -tf %c
+fileviewer *.apk,
+    \*.cbz,
+    \*.ear,
+    \*.jar,
+    \*.oxt,
+    \*.war,
+    \*.zip
+    \ zip -sf %c
 " }}}
 
 " Web {{{
 filextype *.html,*.htm
-        \ {Qutebrowser} qutebrowser %f %i &,
-        \ {Firefox} firefox %f &,
-        \ {Iridium} iridium %f &
+    \ {qutebrowser} qutebrowser -- %f %i &,
+    \ {Firefox} firefox -- %f %i &,
+    \ {Chromium} chromium -- %f %i &
 " }}}
 
 " Hashes {{{
-filetype *.md5 {Check MD5 hash} md5sum -c %f %S
-filetype *.sha1 {Check SHA1 hash} sha1sum -c %f %S
-filetype *.sha256 {Check SHA256 hash} sha256sum -c %f %S
-filetype *.sha512 {Check SHA512 hash} sha512sum -c %f %S
+filetype *.md5 {Verify} md5sum -c %f %S
+filetype *.sha1 {Verify} sha1sum -c %f %S
+filetype *.sha256 {Verify} sha256sum -c %f %S
+filetype *.sha512 {Verify} sha512sum -c %f %S
 " }}}
 
 " Torrents {{{
 filetype *.torrent {Aria2} aria2c %f &
-filextype *.torrent {Deluge} deluge %f &
+filextype *.torrent {qBittorrent} qbittorent %f %i &
 fileviewer *.torrent dump_torrent -v %c
 " }}}
 
 " GPG files {{{
-filetype *.asc,*.sig {Check signature} gpg2 --verify %c
-fileviewer *.gpg gpg2 --decrypt %f
+filetype *.asc,*.sig {Verify} gpg --verify %c
+fileviewer *.gpg gpg --decrypt %c
 " }}}
 
-" Binaries & objects {{{
-filextype *.out,*.exe,*.bin okteta %f &
+" Binary files {{{
+filextype *.out,*.exe,*.bin {Okteta} okteta %f %i &
+filextype *.class
+    \ {Okteta} okteta %f %i &,
+    \ {Decompile} cfr %f --outputdir %d %i &
 fileviewer *.out,*.exe,*.bin xxd -u %c
+fileviewer *.class cfr %c
+fileviewer *.lnk pylnker %c
 fileviewer *.o nm %c
 " }}}
 
 " IDE projects {{{
 filextype *.pro
-    \ {Qt Creator} qtcreator %f &,
-    \ {CLion} clion %d &
+    \ {Qt Creator} qtcreator %f %i &,
+    \ {CLion} clion %d %i &
 filextype .idea/
-    \ {CLion} clion %d &,
-    \ {IntelliJ} intellij-idea-ultimate-edition %d &,
-    \ {PhpStorm} phpstorm %d &,
-    \ {PyCharm} pycharm %d &,
-" }}}
-
-" Directories {{{
-filextype */
-    \ {Dolphin} dolphin %f &,
-    \ {Gwenview} gwenview %f &,
-    \ {SMPlayer} smplayer ^f &,
-    \ {MPV} mpv %f &
+    \ {IntelliJ} intellij-idea-ultimate-edition %d %i &,
+    \ {CLion} clion %d %i &,
+    \ {PhpStorm} phpstorm %d %i &,
+    \ {PyCharm} pycharm %d %i &
 " }}}
 
 " Other {{{
+filextype */
+    \ {Dolphin} dolphin %f %i &,
+    \ {Gwenview} gwenview %f %i &,
+    \ {MPV} mpv %f &
 filetype * {Default} xdg-open
 " }}}
-
 " }}}
 
 " Marks {{{
-mark g ~/Documents/Code/GitHub/
+mark c ~/Documents/Code/
 mark h ~/
 mark t /tmp/
-mark u ~/Windows/
-mark w /media/windows/
 " }}}
 
 " Mappings {{{
@@ -365,7 +411,7 @@ mark w /media/windows/
 nnoremap S :shell<CR>
 
 " Start terminal in current directory
-nnoremap T :!konsole --workdir "%d" &<CR>
+nnoremap T :!konsole --workdir %d %i &<CR>
 
 " Display sorting dialog
 nnoremap s :sort<CR>
@@ -378,10 +424,16 @@ nnoremap w :view<CR>
 vnoremap w :view<CR>gv
 
 " Yank current directory path into the clipboard
-nnoremap yd :!xclip %i <<< "%d"<CR>
+nnoremap yd :!printf -- %d | xclip -sel c %i<CR>
 
 " Yank current file path into the clipboard
-nnoremap yf :!xclip %i <<< "%c:p"<CR>
+nnoremap yf :!printf -- %c:p | xclip -sel c %i<CR>
+
+" Yank current file contents into the clipboard
+nnoremap yc :!xlip -sel c -i %c %i<CR>
+
+" Open filetype dialog
+nnoremap o :file<CR>
 
 " Quit vifm
 nnoremap Q :quit<CR>

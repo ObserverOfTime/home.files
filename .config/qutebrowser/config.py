@@ -10,9 +10,9 @@ c.content.headers.accept_language = 'en_GB,en'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.14.0',
+    'QtWebEngine/5.14.2',
     'Chromium/77.0.3865.129',
-    'qutebrowser/1.10.1'
+    'qutebrowser/1.10.2'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -88,7 +88,7 @@ c.url.start_pages = [
 # Search engines which can be used via the address bar.
 c.url.searchengines = {
     'DEFAULT': c.url.start_pages[0] + '&q={}',
-    'G': 'https://google.com/?q={}',
+    'G': 'https://google.com/search?q={}',
     'Q': 'https://qwant.com/?q={}'
 }
 

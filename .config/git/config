@@ -8,11 +8,11 @@
 	pager = ${PAGER:-nvimpager}
 	whitespace = tabwidth=4,cr-at-eol
 
+[advice]
+	detachedHead = false
+
 [credential]
 	helper = store
-
-[gpg]
-	program = gpg2
 
 [commit]
 	gpgSign = true
@@ -20,6 +20,27 @@
 
 [status]
 	submoduleSummary = 1
+
+[tar "tar.gz"]
+	command = gzip -c -f -n
+
+[tar "tgz"]
+	command = gzip -c -f -n
+
+[tar "tar.bz2"]
+	command = bzip2 -c -f
+
+[tar "tar.xz"]
+	command = xz -c -z -
+
+[tar "tar.zst"]
+	command = zstd -c -z -q -
+
+[tar "tar.lz"]
+	command = lzip -c -f
+
+[tar "tar.lz4"]
+	command = lz4 -q
 
 [color "diff"]
 	meta = yellow

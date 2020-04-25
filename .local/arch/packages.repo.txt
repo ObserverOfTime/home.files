@@ -46,7 +46,6 @@ git-lfs
 glances
 gnupg
 go
-goldendict
 gradle
 grunt-cli
 gst-plugins-bad
@@ -111,9 +110,12 @@ networkmanager-pptp
 newsboat
 node-gyp
 nodejs
+noto-fonts-cjk
 ntfs-3g
 okteta
 okular
+openjdk-doc
+openjdk8-doc
 optipng
 otf-fantasque-sans-mono
 otf-fira-code
@@ -134,6 +136,7 @@ python-sphinx
 python-urwid
 qbittorrent
 qemu
+qt5-imageformats
 qutebrowser
 r
 rclone
@@ -156,6 +159,8 @@ texlive-latexextra
 thunderbird
 tor-browser
 ttf-hack
+ttf-lato
+ungoogled-chromium
 unzip
 valgrind
 vifm
@@ -165,7 +170,9 @@ whois
 wine
 words
 xclip
+xdg-desktop-portal-kde
 xdg-user-dirs
+xdotool
 yarn
 yay
 youtube-dl

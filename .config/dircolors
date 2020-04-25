@@ -106,6 +106,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .z    38;5;247
 .zip  38;5;247
 .zoo  38;5;247
+.zst  38;5;247
 # }}}
 
 # image formats (magenta) {{{

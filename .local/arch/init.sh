@@ -115,6 +115,8 @@ declare -A ALIASES=(
   [godoc]=go
   [gradlew]=gradle
   [bundler]=bundle
+  [mvnDebug]=mvn
+  [mvnw]=mvn
 )
 mkdir -p "$DIRECTORY"
 aria2c -d "$DIRECTORY" -i - <<EOF
@@ -134,6 +136,8 @@ https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-bundl
   out=bundle
 https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-rake
   out=rake
+https://raw.githubusercontent.com/juven/maven-bash-completion/master/bash_completion.bash
+  out=mvn
 EOF
 printf 'complete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
 printf 'complete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"

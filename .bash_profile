@@ -74,7 +74,8 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # }}}
 
 # Set the paths used by android {{{
-export ANDROID_SDK_HOME="$HOME/.local/android"
+export ANDROID_HOME="$HOME/.local/android"
+export ANDROID_SDK_HOME="$ANDROID_HOME/sdk"
 export ANDROID_SDK_ROOT="$ANDROID_SDK_HOME"
 export ANDROID_EMULATOR_HOME="$ANDROID_SDK_HOME"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
@@ -102,9 +103,23 @@ export CCACHE_DIR="$XDG_CACHE_HOME/ccache"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 # }}}
 
-# Set the paths used by idea {{{
+# Set the paths used by docker {{{
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+# }}
+
+# Set the paths used by texlive  {{{
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFVAR="$XDG_CACHE_HOME/texmf"
+# }}}
+
+# Set the paths used by jetbrains {{{
 export IDEA_PROPERTIES="$XDG_CONFIG_HOME/intellij-idea/idea.properties"
 export IDEA_VM_OPTIONS="$XDG_CONFIG_HOME/intellij-idea/idea.vmoptions"
+export CLION_PROPERTIES="$XDG_CONFIG_HOME/clion/clion.properties"
+export CLION_VM_OPTIONS="$XDG_CONFIG_HOME/clion/clion.vmoptions"
+export PYCHARM_PROPERTIES="$XDG_CONFIG_HOME/pycharm/charm.properties"
+export PYCHARM_VM_OPTIONS="$XDG_CONFIG_HOME/pycharm/charm.vmoptions"
 # }}}
 
 # Set the search path for commands {{{
