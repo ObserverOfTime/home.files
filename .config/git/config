@@ -18,6 +18,9 @@
 	gpgSign = true
 	status = true
 
+[pull]
+	ff = only
+
 [status]
 	submoduleSummary = 1
 
@@ -33,6 +36,8 @@
 [tar "tar.xz"]
 	command = xz -c -z -
 
+[pull]
+	ff = only
 [tar "tar.zst"]
 	command = zstd -c -z -q -
 
@@ -103,19 +108,24 @@
 	shallow = clone --single-branch --depth=1
 	repush = !git commit --amend -a --no-edit && git push --force
 	fork-sync = "! \
-		git fetch --verbose upstream && git checkout --progress master && \
-		git reset --hard upstream/master && git push --verbose --force"
+		git fetch --verbose ${1:-upstream} && git checkout --progress master && \
+		git reset --hard ${1:-upstream}/master && git push --verbose --force"
 	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
 
-[url "git@github.com:"]
+[url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 	insteadOf = http://github.com/
 	insteadOf = @gh:
 
-[url "git@gitlab.com:"]
+[url "ssh://git@gitlab.com/"]
 	insteadOf = https://gitlab.com/
 	insteadOf = http://gitlab.com/
 	insteadOf = @gl:
+
+[url "ssh://git@git.disroot.org/"]
+	insteadOf = https://git.disroot.org/
+	insteadOf = http://git.disroot.org/
+	insteadOf = @disroot:
 
 [url "ssh://aur@aur.archlinux.org/"]
 	insteadOf = https://aur.achlinux.org/
@@ -125,11 +135,5 @@
 [url "https://bitbucket.org/"]
 	insteadOf = http://bitbucket.org/
 	insteadOf = @bb:
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 
 # vim:noet:sw=4:ts=4:

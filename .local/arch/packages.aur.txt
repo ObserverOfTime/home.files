@@ -7,7 +7,6 @@ exe-thumbnailer
 google-java-format
 gulp-cli
 htmlhint
-hyperfine-bin
 kde-thumbnailer-apk
 korla-icon-theme
 lab-bin

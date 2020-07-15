@@ -15,7 +15,7 @@ count() { # Counts the number of characters in a string
   printf '%d\n' "${#1}"
 }
 
-trim() { # Trim leading and trailing whitespace
+trim() { # Trims leading and trailing whitespace
   __usage $# 1 '<string>' && return 1
   : "${1#"${1%%[![:space:]]*}"}"
   : "${_%"${_##*[![:space:]]}"}"
@@ -108,24 +108,24 @@ cht() { # Searches cht.sh cheatsheet
   : "${*:2}"; curl -sS4 "cht.sh/$1/${_// /+})?Q"
 }
 
-weather() { # Show weather info from wttr.in
+weather() { # Shows weather info from wttr.in
   __usage $# 1 '<place> [country]' && return 1
   curl -sS4 "wttr.in/~${1}+${2:-Greece}" | head -n -2
 }
 
 sri() { # Prints the SRI hash of a resource
-  __usage $# 1 '<URL> [algorithm]' && return 1
+  __usage $# 1 '<URL> [bits]' && return 1
   printf 'sha%d-%s\n' "${2:-384}" \
     "$(curl -Ss "$1" | shasum -ba "${2:-384}" - | xxd -r -p | base64)"
 }
 
 myip() { # What's my ip
-  dig +short myip.opendns.com @resolver1.opendns.com
+   drill myip.opendns.com @resolver1.opendns.com | awk '/^myip/{print $NF}'
 }
 
 urlencode() { # Encodes string for url
   __usage $# 1 '<string>' && return 1
-  declare LANG=C len="${#1}" char i
+  declare LANG=C len=${#1} char i
   for ((i = 0; i < len; ++i)); do
     char="${1:i:1}"
     case $char in
@@ -155,6 +155,11 @@ pwned() { # Checks if a password has been compromised
   for tmp in "${results[@]}"; do
     [ "${tmp%:*}" != "${pass^^}" ] || printf '%s\n' "$tmp"
   done
+}
+
+iso2usb() { # Writes an iso to a usb device
+  __usage $# 2 '<iso> <usb> [bs]' && return 1
+  sudo dd if="$1" of="$2" status=progress bs="${3:-4M}" oflag=sync
 }
 
 # vim:fdm=syntax:fdl=0:

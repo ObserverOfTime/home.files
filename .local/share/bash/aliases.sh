@@ -1,6 +1,8 @@
 # Aliases {{{
 # Go to parent directory
 alias ..='cd ..'
+# Go to previous directory
+alias -- -='cd -'
 # Copy from file to clipboard
 alias fcopy='xclip -sel c -i'
 # ffprobe without banner
@@ -8,21 +10,17 @@ alias ffprobe='ffprobe -hide_banner'
 # ffmpeg without banner
 alias ffmpeg='ffmpeg -hide_banner'
 # Paste to file from clipboard
-alias fpaste='xclip -sel -c -o > '
+alias fpaste='xclip -sel c -o > '
 # fzf with preview
-alias fzfp='fzf --preview "rougify --theme base16.monokai.dark {}"'
+alias fzfp='fzf --preview rougify\ -tbase16.dark\ {}'
 # git diff for regular files
 alias gdiff='git diff --no-index'
 # maximum 7z compression
 alias ultra7z='7z a -t7z -m0=lzma2:d=1024m -mx=9 -md=32m -ms=on -mfb=64 -aoa'
-# vimcat with gruvbox colorscheme
-alias vcat='vimcat -c "colors gruvbox"'
 # Activate virtualenv
 alias venv='. .venv/bin/activate'
-# Use neovim instead of vim
-alias vim='nvim'
 # neovim terminal shell
-alias vish='nvim +term'
+alias vish='SHELL=/bin/bash\ -l nvim +term'
 # maximum zip compression
 alias zip-max='7z a -tzip -mm=Deflate -mx=9 -mfb=128 -mpass=10 -aoa'
 # }}}
@@ -58,8 +56,5 @@ alert() { # Use like so: sleep 10; alert
     "$(history | sed -e '$!d;s/^[^}]\+}\s*//;s/[;&|]\s*alert$//')"
 }
 # }}}
-
-# Functions kept separately
-test -f "$XDG_DATA_HOME/bash/functions.sh" && . "$_"
 
 # vim:fdm=marker:fdl=1:

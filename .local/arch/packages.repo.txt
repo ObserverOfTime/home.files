@@ -60,8 +60,10 @@ hub
 hunspell-el
 hunspell-en_GB
 hunspell-en_US
+hyperfine
 iftop
 imagemagick
+inkscape
 intellij-idea-ultimate-edition
 jdk-openjdk
 jdk8-openjdk
@@ -90,8 +92,8 @@ lib32-ffmpeg
 lib32-mesa-aco-git
 lib32-vulkan-icd-loader
 linux-firmware
-linux-zen
-linux-zen-headers
+linux-tkg-muqss-zen
+linux-tkg-muqss-zen-headers
 lldb
 llvm
 lsof
@@ -111,7 +113,6 @@ newsboat
 node-gyp
 nodejs
 noto-fonts-cjk
-ntfs-3g
 okteta
 okular
 openjdk-doc

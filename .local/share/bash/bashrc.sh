@@ -30,12 +30,6 @@ FIGNORE='~:.o:.swp:.pyc'
 # shellcheck disable=SC2034
 COMP_CONFIGURE_HINTS=1
 
-# Alias definitions
-test -f "$XDG_DATA_HOME/bash/aliases.sh" && . "$_"
-
-# Uni configuration
-test -f ~/.unirc.sh && . "$_"
-
 : # ensure 0 exit code
 
 # vim:wrap:lbr:bri:briopt=shift\:4:

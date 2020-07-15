@@ -1,12 +1,12 @@
 ---
-AccessModifierOffset: 0
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: "Align"
 AlignConsecutiveAssignments: false
 AlignEscapedNewlines: "DontAlign"
 AlignTrailingComments: false
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortFunctionsOnASingleLine: true
-AllowShortIfStatementsOnASingleLine: true
+AllowAllArgumentsOnNextLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: "Inline"
+AllowShortIfStatementsOnASingleLine: "WithoutElse"
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakAfterReturnType: "None"
 AlwaysBreakBeforeMultilineStrings: false
@@ -14,11 +14,12 @@ BinPackArguments: true
 BinPackParameters: true
 BreakBeforeBinaryOperators: "None"
 BreakBeforeBraces: "Attach"
-BreakBeforeTernaryOperators: false
+BreakBeforeTernaryOperators: true
 BreakStringLiterals: true
 ColumnLimit: 80
 CommentPragmas: "https?://"
 DerivePointerAlignment: false
+FixNamespaceComments: true
 IncludeBlocks: "Regroup"
 IncludeCategories:
   - Regex: "^<.*"
@@ -36,8 +37,9 @@ ReflowComments: true
 SortIncludes: true
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: true
+SpaceAfterTemplateKeyword: true
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeParens: "Never"
+SpaceBeforeParens: "ControlStatements"
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 2
 SpacesInCStyleCastParentheses: false
@@ -49,28 +51,22 @@ UseTab: "Never"
 
 ---
 Language: "Cpp"
+AccessModifierOffset: -4
+AllowShortLambdasOnASingleLine: "All"
 AlwaysBreakTemplateDeclarations: "No"
 BreakConstructorInitializers: "AfterColon"
 BreakInheritanceList: "AfterColon"
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 FixNamespaceComments: true
-IncludeCategories:
-  - Regex: "^<.*[.]h"
-    Priority: 1
-  - Regex: "^<.*"
-    Priority: 2
-  - Regex: "^\".*[.]h"
-    Priority: 3
-  - Regex: "^\".*"
-    Priority: 4
 NamespaceIndentation: "All"
+SortUsingDeclarations: true
 SpaceAfterTemplateKeyword: false
-SpaceBeforeCpp11BracedList: false
+SpaceBeforeCpp11BracedList: true
 SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: true
 SpaceBeforeRangeBasedForLoopColon: true
 SpacesInAngles: false
-Standard: "Cpp11"
+Standard: "c++17"
 
 # vim:ft=yaml:

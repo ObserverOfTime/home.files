@@ -55,7 +55,7 @@ Type = Package
 Target = pacman-mirrorlist
 
 [Action]
-Description = Updating pacman-mirrorlist with reflector
+Description = Updating pacman-mirrorlist with reflector...
 When = PostTransaction
 Depends = reflector
 Exec = /usr/bin/reflector ${REF_OPTS[*]}
@@ -163,17 +163,15 @@ sudo cp -r /tmp/grub2-theme-lain "$THEME"
 sudo cp /etc/default/grub{,.bak}
 sudo tee /etc/default/grub >/dev/null <<EOF
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=10
+GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="profile ipv6.disable=1"
 GRUB_CMDLINE_LINUX=""
 GRUB_TERMINAL_INPUT=console
 GRUB_GFXMODE=1600x1200x24
 GRUB_GFXPAYLOAD_LINUX=keep
-GRUB_DISABLE_RECOVERY=true
 GRUB_DISABLE_SUBMENU=true
 GRUB_THEME=$THEME/theme.txt
-GRUB_FONT=$THEME/fonts/DejaVuSansMono14.pf2
 
 # vim:ft=cfg:
 EOF
@@ -209,13 +207,30 @@ sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<EOF
 [Trigger]
 Operation = Upgrade
 Type = File
-Target = usr/bin/firefox-developer-edition
+Target = bin/firefox-developer-edition
 
 [Action]
-Description = Setting GTK_USE_PORTAL=1 for Firefox...
+Description = Making Firefox use KDE dialogs...
 When = PostTransaction
-Exec = /bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/GTK_USE_PORTAL=1 &/;s/"\$@"/-allow-downgrade &/'
+Exec = /usr/bin/sed -i /usr/bin/firefox-developer-edition \
+  -e 's/exec/GTK_USE_PORTAL=1 &/'
+EOF
+# }}}
+
+# Disable wine file associations {{{
+sudo sed -i /usr/share/wine/wine.inf \
+  -e 's/winemenubuilder.exe -a -r/winemenubuilder.exe -r/'
+sudo tee /etc/pacman.d/hooks/wine.hook >/dev/null <<EOF
+[Trigger]
+Operation = Upgrade
+Type = File
+Target = usr/share/wine/wine.inf
+
+[Action]
+Description = Stopping Wine from hijacking file associations...
+When = PostTransaction
+Exec = /usr/bin/sed -i /usr/share/wine/wine.inf \
+  -e 's/winemenubuilder.exe -a -r/winemenubuilder.exe -r/'
 EOF
 # }}}
 
@@ -227,7 +242,7 @@ xdg-user-dirs-update --set PUBLICSHARE "$HOME/.local/public"
 # Set tty font {{{
 sudo tee /etc/vconsole.conf >/dev/null <<'EOF'
 KEYMAP=us
-FONT=ter-v18n
+FONT=ter-v22n
 FONT_MAP=8859-2
 EOF
 sudo sed -i /etc/mkinitcpio.conf \

@@ -14,8 +14,12 @@ test -f ~/.local/tokens/github && export GITHUB_TOKEN="$(<"$_")"
 test -f ~/.local/tokens/gitlab && export GITLAB_TOKEN="$(<"$_")"
 # }}}
 
-# Set the default command used by fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore'
+# Set the default command & options used by fzf {{{
+export FZF_DEFAULT_COMMAND='fd -LIH -tf --color=always'
+export FZF_CTRL_T_COMMAND='fd -LIH -tf'
+export FZF_ALT_C_COMMAND='fd -LIH -td'
+export FZF_DEFAULT_OPTS='--ansi'
+# }}}
 
 # Set the default pager
 export PAGER='nvimpager -p'
@@ -78,7 +82,11 @@ export ANDROID_HOME="$HOME/.local/android"
 export ANDROID_SDK_HOME="$ANDROID_HOME/sdk"
 export ANDROID_SDK_ROOT="$ANDROID_SDK_HOME"
 export ANDROID_EMULATOR_HOME="$ANDROID_SDK_HOME"
+# }}}
+
+# Set the paths used by kotlin {{{
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export KONAN_DATA_DIR="$XDG_DATA_HOME/konan"
 # }}}
 
 # Set the paths used by sqlite {{{
@@ -143,6 +151,9 @@ for t in {konsole,xterm,gnome}-256color; do
 done
 # }}}
 
+# Source fzf keybinds
+test -f /usr/share/fzf/key-bindings.bash && . "$_"
+
 # Specify inputrc
 test -f "$XDG_CONFIG_HOME/inputrc" && export INPUTRC="$_"
 
@@ -151,5 +162,11 @@ test -f "$XDG_CONFIG_HOME/X11/xinitrc" && export XINITRC="$_"
 
 # Source bashrc
 test -f "$XDG_DATA_HOME/bash/bashrc.sh" && . "$_"
+
+# Source aliases
+test -f "$XDG_DATA_HOME/bash/aliases.sh" && . "$_"
+
+# Source functions
+test -f "$XDG_DATA_HOME/bash/functions.sh" && . "$_"
 
 # vim:fdm=marker:fdl=1:

@@ -21,7 +21,7 @@ Parent=FALLBACK/
 ShowTerminalSizeHint=true
 TerminalCenter=true
 TerminalColumns=100
-TerminalMargin=2
+TerminalMargin=5
 TerminalRows=35
 
 [Scrolling]
@@ -30,5 +30,3 @@ ScrollBarPosition=2
 
 [Terminal Features]
 BlinkingCursorEnabled=true
-
-# vim:ft=cfg:

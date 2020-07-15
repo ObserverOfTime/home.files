@@ -242,60 +242,62 @@
 # }}}
 
 # Other symbols {{{
-<Multi_key> <o> <o>                   : "°" U00B0 # DEGREE SIGN
-<Multi_key> <asterisk> <0>            : "°" U00B0 # DEGREE SIGN
-<Multi_key> <0> <asterisk>            : "°" U00B0 # DEGREE SIGN
-<Multi_key> <exclam> <bar>            : "¦" U00A6 # BROKEN BAR
-<Multi_key> <bar> <exclam>            : "¦" U00A6 # BROKEN BAR
-<Multi_key> <bar> <minus>             : "†" U2020 # DAGGER
-<Multi_key> <bar> <equal>             : "‡" U2021 # DOUBLE DAGGER
-<Multi_key> <bar> <bar>               : "‖" U2016 # DOUBLE VERTICAL LINE
-<Multi_key> <p> <exclam>              : "¶" U00B6 # PILCROW SIGN
-<Multi_key> <P> <exclam>              : "¶" U00B6 # PILCROW SIGN
-<Multi_key> <exclam> <exclam>         : "¡" U00A1 # INVERTED EXCLAMATION MARK
-<Multi_key> <question> <question>     : "¿" U00BF # INVERTED QUESTION MARK
-<Multi_key> <exclam> <question>       : "‽" U203D # INTERROBANG
-<Multi_key> <question> <exclam>       : "⸘" U2E18 # INVERTED INTERROBANG
-<Multi_key> <2> <question>            : "⁇" U2047 # DOUBLE QUESTION MARK
-<Multi_key> <question> <bar> <exclam> : "⁈" U2048 # QUESTION EXCLAMATION MARK
-<Multi_key> <exclam> <bar> <question> : "⁉" U2049 # EXCLAMATION QUESTION MARK
-<Multi_key> <2> <exclam>              : "‼" U203C # DOUBLE EXCLAMATION MARK
-<Multi_key> <colon> <colon>           : "∷" U2237 # PROPORTION
-<Multi_key> <j> <comma>               : "、" U3001 # IDEOGRAPHIC COMMA
-<Multi_key> <j> <period>              : "。" U3002 # IDEOGRAPHIC FULL STOP
-<Multi_key> <j> <colon>               : "：" UFF1A # FULLWIDTH COLON
-<Multi_key> <j> <question>            : "？" UFF1F # FULLWIDTH QUESTION MARK
-<Multi_key> <j> <exclam>              : "！" UFF01 # FULLWIDTH EXCLAMATION MARK
-<Multi_key> <s> <o>                   : "§" U00A7 # SECTION SIGN
-<Multi_key> <o> <s>                   : "§" U00A7 # SECTION SIGN
-<Multi_key> <S> <O>                   : "§" U00A7 # SECTION SIGN
-<Multi_key> <O> <S>                   : "§" U00A7 # SECTION SIGN
-<Multi_key> <s> <exclam>              : "§" U00A7 # SECTION SIGN
-<Multi_key> <S> <exclam>              : "§" U00A7 # SECTION SIGN
-<Multi_key> <N> <o>                   : "№" U2116 # NUMERO SIGN
-<Multi_key> <N> <O>                   : "№" U2116 # NUMERO SIGN
-<Multi_key> <F> <less>                : "☚" U261A # BLACK LEFT POINTING INDEX
-<Multi_key> <F> <greater>             : "☛" U261B # BLACK RIGHT POINTING INDEX
-<Multi_key> <f> <less>                : "☜" U261C # WHITE LEFT POINTING INDEX
-<Multi_key> <f> <asciicircum>         : "☝" U261D # WHITE UP POINTING INDEX
-<Multi_key> <f> <greater>             : "☞" U261E # WHITE RIGHT POINTING INDEX
-<Multi_key> <f> <v>                   : "☟" U261F # WHITE DOWN POINTING INDEX
-<Multi_key> <asterisk> <asterisk>     : "★" U2605 # BLACK STAR
-<Multi_key> <asterisk> <0>            : "☆" U2606 # WHITE STAR
-<Multi_key> <asterisk> <x>            : "❄" U2744 # SNOWFLAKE
-<Multi_key> <C> <C> <C> <P>           : "☭" U262D # HAMMER AND SICKLE
-<Multi_key> <h> <s>                   : "☭" U262D # HAMMER AND SICKLE
-<Multi_key> <H> <S>                   : "☭" U262D # HAMMER AND SICKLE
-<Multi_key> <at> <slash>              : "✓" U2713 # CHECK MARK
-<Multi_key> <at> <at> <slash>         : "✔" U2714 # HEAVY CHECK MARK
-<Multi_key> <at> <X>                  : "✗" U2717 # BALLOT X
-<Multi_key> <at> <at> <X>             : "✘" U2718 # HEAVY BALLOT X
-<Multi_key> <o> <f>                   : "♀" U2640 # FEMALE SIGN
-<Multi_key> <o> <m>                   : "♂" U2642 # MALE SIGN
-<Multi_key> <o> <t>                   : "⚥" U26A5 # MALE AND FEMALE SIGN
-<Multi_key> <exclam> <asciicircum>    : "⚠" U26A0 # WARNING SIGN
-<Multi_key> <bar> <asciicircum>       : "☮" U262E # PEACE SYMBOL
-<Multi_key> <y> <y>                   : "☯" U262F # YIN YANG
+<Multi_key> <o> <o>                      : "°" U00B0 # DEGREE SIGN
+<Multi_key> <asterisk> <0>               : "°" U00B0 # DEGREE SIGN
+<Multi_key> <0> <asterisk>               : "°" U00B0 # DEGREE SIGN
+<Multi_key> <exclam> <bar>               : "¦" U00A6 # BROKEN BAR
+<Multi_key> <bar> <exclam>               : "¦" U00A6 # BROKEN BAR
+<Multi_key> <bar> <minus>                : "†" U2020 # DAGGER
+<Multi_key> <bar> <equal>                : "‡" U2021 # DOUBLE DAGGER
+<Multi_key> <bar> <bar>                  : "‖" U2016 # DOUBLE VERTICAL LINE
+<Multi_key> <p> <exclam>                 : "¶" U00B6 # PILCROW SIGN
+<Multi_key> <P> <exclam>                 : "¶" U00B6 # PILCROW SIGN
+<Multi_key> <exclam> <exclam>            : "¡" U00A1 # INVERTED EXCLAMATION MARK
+<Multi_key> <question> <question>        : "¿" U00BF # INVERTED QUESTION MARK
+<Multi_key> <exclam> <question>          : "‽" U203D # INTERROBANG
+<Multi_key> <question> <exclam>          : "⸘" U2E18 # INVERTED INTERROBANG
+<Multi_key> <2> <question>               : "⁇" U2047 # DOUBLE QUESTION MARK
+<Multi_key> <question> <bar> <exclam>    : "⁈" U2048 # QUESTION EXCLAMATION MARK
+<Multi_key> <exclam> <bar> <question>    : "⁉" U2049 # EXCLAMATION QUESTION MARK
+<Multi_key> <2> <exclam>                 : "‼" U203C # DOUBLE EXCLAMATION MARK
+<Multi_key> <colon> <colon>              : "∷" U2237 # PROPORTION
+<Multi_key> <j> <comma>                  : "、" U3001 # IDEOGRAPHIC COMMA
+<Multi_key> <j> <period>                 : "。" U3002 # IDEOGRAPHIC FULL STOP
+<Multi_key> <j> <colon>                  : "：" UFF1A # FULLWIDTH COLON
+<Multi_key> <j> <question>               : "？" UFF1F # FULLWIDTH QUESTION MARK
+<Multi_key> <j> <exclam>                 : "！" UFF01 # FULLWIDTH EXCLAMATION MARK
+<Multi_key> <s> <o>                      : "§" U00A7 # SECTION SIGN
+<Multi_key> <o> <s>                      : "§" U00A7 # SECTION SIGN
+<Multi_key> <S> <O>                      : "§" U00A7 # SECTION SIGN
+<Multi_key> <O> <S>                      : "§" U00A7 # SECTION SIGN
+<Multi_key> <s> <exclam>                 : "§" U00A7 # SECTION SIGN
+<Multi_key> <S> <exclam>                 : "§" U00A7 # SECTION SIGN
+<Multi_key> <N> <o>                      : "№" U2116 # NUMERO SIGN
+<Multi_key> <N> <O>                      : "№" U2116 # NUMERO SIGN
+<Multi_key> <bracketleft> <bracketright> : "▯" U25AF # WHITE VERTICAL RECTANGLE
+<Multi_key> <F> <less>                   : "☚" U261A # BLACK LEFT POINTING INDEX
+<Multi_key> <F> <greater>                : "☛" U261B # BLACK RIGHT POINTING INDEX
+<Multi_key> <f> <less>                   : "☜" U261C # WHITE LEFT POINTING INDEX
+<Multi_key> <f> <asciicircum>            : "☝" U261D # WHITE UP POINTING INDEX
+<Multi_key> <f> <greater>                : "☞" U261E # WHITE RIGHT POINTING INDEX
+<Multi_key> <f> <v>                      : "☟" U261F # WHITE DOWN POINTING INDEX
+<Multi_key> <asterisk> <asterisk>        : "★" U2605 # BLACK STAR
+<Multi_key> <asterisk> <0>               : "☆" U2606 # WHITE STAR
+<Multi_key> <asterisk> <x>               : "❄" U2744 # SNOWFLAKE
+<Multi_key> <C> <C> <C> <P>              : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <h> <s>                      : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <H> <S>                      : "☭" U262D # HAMMER AND SICKLE
+<Multi_key> <at> <slash>                 : "✓" U2713 # CHECK MARK
+<Multi_key> <at> <at> <slash>            : "✔" U2714 # HEAVY CHECK MARK
+<Multi_key> <at> <X>                     : "✗" U2717 # BALLOT X
+<Multi_key> <at> <at> <X>                : "✘" U2718 # HEAVY BALLOT X
+<Multi_key> <o> <f>                      : "♀" U2640 # FEMALE SIGN
+<Multi_key> <o> <m>                      : "♂" U2642 # MALE SIGN
+<Multi_key> <o> <t>                      : "⚥" U26A5 # MALE AND FEMALE SIGN
+<Multi_key> <exclam> <asciicircum>       : "⚠" U26A0 # WARNING SIGN
+<Multi_key> <bar> <asciicircum>          : "☮" U262E # PEACE SYMBOL
+<Multi_key> <y> <y>                      : "☯" U262F # YIN YANG
+<Multi_key> <question> <asciicircum>     : "�" UFFFD # REPLACEMENT CHARACTER
 # }}}
 
 # Greek letters {{{
@@ -532,8 +534,8 @@
 # }}}
 
 # Other letters {{{
-<Multi_key> <acute> <A>       : "Á" U00C1 # LATIN CAPITAL LETTER A WITH ACUTE
-<Multi_key> <A> <acute>       : "Á" U00C1 # LATIN CAPITAL LETTER A WITH ACUTE
+<Multi_key> <apostrophe> <A>       : "Á" U00C1 # LATIN CAPITAL LETTER A WITH ACUTE
+<Multi_key> <A> <apostrophe>       : "Á" U00C1 # LATIN CAPITAL LETTER A WITH ACUTE
 <Multi_key> <asciicircum> <A> : "Â" U00C2 # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
 <Multi_key> <A> <asciicircum> : "Â" U00C2 # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
 <Multi_key> <grave> <A>       : "À" U00C0 # LATIN CAPITAL LETTER A WITH GRAVE
@@ -546,8 +548,8 @@
 <Multi_key> <C> <comma>       : "Ç" U00C7 # LATIN CAPITAL LETTER C WITH CEDILLA
 <Multi_key> <minus> <D>       : "Đ" U0110 # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <D> <minus>       : "Đ" U0110 # LATIN CAPITAL LETTER D WITH STROKE
-<Multi_key> <acute> <E>       : "É" U00C9 # LATIN CAPITAL LETTER E WITH ACUTE
-<Multi_key> <E> <acute>       : "É" U00C9 # LATIN CAPITAL LETTER E WITH ACUTE
+<Multi_key> <apostrophe> <E>       : "É" U00C9 # LATIN CAPITAL LETTER E WITH ACUTE
+<Multi_key> <E> <apostrophe>       : "É" U00C9 # LATIN CAPITAL LETTER E WITH ACUTE
 <Multi_key> <asciicircum> <E> : "Ê" U00CA # LATIN CAPITAL LETTER E WITH CIRCUMFLEX
 <Multi_key> <E> <asciicircum> : "Ê" U00CA # LATIN CAPITAL LETTER E WITH CIRCUMFLEX
 <Multi_key> <grave> <E>       : "È" U00C8 # LATIN CAPITAL LETTER E WITH GRAVE
@@ -558,8 +560,8 @@
 <Multi_key> <E> <quotedbl>    : "Ë" U00CB # LATIN CAPITAL LETTER E WITH DIAERESIS
 <Multi_key> <minus> <H>       : "Ħ" U0126 # LATIN CAPITAL LETTER H WITH STROKE
 <Multi_key> <H> <minus>       : "Ħ" U0126 # LATIN CAPITAL LETTER H WITH STROKE
-<Multi_key> <acute> <I>       : "Í" U00CD # LATIN CAPITAL LETTER I WITH ACUTE
-<Multi_key> <I> <acute>       : "Í" U00CD # LATIN CAPITAL LETTER I WITH ACUTE
+<Multi_key> <apostrophe> <I>       : "Í" U00CD # LATIN CAPITAL LETTER I WITH ACUTE
+<Multi_key> <I> <apostrophe>       : "Í" U00CD # LATIN CAPITAL LETTER I WITH ACUTE
 <Multi_key> <asciicircum> <I> : "Î" U00CE # LATIN CAPITAL LETTER I WITH CIRCUMFLEX
 <Multi_key> <I> <asciicircum> : "Î" U00CE # LATIN CAPITAL LETTER I WITH CIRCUMFLEX
 <Multi_key> <grave> <I>       : "Ì" U00CC # LATIN CAPITAL LETTER I WITH GRAVE
@@ -574,8 +576,8 @@
 <Multi_key> <L> <slash>       : "Ł" U0141 # LATIN CAPITAL LETTER L WITH STROKE
 <Multi_key> <asciitilde> <N>  : "Ñ" U00D1 # LATIN CAPITAL LETTER N WITH TILDE
 <Multi_key> <N> <asciitilde>  : "Ñ" U00D1 # LATIN CAPITAL LETTER N WITH TILDE
-<Multi_key> <acute> <O>       : "Ó" U00D3 # LATIN CAPITAL LETTER O WITH ACUTE
-<Multi_key> <O> <acute>       : "Ó" U00D3 # LATIN CAPITAL LETTER O WITH ACUTE
+<Multi_key> <apostrophe> <O>       : "Ó" U00D3 # LATIN CAPITAL LETTER O WITH ACUTE
+<Multi_key> <O> <apostrophe>       : "Ó" U00D3 # LATIN CAPITAL LETTER O WITH ACUTE
 <Multi_key> <asciicircum> <O> : "Ô" U00D4 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
 <Multi_key> <O> <asciicircum> : "Ô" U00D4 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
 <Multi_key> <grave> <O>       : "Ò" U00D2 # LATIN CAPITAL LETTER O WITH GRAVE
@@ -588,8 +590,8 @@
 <Multi_key> <O> <asciitilde>  : "Õ" U00D5 # LATIN CAPITAL LETTER O WITH TILDE
 <Multi_key> <quotedbl> <O>    : "Ö" U00D6 # LATIN CAPITAL LETTER O WITH DIAERESIS
 <Multi_key> <O> <quotedbl>    : "Ö" U00D6 # LATIN CAPITAL LETTER O WITH DIAERESIS
-<Multi_key> <acute> <U>       : "Ú" U00DA # LATIN CAPITAL LETTER U WITH ACUTE
-<Multi_key> <U> <acute>       : "Ú" U00DA # LATIN CAPITAL LETTER U WITH ACUTE
+<Multi_key> <apostrophe> <U>       : "Ú" U00DA # LATIN CAPITAL LETTER U WITH ACUTE
+<Multi_key> <U> <apostrophe>       : "Ú" U00DA # LATIN CAPITAL LETTER U WITH ACUTE
 <Multi_key> <asciicircum> <U> : "Û" U00DB # LATIN CAPITAL LETTER U WITH CIRCUMFLEX
 <Multi_key> <U> <asciicircum> : "Û" U00DB # LATIN CAPITAL LETTER U WITH CIRCUMFLEX
 <Multi_key> <grave> <U>       : "Ù" U00D9 # LATIN CAPITAL LETTER U WITH GRAVE
@@ -598,16 +600,16 @@
 <Multi_key> <U> <underscore>  : "Ū" U016A # LATIN CAPITAL LETTER U WITH MACRON
 <Multi_key> <quotedbl> <U>    : "Ü" U00DC # LATIN CAPITAL LETTER U WITH DIAERESIS
 <Multi_key> <U> <quotedbl>    : "Ü" U00DC # LATIN CAPITAL LETTER U WITH DIAERESIS
-<Multi_key> <acute> <Y>       : "Ý" U00DD # LATIN CAPITAL LETTER Y WITH ACUTE
-<Multi_key> <Y> <acute>       : "Ý" U00DD # LATIN CAPITAL LETTER Y WITH ACUTE
+<Multi_key> <apostrophe> <Y>       : "Ý" U00DD # LATIN CAPITAL LETTER Y WITH ACUTE
+<Multi_key> <Y> <apostrophe>       : "Ý" U00DD # LATIN CAPITAL LETTER Y WITH ACUTE
 <Multi_key> <asciicircum> <Y> : "Ŷ" U0176 # LATIN CAPITAL LETTER Y WITH CIRCUMFLEX
 <Multi_key> <Y> <asciicircum> : "Ŷ" U0176 # LATIN CAPITAL LETTER Y WITH CIRCUMFLEX
 <Multi_key> <Y> <grave>       : "Ỳ" U1EF2 # LATIN CAPITAL LETTER Y WITH GRAVE
 <Multi_key> <grave> <Y>       : "Ỳ" U1EF2 # LATIN CAPITAL LETTER Y WITH GRAVE
 <Multi_key> <quotedbl> <Y>    : "Ÿ" U0178 # LATIN CAPITAL LETTER Y WITH DIAERESIS
 <Multi_key> <Y> <quotedbl>    : "Ÿ" U0178 # LATIN CAPITAL LETTER Y WITH DIAERESIS
-<Multi_key> <acute> <a>       : "á" U00E1 # LATIN SMALL LETTER A WITH ACUTE
-<Multi_key> <a> <acute>       : "á" U00E1 # LATIN SMALL LETTER A WITH ACUTE
+<Multi_key> <apostrophe> <a>       : "á" U00E1 # LATIN SMALL LETTER A WITH ACUTE
+<Multi_key> <a> <apostrophe>       : "á" U00E1 # LATIN SMALL LETTER A WITH ACUTE
 <Multi_key> <asciicircum> <a> : "â" U00E2 # LATIN SMALL LETTER A WITH CIRCUMFLEX
 <Multi_key> <a> <asciicircum> : "â" U00E2 # LATIN SMALL LETTER A WITH CIRCUMFLEX
 <Multi_key> <grave> <a>       : "à" U00E0 # LATIN SMALL LETTER A WITH GRAVE
@@ -622,8 +624,8 @@
 <Multi_key> <c> <comma>       : "ç" U00E7 # LATIN SMALL LETTER C WITH CEDILLA
 <Multi_key> <minus> <d>       : "đ" U0111 # LATIN SMALL LETTER D WITH STROKE
 <Multi_key> <d> <minus>       : "đ" U0111 # LATIN SMALL LETTER D WITH STROKE
-<Multi_key> <acute> <e>       : "é" U00E9 # LATIN SMALL LETTER E WITH ACUTE
-<Multi_key> <e> <acute>       : "é" U00E9 # LATIN SMALL LETTER E WITH ACUTE
+<Multi_key> <apostrophe> <e>       : "é" U00E9 # LATIN SMALL LETTER E WITH ACUTE
+<Multi_key> <e> <apostrophe>       : "é" U00E9 # LATIN SMALL LETTER E WITH ACUTE
 <Multi_key> <asciicircum> <e> : "ê" U00EA # LATIN SMALL LETTER E WITH CIRCUMFLEX
 <Multi_key> <e> <asciicircum> : "ê" U00EA # LATIN SMALL LETTER E WITH CIRCUMFLEX
 <Multi_key> <grave> <e>       : "è" U00E8 # LATIN SMALL LETTER E WITH GRAVE
@@ -634,8 +636,8 @@
 <Multi_key> <e> <quotedbl>    : "ë" U00EB # LATIN SMALL LETTER E WITH DIAERESIS
 <Multi_key> <minus> <h>       : "ħ" U0127 # LATIN SMALL LETTER H WITH STROKE
 <Multi_key> <h> <minus>       : "ħ" U0127 # LATIN SMALL LETTER H WITH STROKE
-<Multi_key> <acute> <i>       : "í" U00ED # LATIN SMALL LETTER I WITH ACUTE
-<Multi_key> <i> <acute>       : "í" U00ED # LATIN SMALL LETTER I WITH ACUTE
+<Multi_key> <apostrophe> <i>       : "í" U00ED # LATIN SMALL LETTER I WITH ACUTE
+<Multi_key> <i> <apostrophe>       : "í" U00ED # LATIN SMALL LETTER I WITH ACUTE
 <Multi_key> <asciicircum> <i> : "î" U00EE # LATIN SMALL LETTER I WITH CIRCUMFLEX
 <Multi_key> <i> <asciicircum> : "î" U00EE # LATIN SMALL LETTER I WITH CIRCUMFLEX
 <Multi_key> <grave> <i>       : "ì" U00EC # LATIN SMALL LETTER I WITH GRAVE
@@ -650,8 +652,8 @@
 <Multi_key> <l> <slash>       : "ł" U0142 # LATIN SMALL LETTER L WITH STROKE
 <Multi_key> <asciitilde> <n>  : "ñ" U00F1 # LATIN SMALL LETTER N WITH TILDE
 <Multi_key> <n> <asciitilde>  : "ñ" U00F1 # LATIN SMALL LETTER N WITH TILDE
-<Multi_key> <acute> <o>       : "ó" U00F3 # LATIN SMALL LETTER O WITH ACUTE
-<Multi_key> <o> <acute>       : "ó" U00F3 # LATIN SMALL LETTER O WITH ACUTE
+<Multi_key> <apostrophe> <o>       : "ó" U00F3 # LATIN SMALL LETTER O WITH ACUTE
+<Multi_key> <o> <apostrophe>       : "ó" U00F3 # LATIN SMALL LETTER O WITH ACUTE
 <Multi_key> <asciicircum> <o> : "ô" U00F4 # LATIN SMALL LETTER O WITH CIRCUMFLEX
 <Multi_key> <o> <asciicircum> : "ô" U00F4 # LATIN SMALL LETTER O WITH CIRCUMFLEX
 <Multi_key> <grave> <o>       : "ò" U00F2 # LATIN SMALL LETTER O WITH GRAVE
@@ -664,8 +666,8 @@
 <Multi_key> <o> <asciitilde>  : "õ" U00F5 # LATIN SMALL LETTER O WITH TILDE
 <Multi_key> <quotedbl> <o>    : "ö" U00F6 # LATIN SMALL LETTER O WITH DIAERESIS
 <Multi_key> <o> <quotedbl>    : "ö" U00F6 # LATIN SMALL LETTER O WITH DIAERESIS
-<Multi_key> <acute> <u>       : "ú" U00FA # LATIN SMALL LETTER U WITH ACUTE
-<Multi_key> <u> <acute>       : "ú" U00FA # LATIN SMALL LETTER U WITH ACUTE
+<Multi_key> <apostrophe> <u>       : "ú" U00FA # LATIN SMALL LETTER U WITH ACUTE
+<Multi_key> <u> <apostrophe>       : "ú" U00FA # LATIN SMALL LETTER U WITH ACUTE
 <Multi_key> <asciicircum> <u> : "û" U00FB # LATIN SMALL LETTER U WITH CIRCUMFLEX
 <Multi_key> <u> <asciicircum> : "û" U00FB # LATIN SMALL LETTER U WITH CIRCUMFLEX
 <Multi_key> <grave> <u>       : "ù" U00F9 # LATIN SMALL LETTER U WITH GRAVE
@@ -674,8 +676,8 @@
 <Multi_key> <u> <underscore>  : "ū" U016B # LATIN SMALL LETTER U WITH MACRON
 <Multi_key> <quotedbl> <u>    : "ü" U00FC # LATIN SMALL LETTER U WITH DIAERESIS
 <Multi_key> <u> <quotedbl>    : "ü" U00FC # LATIN SMALL LETTER U WITH DIAERESIS
-<Multi_key> <acute> <y>       : "ý" U00FD # LATIN SMALL LETTER Y WITH ACUTE
-<Multi_key> <y> <acute>       : "ý" U00FD # LATIN SMALL LETTER Y WITH ACUTE
+<Multi_key> <apostrophe> <y>       : "ý" U00FD # LATIN SMALL LETTER Y WITH ACUTE
+<Multi_key> <y> <apostrophe>       : "ý" U00FD # LATIN SMALL LETTER Y WITH ACUTE
 <Multi_key> <asciicircum> <y> : "ŷ" U0177 # LATIN SMALL LETTER Y WITH CIRCUMFLEX
 <Multi_key> <y> <asciicircum> : "ŷ" U0177 # LATIN SMALL LETTER Y WITH CIRCUMFLEX
 <Multi_key> <grave> <y>       : "ỳ" U1EF3 # LATIN SMALL LETTER Y WITH GRAVE
