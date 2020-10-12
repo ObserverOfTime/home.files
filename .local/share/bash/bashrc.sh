@@ -6,7 +6,7 @@
 
 # Set the primary prompt string
 # shellcheck disable=SC2154
-PS1='┌──[\[\e[m\]\[\033[38;5;12m\]\t\[\e[m\]\[\e[m\]]──$(test 0 -eq $? || printf "[\033[m\033[38;5;196m$_\033[0m]──")[\[\e[m\]\[\033[38;5;166m\]\u\[\e[m\]\[\e[m\]:\[\e[m\]\[\033[38;5;168m\]\w\[\e[m\]\[\e[m\]\[\033[38;5;150m\]$(b=$(git branch --show-current 2>/dev/null) && (git diff-index --quiet --ignore-submodules HEAD 2>/dev/null && printf " ($b)" || printf " {$b}"))\[\e[m\]]\n└─➤ \$ \[\e[m\]'
+PS1='┌──[\[\e[m\]\[\033[38;5;12m\]\t\[\e[m\]\[\e[m\]]──$(test 0 -eq $? || printf "[\033[m\033[38;5;196m$_\033[0m]──")[\[\e[m\]\[\033[38;5;166m\]\u\[\e[m\]\[\e[m\]:\[\e[m\]\[\033[38;5;168m\]\w\[\e[m\]\[\e[m\]\[\033[38;5;150m\]$(b=$(git branch --show-current 2>/dev/null) && (git diff-index --quiet --ignore-submodules HEAD 2>/dev/null && printf " ($b)" || printf " {$b}"))\[\e[m\]]\n└─${DISPLAY+➤} \$ \[\e[m\]'
 
 # Don't record some commands
 HISTIGNORE='&:[ ]*:cd *:ls:ll:exit:logout:history:clear:bg:fg'

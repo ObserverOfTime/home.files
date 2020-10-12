@@ -93,7 +93,7 @@ c.url.searchengines = {
 }
 
 # Keybindings {{{0
-config.bind('<Ctrl-Shift-I>', 'inspector')
+config.bind('<Ctrl-Shift-I>', 'devtools')
 config.bind(';m', 'spawn mpv {url}')
 config.bind(';M', 'hint links spawn mpv {hint-url}')
 # }}}

@@ -162,4 +162,9 @@ iso2usb() { # Writes an iso to a usb device
   sudo dd if="$1" of="$2" status=progress bs="${3:-4M}" oflag=sync
 }
 
+random() {  # Prints a random number up to a limit
+  __usage $# 1 '<limit>' && return 1
+  printf '%s\n' "$((RANDOM % $1 + 1))"
+}
+
 # vim:fdm=syntax:fdl=0:

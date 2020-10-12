@@ -5,6 +5,7 @@ alsa-utils
 ant
 ark
 autopep8
+base
 base-devel
 bash
 bash-completion
@@ -89,7 +90,7 @@ kotlin
 krita
 lib32-alsa-plugins
 lib32-ffmpeg
-lib32-mesa-aco-git
+lib32-mesa-tkg-git
 lib32-vulkan-icd-loader
 linux-firmware
 linux-tkg-muqss-zen
@@ -100,8 +101,9 @@ lsof
 lua52
 lutris
 maven
+mcomix
 meld
-mesa-aco-git
+mesa-tkg-git
 mkvtoolnix-cli
 mkvtoolnix-gui
 mpv

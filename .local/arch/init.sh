@@ -213,7 +213,7 @@ Target = bin/firefox-developer-edition
 Description = Making Firefox use KDE dialogs...
 When = PostTransaction
 Exec = /usr/bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/GTK_USE_PORTAL=1 &/'
+  -e 's/exec/& env GTK_USE_PORTAL=1/'
 EOF
 # }}}
 

@@ -89,6 +89,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .lzma 38;5;247
 .ora  38;5;247
 .piz  38;5;247
+.pja  38;5;247
 .rar  38;5;247
 .rpm  38;5;247
 .rz   38;5;247
@@ -133,9 +134,10 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .pbm  38;5;13
 .pcx  38;5;13
 .pgm  38;5;13
+.pjg  38;5;13
 .png  38;5;13
-.psd  38;5;13
 .ppm  38;5;13
+.psd  38;5;13
 .svg  38;5;13
 .svgz 38;5;13
 .tga  38;5;13
