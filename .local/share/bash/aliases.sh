@@ -1,23 +1,27 @@
 # Aliases {{{
-# Go to parent directory
+# go to parent directory
 alias ..='cd ..'
-# Go to previous directory
+# go to previous directory
 alias -- -='cd -'
-# Copy from file to clipboard
+# R without save prompt
+alias R='R -q --no-save'
+# copy from file to clipboard
 alias fcopy='xclip -sel c -i'
 # ffprobe without banner
 alias ffprobe='ffprobe -hide_banner'
 # ffmpeg without banner
 alias ffmpeg='ffmpeg -hide_banner'
-# Paste to file from clipboard
+# paste to file from clipboard
 alias fpaste='xclip -sel c -o > '
 # fzf with preview
 alias fzfp='fzf --preview rougify\ -tbase16.dark\ {}'
 # git diff for regular files
 alias gdiff='git diff --no-index'
+# print makefile variable
+alias pmake="make --eval='print-%: ; @echo $'$'*=$'$'($'$'*)'"
 # maximum 7z compression
 alias ultra7z='7z a -t7z -m0=lzma2:d=1024m -mx=9 -md=32m -ms=on -mfb=64 -aoa'
-# Activate virtualenv
+# activate virtualenv
 alias venv='. .venv/bin/activate'
 # neovim terminal shell
 alias vish='SHELL=/bin/bash\ -l nvim +term'

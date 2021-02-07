@@ -149,6 +149,7 @@
 <Multi_key> <slash> <equal>                  : "≠" U2260 # NOT EQUAL TO
 <Multi_key> <equal> <underscore>             : "≡" U2261 # IDENTICAL TO
 <Multi_key> <asciitilde> <equal>             : "≅" U2245 # APPROXIMATELY EQUAL TO
+<Multi_key> <asciitilde> <asciitilde>        : "≈" U2248 # ALMOST EQUAL TO
 <Multi_key> <less> <underscore>              : "≤" U2264 # LESS-THAN OR EQUAL TO
 <Multi_key> <underscore> <less>              : "≤" U2264 # LESS-THAN OR EQUAL TO
 <Multi_key> <greater> <underscore>           : "≥" U2265 # GREATER-THAN OR EQUAL TO

@@ -5,10 +5,9 @@ sudo cp /etc/pacman.conf{,.bak}
 sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
-  -e '$ a [quarry]\nServer = https://pkgbuild.com/~anatolik/quarry/x86_64/' \
-  -e '$ a \n[chaotic-aur]\nServer = https://repo.kitsuna.net/x86_64/' \
-  -e '$ a Server = http://lonewolf-builder.duckdns.org/chaotic-aur/x86_64/' \
-  -e '$ a Server = http://chaotic.bangl.de/chaotic-aur/x86_64/'
+  -e '$ a \n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist'
+sudo curl -LSsfo /etc/pacman.d/chaotic-mirrorlist \
+  'https://aur.archlinux.org/cgit/aur.git/plain/mirrorlist?h=chaotic-mirrorlist'
 # }}}
 
 # Update system and install basic packages {{{
@@ -17,7 +16,7 @@ sudo pacman-key --populate archlinux
 sudo pacman-key --recv-keys 0x3056513887B78AEB
 sudo pacman-key --refresh-keys
 sudo pacman -Syyu --noconfirm
-sudo pacman -S git aria2 reflector yay --noconfirm
+sudo pacman -S git aria2 yay --noconfirm
 # }}}
 
 # Clone dotfiles {{{
@@ -36,46 +35,21 @@ makepkg -sic
 popd >/dev/null
 rm -r /tmp/dotfiles.sh-git
 dotfiles clone https://github.com/ObserverOfTime/home.files \
-  "${XDG_CONFIG_HOME:=$HOME/.config}/dotfiles"
+  "${XDG_DATA_HOME:=$HOME/.local/share}/dotfiles"
 dotfiles checkout --force
-# }}}
-
-# Rank pacman mirrors {{{
-sudo cp /etc/pacman.d/mirrorlist{,.bak}
-REF_OPTS=('--country GR' '--country DE' '--country FR'
-          '--protocol https' '--protocol ftp' '--age 12'
-          '--sort rate' '--save /etc/pacman.d/mirrorlist')
-# shellcheck disable=SC2068
-sudo reflector ${REF_OPTS[@]}
-sudo mkdir -p /etc/pacman.d/hooks
-sudo tee /etc/pacman.d/hooks/mirrorupgrade.hook >/dev/null <<EOF
-[Trigger]
-Operation = Upgrade
-Type = Package
-Target = pacman-mirrorlist
-
-[Action]
-Description = Updating pacman-mirrorlist with reflector...
-When = PostTransaction
-Depends = reflector
-Exec = /usr/bin/reflector ${REF_OPTS[*]}
-EOF
-unset REF_OPTS
 # }}}
 
 # Use aria2 for makepkg & set packager {{{
 NAME="$(getent passwd "$USER" | awk -F'[:,]' '{print $5}')"
-PACKAGER="${NAME:-ObserverOfTime} <chronobserver@disroot.org>"
+PACKAGER="${NAME:=ObserverOfTime} <chronobserver@disroot.org>"
 ARIA='::/usr/bin/aria2c --conf-path=/etc/aria2.conf -o %o %u'
-WGET="$(wget -V | awk 'NR == 1 {print $2"/"$3}')"
 sudo tee /etc/aria2.conf >/dev/null <<EOF
-user-agent=${WGET:-Wget}
 summary-interval=0
 file-allocation=none
 split=4
 continue=true
 follow-metalink=mem
-metalink-location=gr,de,us,fr,jp
+metalink-location=gr,de,us,fr,it
 metalink-preferred-protocol=https
 EOF
 sudo cp /etc/makepkg.conf{,.bak}
@@ -84,23 +58,46 @@ sudo sed -i /etc/makepkg.conf \
   -e "s#'http::.*'#'http$ARIA'#" \
   -e "s#'https::.*'#'https$ARIA'#" \
   -e "s/^#PACKAGER.*/PACKAGER='$PACKAGER'/"
-unset NAME PACKAGER ARIA WGET
+unset NAME PACKAGER ARIA
+# }}}
+
+# Disable wine file associations {{{
+sudo tee /etc/pacman.d/hooks/wine.hook >/dev/null <<EOF
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = File
+Target = usr/share/wine/wine.inf
+
+[Action]
+Description = Disabling wine menu builder...
+When = PostTransaction
+Exec = /bin/sed -i /usr/share/wine/wine.inf \
+  -e 's/winemenubuilder.exe -a -r/winemenubuilder.exe -r/'
+EOF
+# }}}
+
+# Disable netrw file explorer {{{
+sudo tee /etc/pacman.d/hooks/netrw.hook >/dev/null <<EOF
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/share/nvim/runtime/plugin/netrwPlugin.vim
+
+[Action]
+Description = Disabling netrw file explorer...
+When = PostTransaction
+Exec = /bin/sed -e '/FileExplorer/,/END/d' -i \
+  /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+EOF
 # }}}
 
 # Install packages via yay {{{
-# shellcheck disable=SC2046
-yay -S --repo --needed --noconfirm \
-  $(<~/.local/arch/packages.repo.txt)
-# shellcheck disable=SC2046
-yay -S --aur --needed \
-  $(<~/.local/arch/packages.aur.txt)
-# }}}
-
-# Download binaries from github {{{
-mkdir -p ~/.local/bin
-curl -LSs https://git.io/vhMor -o ~/.local/bin/aria2magnet
-curl -LSs https://git.io/fjlNS -o ~/.local/bin/lnk-parse
-chmod +x ~/.local/bin/{aria2magnet,lnk-parse}
+xargs <~/.local/arch/packages.repo.txt \
+  yay -S --repo --needed --noconfirm
+xargs <~/.local/arch/packages.aur.txt \
+  yay -S --aur --needed --noconfirm
 # }}}
 
 # Install bash completions {{{
@@ -149,7 +146,6 @@ grunt --completion=bash > "$DIRECTORY/grunt"
 gulp --completion=bash > "$DIRECTORY/gulp"
 pandoc --bash-completion > "$DIRECTORY/pandoc"
 poetry completions bash > "$DIRECTORY/poetry"
-ln -fvs "$(gem contents travis | grep 'travis.sh$')" "$DIRECTORY/travis"
 ln -fvs /usr/share/fzf/completion.bash "$DIRECTORY/fzf"
 unset DIRECTORY ALIASES
 # }}}
@@ -200,41 +196,39 @@ sudo sed -i /opt/maven/conf/settings.xml \
 # Setup neovim {{{
 nvim --headless +q >/dev/null
 nvim --headless +PlugInstall +qa >/dev/null
+sudo ln -s /usr/bin/nvim /usr/local/bin/vi
+sudo ln -s /usr/bin/nvim /usr/local/bin/vim
 # }}}
 
-# Set firefox update hook {{{
-sudo tee /etc/pacman.d/hooks/firefox.hook >/dev/null <<EOF
-[Trigger]
-Operation = Upgrade
-Type = File
-Target = bin/firefox-developer-edition
+# Create wrapper scripts {{{
+sudo tee /usr/local/bin/jarwrapper >/dev/null <<'EOF'
+#!/bin/sh
 
-[Action]
-Description = Making Firefox use KDE dialogs...
-When = PostTransaction
-Exec = /usr/bin/sed -i /usr/bin/firefox-developer-edition \
-  -e 's/exec/& env GTK_USE_PORTAL=1/'
+exec "${JAVA_HOME:-/usr/lib/jvm/default}/bin/java" -jar "$@"
+EOF
+sudo tee /usr/local/bin/sqlite3 >/dev/null <<'EOF'
+#!/bin/sh
+
+exec env \
+  SQLITE_HISTORY="${XDG_CACHE_HOME:-$HOME}/.sqlite_history" \
+  /usr/bin/sqlite3 "$@"
+EOF
+sudo tee /usr/local/bin/wget >/dev/null <<'EOF'
+#!/bin/sh
+
+exec /usr/bin/wget "$@" \
+  --hsts-file="${XDG_CACHE_HOME:-$HOME}/.wget-hsts"
 EOF
 # }}}
 
-# Disable wine file associations {{{
-sudo sed -i /usr/share/wine/wine.inf \
-  -e 's/winemenubuilder.exe -a -r/winemenubuilder.exe -r/'
-sudo tee /etc/pacman.d/hooks/wine.hook >/dev/null <<EOF
-[Trigger]
-Operation = Upgrade
-Type = File
-Target = usr/share/wine/wine.inf
-
-[Action]
-Description = Stopping Wine from hijacking file associations...
-When = PostTransaction
-Exec = /usr/bin/sed -i /usr/share/wine/wine.inf \
-  -e 's/winemenubuilder.exe -a -r/winemenubuilder.exe -r/'
-EOF
+# Configure binfmt {{{
+sudo tee /etc/binfmt.d/jar.conf >/dev/null \
+  <<< ':JAR:E::jar::/usr/local/bin/jarwrapper:'
+sudo ln -s /etc/binfmt.d/wine.conf /dev/null
 # }}}
 
 # Set user dirs {{{
+mkdir -p "$HOME"/.local/{templates,public}
 xdg-user-dirs-update --set TEMPLATES "$HOME/.local/templates"
 xdg-user-dirs-update --set PUBLICSHARE "$HOME/.local/public"
 # }}}

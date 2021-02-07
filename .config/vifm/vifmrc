@@ -138,7 +138,7 @@ fileviewer *.aac,
     \*.spx,
     \*.wav,
     \*.xspf
-    \ ffprobe -pretty %c 2>&1
+    \ ffprobe -hide_banner %c 2>&1
 " }}}
 
 " Videos {{{
@@ -207,36 +207,10 @@ fileviewer *.anx,
     \*.xcf,
     \*.xwd,
     \*.yuv
-    \ ffprobe -pretty %c 2>&1
+    \ ffprobe -hide_banner %c 2>&1
 " }}}
 
 " Images {{{
-fileviewer *.apng,
-    \*.bmp,
-    \*.gif,
-    \*.ico,
-    \*.icon,
-    \*.j2k,
-    \*.jp2,
-    \*.jpeg,
-    \*.jpf,
-    \*.jpg,
-    \*.jpm,
-    \*.jpx,
-    \*.mng,
-    \*.pbm,
-    \*.pcx,
-    \*.pgm,
-    \*.png,
-    \*.ppm,
-    \*.psd,
-    \*.tga,
-    \*.tif,
-    \*.tiff,
-    \*.webp,
-    \*.xbm,
-    \*.xpm
-    \ identify -verbose %c
 filextype *.apng,
     \*.bmp,
     \*.gif,
@@ -299,7 +273,7 @@ fileviewer *.apng,
     \*.webp,
     \*.xbm,
     \*.xpm
-    \ identify %c
+    \ identify -verbose %c
 " }}}
 
 " Archives {{{
@@ -379,9 +353,11 @@ filextype *.html,*.htm
 " }}}
 
 " Hashes {{{
+filetype *.b2 {Verify} b2sum -c %f %S
 filetype *.md5 {Verify} md5sum -c %f %S
 filetype *.sha1 {Verify} sha1sum -c %f %S
 filetype *.sha256 {Verify} sha256sum -c %f %S
+filetype *.sha384 {Verify} sha384sum -c %f %S
 filetype *.sha512 {Verify} sha512sum -c %f %S
 " }}}
 
@@ -398,9 +374,7 @@ fileviewer *.gpg gpg --decrypt %c
 
 " Binary files {{{
 filextype *.out,*.exe,*.bin {Okteta} okteta %f %i &
-filextype *.class
-    \ {Okteta} okteta %f %i &,
-    \ {Decompile} cfr %f --outputdir %d %i &
+filetype *.class {Decompile} cfr %f --outputdir %d %i &
 fileviewer *.out,*.exe,*.bin xxd -u %c
 fileviewer *.class cfr %c
 fileviewer *.lnk pylnker %c

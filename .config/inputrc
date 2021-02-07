@@ -28,6 +28,9 @@ set history-size 500
 # Disable completion pages
 set page-completions off
 
+# Disable bracketed paste
+set enable-bracketed-paste off
+
 # Print completions horizontally
 set print-completions-horizontally on
 

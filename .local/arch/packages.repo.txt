@@ -1,3 +1,4 @@
+android-apktool
 aegisub
 alsa-firmware
 alsa-plugins
@@ -10,6 +11,7 @@ base-devel
 bash
 bash-completion
 bc
+bear
 bluedevil
 breeze
 breeze-gtk
@@ -20,6 +22,7 @@ ccache
 clang
 cmake
 ctags
+cawbird
 desmume
 dnscrypt-proxy
 docker
@@ -30,6 +33,7 @@ doxygen
 eog
 eog-plugins
 eslint
+exe-thumbnailer
 extra-cmake-modules
 fd
 ffmpegthumbs
@@ -44,6 +48,7 @@ gdb
 gimp
 git
 git-lfs
+github-cli
 glances
 gnupg
 go
@@ -56,8 +61,8 @@ gst-plugins-ugly
 gtk2
 gtk3
 gwenview
+htmlhint
 htop
-hub
 hunspell-el
 hunspell-en_GB
 hunspell-en_US
@@ -89,12 +94,16 @@ konsole
 kotlin
 krita
 lib32-alsa-plugins
-lib32-ffmpeg
+lib32-gamemode
+lib32-gst-plugins-bad
+lib32-gst-plugins-base
+lib32-gst-plugins-good
+lib32-gst-plugins-ugly
 lib32-mesa-tkg-git
 lib32-vulkan-icd-loader
 linux-firmware
-linux-tkg-muqss-zen
-linux-tkg-muqss-zen-headers
+linux-tkg-pds
+linux-tkg-pds-headers
 lldb
 llvm
 lsof
@@ -128,6 +137,7 @@ parallel
 pdfjs
 perl-tidy
 plantuml
+protontricks-git
 ppsspp
 python-isort
 python-netifaces
@@ -151,16 +161,19 @@ ruby
 ruby-jekyll
 ruby-travis
 sddm-kcm
+sha3sum
 shfmt
 spectacle
 sshfs
 steam
+stylelint
 syncplay
 terminus-font
 texlive-langgreek
 texlive-latexextra
 thunderbird
 tor-browser
+trackma-git
 ttf-hack
 ttf-lato
 ungoogled-chromium
@@ -169,6 +182,9 @@ valgrind
 vifm
 vint
 virt-manager
+waifu2x-ncnn-vulkan-git
+webp-pixbuf-loader
+winetricks-git
 whois
 wine
 words
@@ -176,6 +192,7 @@ xclip
 xdg-desktop-portal-kde
 xdg-user-dirs
 xdotool
+xxd-standalone
 yarn
 yay
 youtube-dl

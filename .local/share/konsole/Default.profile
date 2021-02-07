@@ -24,6 +24,10 @@ TerminalColumns=100
 TerminalMargin=5
 TerminalRows=35
 
+[Interaction Options]
+CopyTextAsHTML=false
+UnderlineFilesEnabled=true
+
 [Scrolling]
 HistoryMode=1
 ScrollBarPosition=2

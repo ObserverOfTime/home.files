@@ -8,6 +8,9 @@
 	pager = ${PAGER:-nvimpager}
 	whitespace = tabwidth=4,cr-at-eol
 
+[init]
+	defaultBranch = master
+
 [advice]
 	detachedHead = false
 
@@ -36,8 +39,6 @@
 [tar "tar.xz"]
 	command = xz -c -z -
 
-[pull]
-	ff = only
 [tar "tar.zst"]
 	command = zstd -c -z -q -
 
@@ -100,6 +101,7 @@
 	hist = log --date=short --graph --pretty=log
 	ls   = log --date=short --graph --pretty=log-color --decorate
 	ll   = log --date=short --graph --pretty=log-color --decorate --numstat
+	rev  = log --decorate --reverse --no-merges --stat @{1}..
 	amend = commit --amend -uno -a
 	wdiff = diff --word-diff
 	cdiff = diff --word-diff-regex=. --color-words
@@ -112,28 +114,27 @@
 		git reset --hard ${1:-upstream}/master && git push --verbose --force"
 	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[url "git@github.com:"]
 	insteadOf = http://github.com/
 	insteadOf = @gh:
 
-[url "ssh://git@gitlab.com/"]
-	insteadOf = https://gitlab.com/
+[url "git@gitlab.com:"]
 	insteadOf = http://gitlab.com/
 	insteadOf = @gl:
 
-[url "ssh://git@git.disroot.org/"]
-	insteadOf = https://git.disroot.org/
+[url "git@git.disroot.org:"]
 	insteadOf = http://git.disroot.org/
 	insteadOf = @disroot:
 
-[url "ssh://aur@aur.archlinux.org/"]
-	insteadOf = https://aur.achlinux.org/
+[url "aur@aur.archlinux.org:"]
+	insteadOf = https://aur.archlinux.org/
 	insteadOf = http://aur.archlinux.org/
 	insteadOf = @aur:
-
-[url "https://bitbucket.org/"]
-	insteadOf = http://bitbucket.org/
-	insteadOf = @bb:
 
 # vim:noet:sw=4:ts=4:

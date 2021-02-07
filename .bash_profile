@@ -1,18 +1,15 @@
+#!/bin/bash
+
 # shellcheck disable=SC2183,SC2155
 
 # Print date on login
-printf '\e[1m\e[91m%(%A, %B %e, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
+printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
 # Include hidden files in glob
 shopt -s dotglob
 
 # Save multi-line commands as one command
 shopt -s cmdhist
-
-# Set the github & gitlab tokens {{{
-test -f ~/.local/tokens/github && export GITHUB_TOKEN="$(<"$_")"
-test -f ~/.local/tokens/gitlab && export GITLAB_TOKEN="$(<"$_")"
-# }}}
 
 # Set the default command & options used by fzf {{{
 export FZF_DEFAULT_COMMAND='fd -LIH -tf --color=always'
@@ -62,6 +59,12 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
 export TRAVIS_CONFIG_PATH="$XDG_CONFIG_HOME/travis"
 # }}}
 
+# Set the paths used by R {{{
+export R_LIBS_USER="$HOME/.local/R"
+export R_PROFILE="$XDG_CONFIG_HOME/Rprofile"
+export R_HISTFILE="$XDG_CACHE_HOME/.R_history"
+# }}}
+
 # Set the paths used by perl5 {{{
 export PERL5LIB="$HOME/.local/perl/lib/perl5"
 export PERL_CPANM_OPT="-l $HOME/.local/perl"
@@ -69,7 +72,7 @@ export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
 # }}}
 
 # Set the paths used by rust {{{
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export CARGO_HOME="$XDG_CACHE_HOME/cargo"
 # }}}
 
 # Set the paths used by node {{{
@@ -79,9 +82,10 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 # Set the paths used by android {{{
 export ANDROID_HOME="$HOME/.local/android"
-export ANDROID_SDK_HOME="$ANDROID_HOME/sdk"
-export ANDROID_SDK_ROOT="$ANDROID_SDK_HOME"
-export ANDROID_EMULATOR_HOME="$ANDROID_SDK_HOME"
+export ANDROID_SDK_HOME="$ANDROID_HOME"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export ANDROID_AVD_HOME="$ANDROID_HOME/avd"
+export ANDROID_EMULATOR_HOME="$ANDROID_HOME"
 # }}}
 
 # Set the paths used by kotlin {{{
@@ -91,10 +95,6 @@ export KONAN_DATA_DIR="$XDG_DATA_HOME/konan"
 
 # Set the paths used by sqlite {{{
 export SQLITE_HISTORY="$XDG_CACHE_HOME/.sqlite_history"
-# }}}
-
-# Set the paths used by gtk {{{
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtkrc-2.0"
 # }}}
 
 # Set the paths used by xorg {{{
@@ -132,16 +132,14 @@ export PYCHARM_VM_OPTIONS="$XDG_CONFIG_HOME/pycharm/charm.vmoptions"
 
 # Set the search path for commands {{{
 export PATH="$HOME/.local/bin:\
-/usr/bin:/usr/local/bin:/usr/sbin:\
+/usr/local/bin:/usr/bin:\
 /usr/lib/jvm/default/bin:\
 /usr/bin/site_perl:\
 /usr/bin/vendor_perl:\
 /usr/bin/core_perl:\
 $HOME/.local/perl/bin:\
 $GOPATH/bin:\
-$GEM_HOME/bin:\
-$ANDROID_SDK_HOME/tools:\
-$ANDROID_SDK_HOME/platform-tools:"
+$GEM_HOME/bin"
 # }}}
 
 # Use a 256color terminal if one exists {{{
@@ -149,16 +147,18 @@ for t in {konsole,xterm,gnome}-256color; do
   [ -f /usr/share/terminfo/${t:0:1}/$t ] && export TERM=$t && break
   [ $t == gnome-256color ] && export TERM=xterm
 done
+unset t
 # }}}
-
-# Source fzf keybinds
-test -f /usr/share/fzf/key-bindings.bash && . "$_"
 
 # Specify inputrc
 test -f "$XDG_CONFIG_HOME/inputrc" && export INPUTRC="$_"
 
-# Specify xinitrc
-test -f "$XDG_CONFIG_HOME/X11/xinitrc" && export XINITRC="$_"
+# Source fzf keybinds
+test -f /usr/share/fzf/key-bindings.bash && . "$_"
+
+# Source github & gitlab tokens {{{
+test -f "$XDG_DATA_HOME/tokens" && . "$_"
+# }}}
 
 # Source bashrc
 test -f "$XDG_DATA_HOME/bash/bashrc.sh" && . "$_"
