@@ -219,6 +219,7 @@ sudo tee /usr/local/bin/wget >/dev/null <<'EOF'
 exec /usr/bin/wget "$@" \
   --hsts-file="${XDG_CACHE_HOME:-$HOME}/.wget-hsts"
 EOF
+sudo chmod +x /usr/local/bin/{jarwrapper,sqlite3,wget}
 # }}}
 
 # Configure binfmt {{{

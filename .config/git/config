@@ -1,12 +1,15 @@
 [user]
-	email = chronobserver@disroot.org
 	name = ObserverOfTime
+	email = chronobserver@disroot.org
 	signingkey = 8A2DEA1DBAEBCA9E
 
 [core]
+	autocrlf = false
+	whitespace = cr-at-eol
 	editor = ${EDITOR:-nvim}
-	pager = ${PAGER:-nvimpager}
-	whitespace = tabwidth=4,cr-at-eol
+
+[extensions]
+	objectFormat = sha256
 
 [init]
 	defaultBranch = master
@@ -48,11 +51,14 @@
 [tar "tar.lz4"]
 	command = lz4 -q
 
+[pager]
+	diff = ${PAGER:-nvimpager}
+	show = ${PAGER:-nvimpager}
+
 [color "diff"]
 	meta = yellow
 
 [diff]
-	algorithm = patience
 	wsErrorHighlight = all
 	mnemonicPrefix = true
 
@@ -65,14 +71,17 @@
 [difftool]
 	prompt = false
 
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+
 [difftool "meld"]
-	cmd = meld "$REMOTE" "$LOCAL"
+	cmd = meld \"$LOCAL\" \"$REMOTE\"
 
 [difftool "imgdiff"]
-	cmd = compare "$REMOTE" "$LOCAL" png:- | \
+	cmd = compare \"$LOCAL\" \"$REMOTE\" png:- | \
 		montage -geometry 400x -font \
-		Liberation-Sans -label "l/%f" "$LOCAL" \
-		-label "diff" - -label "r/%f" "$REMOTE" x:
+		Liberation-Sans -label l/%f \"$LOCAL\" \
+		-label diff - -label r/%f \"$REMOTE\" x:
 
 [merge]
 	tool = fugitive
@@ -81,15 +90,14 @@
 	keepBackup = false
 
 [mergetool "fugitive"]
-	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+	cmd = nvim -f +Gvdiffsplit\\! \"$MERGED\"
 
 [mergetool "meld"]
-	cmd = meld "$LOCAL" "$BASE" "$REMOTE" -o "$MERGED"
+	cmd = meld \"$LOCAL\" \"$BASE\" \"$REMOTE\" -o \"$MERGED\"
 
 [pretty]
 	log = format:%h %s%d [%cn] (%ad)
-	log-color = format:%C(cyan)%h \
-		%Creset%s%C(white)%d %C(yellow)[%an] %Cred(%ad)
+	color = format:%C(cyan)%h %Creset%s%C(white)%d %C(yellow)[%an] %Cred(%ad)
 
 [grep]
 	lineNumber = true
@@ -99,8 +107,7 @@
 [alias]
 	last = log -1 HEAD
 	hist = log --date=short --graph --pretty=log
-	ls   = log --date=short --graph --pretty=log-color --decorate
-	ll   = log --date=short --graph --pretty=log-color --decorate --numstat
+	ls   = log --date=short --graph --pretty=color --decorate
 	rev  = log --decorate --reverse --no-merges --stat @{1}..
 	amend = commit --amend -uno -a
 	wdiff = diff --word-diff
@@ -108,15 +115,12 @@
 	conflicts = diff --name-only --diff-filter=U
 	root = rev-parse --show-toplevel
 	shallow = clone --single-branch --depth=1
+	compare = !git log $1...$2 --format=%m\\ %h\\ %s --left-right
 	repush = !git commit --amend -a --no-edit && git push --force
-	fork-sync = "! \
-		git fetch --verbose ${1:-upstream} && git checkout --progress master && \
-		git reset --hard ${1:-upstream}/master && git push --verbose --force"
-	force-pull = "!git fetch -a && git reset --hard ${2:-origin}/${1:-master}"
 
 [filter "lfs"]
-	process = git-lfs filter-process
 	required = true
+	process = git-lfs filter-process
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 

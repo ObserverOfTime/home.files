@@ -1,7 +1,6 @@
 import atexit
 import os
 import readline
-import sys
 
 histfile = os.path.join(os.getenv(
     'XDG_CACHE_HOME', os.path.expanduser('~/.cache')

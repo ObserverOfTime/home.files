@@ -9,11 +9,24 @@ c.colors.webpage.prefers_color_scheme_dark = True
 # Require a confirmation before quitting the application.
 c.confirm_quit = ['downloads']
 
+# List of URLs to ABP-style adblocking rulesets. {{{1
+c.content.blocking.adblock.lists = [
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt',  # noqa
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt',  # noqa
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt',  # noqa
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt',  # noqa
+    'https://raw.githubusercontent.com/kargig/greek-adblockplus-filter/master/void-gr-filters.txt',  # noqa
+    'https://raw.githubusercontent.com/ryanbr/fanboy-adblock/master/fanboy-antifacebook.txt',  # noqa
+    'https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt',  # noqa
+    'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt',  # noqa
+]
+# }}}
+
 # Default encoding to use for websites.
 c.content.default_encoding = 'utf-8'
 
 # Value to send in the Accept-Language header.
-c.content.headers.accept_language = 'en_GB,en'
+c.content.headers.accept_language = 'en-GB,en,el;q=0.9'
 
 # User agent to send.
 c.content.headers.user_agent = ' '.join((

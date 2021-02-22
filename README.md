@@ -74,6 +74,10 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 * [.config/mpv/input.conf](.config/mpv/input.conf): keybindings
 * [.config/mpv/mpv.conf](.config/mpv/mpv.conf): configuration file
 
+## [Neofetch](https://github.com/dylanaraps/neofetch)
+
+* [.config/neofetch/config.conf](.config/neofetch/config.conf): configuration file
+
 ## [Neovim](https://neovim.io/)
 
 > [In another repo](https://github.com/ObserverOfTime/dotnvim)

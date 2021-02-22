@@ -95,11 +95,13 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .rz   38;5;247
 .tar  38;5;247
 .taz  38;5;247
+.tbr  38;5;247
 .tbz  38;5;247
 .tbz2 38;5;247
 .tgz  38;5;247
 .tlz  38;5;247
 .txz  38;5;247
+.tzst 38;5;247
 .tz   38;5;247
 .whl  38;5;247
 .xz   38;5;247

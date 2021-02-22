@@ -101,7 +101,7 @@ lib32-gst-plugins-good
 lib32-gst-plugins-ugly
 lib32-mesa-tkg-git
 lib32-vulkan-icd-loader
-linux-firmware
+linux-firmware-git
 linux-tkg-pds
 linux-tkg-pds-headers
 lldb
@@ -153,7 +153,6 @@ qt5-imageformats
 qutebrowser
 r
 rclone
-reflector
 ripgrep
 rstcheck
 rsync
