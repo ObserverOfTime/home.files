@@ -1,8 +1,7 @@
 # My dotfiles
 
+[![dotfiles.sh](https://img.shields.io/badge/manager-dotfiles.sh-green.svg)](https://github.com/eli-schwartz/dotfiles.sh "Dotfiles made easy")
 [![LICENSE](https://img.shields.io/badge/license-MIT--0-blue.svg)](LICENSE "MIT No Attribution")
-
-Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 ## [Arch](https://www.archlinux.org/)
 
@@ -26,18 +25,9 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 * [.config/ccache.cfg](.config/ccache.cfg): configuration file
 
-## [Clang](https://clang.llvm.org/)
-
-* [.clang-format](.clang-format): configuration file for `clang-format`
-* [.clang-tidy](.clang-tidy): configuration file for `clang-tidy`
-
 ## [Coreutils](https://www.gnu.org/software/coreutils/)
 
 * [.config/dircolors](.config/dircolors): configuration file for `dircolors`
-
-## [ESLint](https://eslint.org/)
-
-* [.eslintrc.json](.eslintrc.json): configuration file
 
 ## [Fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/)
 
@@ -46,10 +36,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 ## [Htop](https://hisham.hm/htop/)
 
 * [.config/htop/htoprc](.config/htop/htoprc): configuration file
-
-## [HTMLHint](https://github.com/htmlhint/HTMLHint)
-
-* [.htmlhintrc.json](.htmlhintrc.json): configuration file
 
 ## [Git](https://git-scm.com/)
 
@@ -99,10 +85,6 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 * [.config/pypoetry/config.toml](.config/pypoetry/config.toml): configuration file
 
-## [Pycodestyle](http://pycodestyle.pycqa.org/en/latest/)
-
-* [.config/pycodestyle](.config/pycodestyle): configuration file
-
 ## [Python](https://www.python.org/)
 
 * [.config/pythonrc.py](.config/pythonrc.py): startup file
@@ -111,17 +93,9 @@ Managed via [dotfiles.sh](https://github.com/eli-schwartz/dotfiles.sh)
 
 * [.config/qutebrowser/config.py](.config/qutebrowser/config.py): configuration file
 
-## [Pug-lint](https://github.com/pugjs/pug-lint)
-
-* [.pug-lintrc.json](.pug-lintrc.json): configuration file
-
 ## [Readline](https://tiswww.case.edu/php/chet/readline/rltop.html)
 
 * [.config/inputrc](.config/inputrc): configuration file
-
-## [Stylelint](https://stylelint.io/)
-
-* [.stylelintrc.json](.stylelintrc.json): configuration file
 
 ## [Vifm](https://vifm.info/)
 

@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# shellcheck disable=SC2183,SC2155
-
 # Print date on login
 printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
-# Include hidden files in glob
-shopt -s dotglob
-
-# Save multi-line commands as one command
-shopt -s cmdhist
+# Set shell options
+shopt -s dotglob globstar cmdhist
+shopt -u force_fignore
 
 # Set the default command & options used by fzf {{{
 export FZF_DEFAULT_COMMAND='fd -LIH -tf --color=always'

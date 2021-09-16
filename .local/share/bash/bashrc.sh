@@ -1,6 +1,3 @@
-# If not running interactively, don't do anything
-[[ $- =~ i ]] || return
-
 # Define where cd looks for targets
 [ -d ~/Documents/Code ] && CDPATH='.:~/Documents/Code'
 

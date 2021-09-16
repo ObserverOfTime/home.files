@@ -330,11 +330,11 @@ fileviewer *.7z,*.cb7 7z l %c
 fileviewer *.asar asar l %c
 fileviewer *.rar,*.cbr unrar v %c
 fileviewer *.tar tar tf %c
-fileviewer *.tar.br tar -I brotli -tf %c
+fileviewer *.tar.br,*.tbr tar -I brotli -tf %c
 fileviewer *.tar.bz2,*.tbz2 tar tjf %c
 fileviewer *.tar.gz,*.tgz tar tzf %c
 fileviewer *.tar.xz,*.txz tar tJf %c
-fileviewer *.tar.zst tar -I zst -tf %c
+fileviewer *.tar.zst,*.tzst tar -I zst -tf %c
 fileviewer *.apk,
     \*.cbz,
     \*.ear,

@@ -132,6 +132,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .jpg  38;5;13
 .jpm  38;5;13
 .jpx  38;5;13
+.jxl  38;5;13
 .mng  38;5;13
 .pbm  38;5;13
 .pcx  38;5;13
@@ -195,6 +196,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .au   38;5;45
 .axa  38;5;45
 .flac 38;5;45
+.m4a  38;5;45
 .mid  38;5;45
 .midi 38;5;45
 .mka  38;5;45

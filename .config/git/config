@@ -24,9 +24,6 @@
 	gpgSign = true
 	status = true
 
-[pull]
-	ff = only
-
 [status]
 	submoduleSummary = 1
 
@@ -50,6 +47,9 @@
 
 [tar "tar.lz4"]
 	command = lz4 -q
+
+[tar "tar.br"]
+	command = brotli -c -f
 
 [pager]
 	diff = ${PAGER:-nvimpager}
@@ -116,7 +116,7 @@
 	root = rev-parse --show-toplevel
 	shallow = clone --single-branch --depth=1
 	compare = !git log $1...$2 --format=%m\\ %h\\ %s --left-right
-	repush = !git commit --amend -a --no-edit && git push --force
+	repush = !git commit --amend -a --no-edit && git push --force-with-lease
 
 [filter "lfs"]
 	required = true

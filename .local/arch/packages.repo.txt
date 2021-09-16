@@ -5,7 +5,6 @@ alsa-plugins
 alsa-utils
 ant
 ark
-autopep8
 base
 base-devel
 bash
@@ -32,7 +31,6 @@ dos2unix
 doxygen
 eog
 eog-plugins
-eslint
 exe-thumbnailer
 extra-cmake-modules
 fd
@@ -61,7 +59,6 @@ gst-plugins-ugly
 gtk2
 gtk3
 gwenview
-htmlhint
 htop
 hunspell-el
 hunspell-en_GB
@@ -165,7 +162,6 @@ shfmt
 spectacle
 sshfs
 steam
-stylelint
 syncplay
 terminus-font
 texlive-langgreek

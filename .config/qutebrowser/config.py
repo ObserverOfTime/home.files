@@ -4,7 +4,7 @@ config, c = config, c
 c.colors.webpage.bg = ''
 
 # Force prefers-color-scheme: dark colors for websites.
-c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 # Require a confirmation before quitting the application.
 c.confirm_quit = ['downloads']
@@ -32,9 +32,9 @@ c.content.headers.accept_language = 'en-GB,en,el;q=0.9'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.15.2',
-    'Chromium/83.0.4103.122',
-    'qutebrowser/2.0.2'
+    'QtWebEngine/5.15.6',
+    'Chromium/87.0.4280.144',
+    'qutebrowser/2.3.1'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -42,9 +42,6 @@ c.content.javascript.can_access_clipboard = True
 
 # Allow pdf.js to view PDF files in the browser.
 c.content.pdfjs = True
-
-# Validate SSL handshakes.
-c.content.ssl_strict = True
 
 # Enable WebGL.
 c.content.webgl = False
