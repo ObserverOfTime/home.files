@@ -8,7 +8,7 @@
 --external-downloader-args "--file-allocation=none"
 
 # Video format code.
---format "(bestvideo+bestaudio/best)[height<=?1080]"
+--format "(bestvideo*+bestaudio/best)[height<=?1080]"
 
 # Do not use .part files - write directly into output file.
 --no-part
@@ -17,6 +17,6 @@
 --output "%(title)s.%(ext)s"
 
 # Specify a custom user agent.
---user-agent "Mozilla/5.0 (Linux x86_64) youtube-dl/2021.08.10"
+--user-agent "Mozilla/5.0 (Linux x86_64) yt-dlp/2021.11.10.1"
 
 # vim:ft=conf:

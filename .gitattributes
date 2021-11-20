@@ -4,23 +4,18 @@
 
 .config/git/config linguist-language=gitconfig
 
-.config/yarn/global/package.json linguist-language=JSON
 .config/yay/config.json linguist-language=JSON
-.eslintrc.json linguist-language=JSON
-.htmlhintrc.json linguist-language=JSON
-.pug-lintrc.json linguist-language=JSON
-.stylelintrc.json linguist-language=JSON
 
 .config/aria2/aria2.conf linguist-language=INI
 .config/ccache.cfg linguist-language=INI
 .config/htop/htoprc linguist-language=INI
 .config/mpv/input.conf linguist-language=INI
 .config/mpv/mpv.conf linguist-language=INI
+.config/neofetch/config.conf linguist-language=INI
 .config/newsboat/config linguist-language=INI
 .config/pip/pip.conf linguist-language=INI
 .config/plasma-localerc linguist-language=INI
-.config/pycodestyle linguist-language=INI
-.config/youtube-dl/config linguist-language=INI
+.config/yt-dlp/config linguist-language=INI
 .local/share/gnupg/gpg.conf linguist-language=INI
 .local/share/konsole/Default.profile linguist-language=INI
 .local/share/konsole/Gruvbox8.colorscheme linguist-language=INI
@@ -44,12 +39,10 @@
 
 .config/pypoetry/config.toml linguist-language=TOML
 
+.config/nvimpager/init.vim linguist-language=Vim-script
 .config/vifm/vifmrc linguist-language=Vim-script
 
 .config/fontconfig/fonts.conf linguist-language=XML
-
-.clang-format linguist-language=YAML
-.clang-tidy linguist-language=YAML
 
 # not actually YAML yet
 # .yarnrc linguist-language=YAML

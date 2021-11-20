@@ -113,6 +113,6 @@
 
 * [.config/yay/config.json](.config/yay/config.json): configuration file
 
-## [Youtube-dl](https://ytdl-org.github.io/youtube-dl/)
+## [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
-* [.config/youtube-dl/config](.config/youtube-dl/config): configuration file
+* [.config/yt-dlp/config](.config/yt-dlp/config): configuration file

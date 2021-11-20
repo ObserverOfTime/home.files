@@ -6,17 +6,19 @@ sudo sed -i /etc/pacman.conf \
   -e 's/^#\(Color\)/\1\nILoveCandy/' \
   -e '/\[multilib\]/,/Include/s/^#//' \
   -e '$ a \n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist'
-sudo curl -LSsfo /etc/pacman.d/chaotic-mirrorlist \
-  'https://aur.archlinux.org/cgit/aur.git/plain/mirrorlist?h=chaotic-mirrorlist'
 # }}}
 
 # Update system and install basic packages {{{
+CHAOTIC='https://cdn-mirror.chaotic.cx/chaotic-aur'
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
-sudo pacman-key --recv-keys 0x3056513887B78AEB
+sudo pacman-key --recv-key 0xFBA220DFC880C036
+sudo pacman-key --lsign-key 0xFBA220DFC880C036
 sudo pacman-key --refresh-keys
+sudo pacman -U "$CHAOTIC"/chaotic-{keyring,mirrorlist}.pkg.tar.zst
 sudo pacman -Syyu --noconfirm
 sudo pacman -S git aria2 yay --noconfirm
+unset CHAOTIC
 # }}}
 
 # Clone dotfiles {{{
@@ -42,7 +44,7 @@ dotfiles checkout --force
 # Use aria2 for makepkg & set packager {{{
 NAME="$(getent passwd "$USER" | awk -F'[:,]' '{print $5}')"
 PACKAGER="${NAME:=ObserverOfTime} <chronobserver@disroot.org>"
-ARIA='::/usr/bin/aria2c --conf-path=/etc/aria2.conf -o %o %u'
+ARIA='/usr/bin/aria2c --conf-path=/etc/aria2.conf -o %o %u'
 sudo tee /etc/aria2.conf >/dev/null <<EOF
 summary-interval=0
 file-allocation=none
@@ -54,9 +56,9 @@ metalink-preferred-protocol=https
 EOF
 sudo cp /etc/makepkg.conf{,.bak}
 sudo sed -i /etc/makepkg.conf \
-  -e "s#'ftp::.*'#'ftp$ARIA'#" \
-  -e "s#'http::.*'#'http$ARIA'#" \
-  -e "s#'https::.*'#'https$ARIA'#" \
+  -e "s#'ftp::.*'#'ftp::$ARIA'#" \
+  -e "s#'http::.*'#'http::$ARIA'#" \
+  -e "s#'https::.*'#'https::$ARIA'#" \
   -e "s/^#PACKAGER.*/PACKAGER='$PACKAGER'/"
 unset NAME PACKAGER ARIA
 # }}}
@@ -115,7 +117,6 @@ declare -A ALIASES=(
   [mvnDebug]=mvn
   [mvnw]=mvn
 )
-mkdir -p "$DIRECTORY"
 aria2c -d "$DIRECTORY" -i - <<EOF
 https://raw.githubusercontent.com/mbrubeck/android-completion/master/android
 https://raw.githubusercontent.com/clerk67/ffmpeg-completion/master/ffmpeg
@@ -136,9 +137,9 @@ https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-rake
 https://raw.githubusercontent.com/juven/maven-bash-completion/master/bash_completion.bash
   out=mvn
 EOF
-printf 'complete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
-printf 'complete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"
-printf 'complete -o default -F __bundle bundler\n' >> "$DIRECTORY/bundle"
+printf '\ncomplete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
+printf '\ncomplete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"
+printf '\ncomplete -o default -F __bundle bundler\n' >> "$DIRECTORY/bundle"
 for key in "${!ALIASES[@]}"; do
   ln -fvs "$DIRECTORY/${ALIASES[$key]}" "$DIRECTORY/$key"
 done
@@ -242,7 +243,7 @@ FONT_MAP=8859-2
 EOF
 sudo sed -i /etc/mkinitcpio.conf \
   -re 's/(^HOOKS="[^"]*)"/\1 consolefont"/'
-sudo mkinitcpio -p linux-zen
+sudo mkinitcpio -p linux-tkg-pds
 # }}}
 
 # vim:fdm=marker:fdl=0:

@@ -1,11 +1,14 @@
-android-apktool
 cfr
+desmume-git
 discord-ptb
+easyrpg-player
 fakepkg
+freeoffice
 kde-thumbnailer-apk
 kora-icon-theme
 lab-bin
-luacheck
+lib32-gst-plugins-bad
+lib32-gst-plugins-ugly
 mkv-extractor-qt
 nvimpager-git
 otf-alegreya
@@ -15,7 +18,6 @@ otf-hasklig
 pandoc-bin
 python-pypresence
 rclone-browser-git
-shellcheck-bin
-ssh-audit
 ttf-fira-go
 ttf-twemoji-color
+virtio-win

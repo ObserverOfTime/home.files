@@ -91,6 +91,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .piz  38;5;247
 .pja  38;5;247
 .rar  38;5;247
+.rpa  38;5;247
 .rpm  38;5;247
 .rz   38;5;247
 .tar  38;5;247
@@ -169,6 +170,7 @@ STICKY_OTHER_WRITABLE 48;5;10;38;5;16   # dir that is sticky and other-writable 
 .hevc 38;5;202
 .m2v  38;5;202
 .m4v  38;5;202
+.mj2  38;5;202
 .mkv  38;5;202
 .mov  38;5;202
 .mp4  38;5;202

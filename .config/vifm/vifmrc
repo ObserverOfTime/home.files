@@ -93,11 +93,14 @@ filextype *.pdf,*.epub
     \ {Zathura} zathura %f %i &,
     \ {Okular} okular %f %i &,
     \ {MComix} mcomix %f %i &
-filextype *.doc,*.docx,*.odt
+filextype *.doc,*.docx,*.odt,*.tmdx
+    \ {FreeOffice} freeoffice-textmaker %f %i &,
     \ {Calligra} calligrawords %f %i &
-filextype *.ppt,*.pptx,*.odp
+filextype *.ppt,*.pptx,*.odp,*.prdx
+    \ {FreeOffice} freeoffice-presentations %f %i &,
     \ {Calligra} calligrastage %f %i &
-filextype *.xls,*.xlsx,*.csv
+filextype *.xls,*.xlsx,*.csv,*.pmdx
+    \ {FreeOffice} freeoffice-planmaker %f %i &,
     \ {Calligra} calligrasheets %f %i &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 fileviewer *.epub pandoc -f epub -t plain %c
@@ -223,6 +226,7 @@ filextype *.apng,
     \*.jpg,
     \*.jpm,
     \*.jpx,
+    \*.jxl,
     \*.mng,
     \*.pbm,
     \*.pcx,
@@ -259,6 +263,7 @@ fileviewer *.apng,
     \*.jpg,
     \*.jpm,
     \*.jpx,
+    \*.jxl,
     \*.mng,
     \*.pbm,
     \*.pcx,
@@ -310,6 +315,7 @@ filextype *.7z,
 filetype *.7z,*.cb7 {Extract} 7z x %f
 filetype *.asar {Extract} asar e %f %f:r
 filetype *.rar,*.cbr {Extract} unrar %f
+filetype *.rpa {Extract} unrpa -s %f
 filetype *.tar {Extract} tar xf %f
 filetype *.tar.br {Extract} tar -I brotli -xf %f
 filetype *.tar.bz2,*.tbz2 {Extract} tar xjf %f
@@ -329,6 +335,7 @@ filetype *.pkg.tar,*.pkg.tar.*
 fileviewer *.7z,*.cb7 7z l %c
 fileviewer *.asar asar l %c
 fileviewer *.rar,*.cbr unrar v %c
+fileviewer *.rpa unrpa -l %c
 fileviewer *.tar tar tf %c
 fileviewer *.tar.br,*.tbr tar -I brotli -tf %c
 fileviewer *.tar.bz2,*.tbz2 tar tjf %c
@@ -364,7 +371,7 @@ filetype *.sha512 {Verify} sha512sum -c %f %S
 " Torrents {{{
 filetype *.torrent {Aria2} aria2c %f &
 filextype *.torrent {qBittorrent} qbittorent %f %i &
-fileviewer *.torrent dump_torrent -v %c
+fileviewer *.torrent dumptorrent -v %c
 " }}}
 
 " GPG files {{{
@@ -373,11 +380,11 @@ fileviewer *.gpg gpg --decrypt %c
 " }}}
 
 " Binary files {{{
-filextype *.out,*.exe,*.bin {Okteta} okteta %f %i &
+filextype *.out,*.exe,*.bin,*.run {Okteta} okteta %f %i &
 filetype *.class {Decompile} cfr %f --outputdir %d %i &
-fileviewer *.out,*.exe,*.bin xxd -u %c
+fileviewer *.out,*.exe,*.bin,*.run xxd -u %c
 fileviewer *.class cfr %c
-fileviewer *.lnk pylnker %c
+fileviewer *.lnk pylnk3 p %c
 fileviewer *.o nm %c
 " }}}
 
