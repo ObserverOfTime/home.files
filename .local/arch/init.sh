@@ -12,8 +12,6 @@ sudo sed -i /etc/pacman.conf \
 CHAOTIC='https://cdn-mirror.chaotic.cx/chaotic-aur'
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
-sudo pacman-key --recv-key 0xFBA220DFC880C036
-sudo pacman-key --lsign-key 0xFBA220DFC880C036
 sudo pacman-key --refresh-keys
 sudo pacman -U "$CHAOTIC"/chaotic-{keyring,mirrorlist}.pkg.tar.zst
 sudo pacman -Syyu --noconfirm
@@ -22,23 +20,14 @@ unset CHAOTIC
 # }}}
 
 # Clone dotfiles {{{
-(cd /tmp; yay -G dotfiles.sh-git)
-pushd /tmp/dotfiles.sh-git >/dev/null
-patch -n PKGBUILD <<'EOF'
-12,13c12,14
-< source=("${pkgname%-git}::git+$url")
-< md5sums=("SKIP")
----
-> source=("${pkgname%-git}::git+$url" "sparse-edit.patch::$url/pull/10.diff")
-> md5sums=("SKIP" "6ecafcc0206a730aa40cc751435922ef")
-> prepare() (git -C "$srcdir/${pkgname%-git}" apply "$srcdir/sparse-edit.patch")
-EOF
-makepkg -sic
-popd >/dev/null
-rm -r /tmp/dotfiles.sh-git
+git clone https://git.disroot.org/PKGBUILDS/dotfiles-alfunx-git \
+  /tmp/dotfiles-alfunx-git --depth=1
+(cd /tmp/dotfiles-alfunx-git; makepkg -sic)
+rm -rf /tmp/dotfiles-alfunx-git
 dotfiles clone https://github.com/ObserverOfTime/home.files \
   "${XDG_DATA_HOME:=$HOME/.local/share}/dotfiles"
 dotfiles checkout --force
+dotfiles submodule update --init
 # }}}
 
 # Use aria2 for makepkg & set packager {{{

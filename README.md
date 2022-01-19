@@ -103,7 +103,7 @@
 
 ## [X.Org](https://www.x.org/wiki/)
 
-* [.config/X11/XCompose](.config/X11/XCompose): X client character mappings
+> [In a Gist](https://gist.github.com/ObserverOfTime/e60c54f4fef4aa02b137b7c96552299a)
 
 ## [Yay](https://github.com/Jguer/yay)
 

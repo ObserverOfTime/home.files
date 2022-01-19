@@ -1,0 +1,6 @@
+[submodule ".config/X11"]
+	path = .config/X11
+	url = https://gist.github.com/ObserverOfTime/e60c54f4fef4aa02b137b7c96552299a
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/ObserverOfTime/dotnvim

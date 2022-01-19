@@ -44,12 +44,6 @@
 
 .config/fontconfig/fonts.conf linguist-language=XML
 
-# not actually YAML yet
-# .yarnrc linguist-language=YAML
-
-# skews the stats due to its size
-.config/X11/XCompose linguist-language=XCompose linguist-detectable=false
-
 # these aren't part of the dotfiles
 .gitattributes linguist-detectable=false
 .gitignore linguist-detectable=false
