@@ -113,9 +113,6 @@ declare -A ALIASES=(
   [goapp]=go
   [godoc]=go
   [gradlew]=gradle
-  [bundler]=bundle
-  [mvnDebug]=mvn
-  [mvnw]=mvn
 )
 aria2c -d "$DIRECTORY" -i - <<EOF
 https://raw.githubusercontent.com/mbrubeck/android-completion/master/android
@@ -126,25 +123,12 @@ https://raw.githubusercontent.com/omakoto/go-completion.bash/master/go-completio
   out=go
 https://raw.githubusercontent.com/llvm-mirror/clang/master/utils/bash-autocomplete.sh
   out=clang
-https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-ruby
-  out=ruby
-https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-gem
-  out=gem
-https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-bundle
-  out=bundle
-https://raw.githubusercontent.com/mernen/completion-ruby/master/completion-rake
-  out=rake
-https://raw.githubusercontent.com/juven/maven-bash-completion/master/bash_completion.bash
-  out=mvn
 EOF
 printf '\ncomplete -o default -F _ffmpeg ffprobe\n' >> "$DIRECTORY/ffmpeg"
 printf '\ncomplete -o default -F _clang clang++\n' >> "$DIRECTORY/clang"
-printf '\ncomplete -o default -F __bundle bundler\n' >> "$DIRECTORY/bundle"
 for key in "${!ALIASES[@]}"; do
   ln -fvs "$DIRECTORY/${ALIASES[$key]}" "$DIRECTORY/$key"
 done
-grunt --completion=bash > "$DIRECTORY/grunt"
-gulp --completion=bash > "$DIRECTORY/gulp"
 pandoc --bash-completion > "$DIRECTORY/pandoc"
 poetry completions bash > "$DIRECTORY/poetry"
 ln -fvs /usr/share/fzf/completion.bash "$DIRECTORY/fzf"

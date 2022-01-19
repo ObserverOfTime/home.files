@@ -77,11 +77,11 @@
 
 * [.config/nvimpager/init.vim](.config/nvimpager/init.vim): configuration file
 
-## [Pip](https://pypi.org/project/pip/)
+## [Pip](https://pip.pypa.io/en/stable/)
 
 * [.config/pip/pip.conf](.config/pip/pip.conf): configuration file
 
-## [Poetry](https://poetry.eustace.io/)
+## [Poetry](https://python-poetry.org/)
 
 * [.config/pypoetry/config.toml](.config/pypoetry/config.toml): configuration file
 
@@ -104,10 +104,6 @@
 ## [X.Org](https://www.x.org/wiki/)
 
 * [.config/X11/XCompose](.config/X11/XCompose): X client character mappings
-
-## [Yarn](https://yarnpkg.com/lang/en/)
-
-* [.yarnrc](.yarnrc): configuration file
 
 ## [Yay](https://github.com/Jguer/yay)
 

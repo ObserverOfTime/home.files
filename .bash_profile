@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Print date on login
 printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
@@ -15,13 +13,13 @@ export FZF_DEFAULT_OPTS='--ansi'
 # }}}
 
 # Set the default pager
-export PAGER='nvimpager -p'
+export PAGER='nvimpager'
 
 # Set the default editor
-export EDITOR=nvim
+export EDITOR='nvim'
 
 # Set the default browser
-export BROWSER=firefox
+export BROWSER='firefox'
 
 # Set the XDG directories {{{
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -37,22 +35,13 @@ export BASH_COMPLETION_USER_DIR="$XDG_DATA_HOME/bash"
 export PYTHONPYCACHEPREFIX="$XDG_CACHE_HOME/__pycache__"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc.py"
 export PYTHON_EGG_CACHE="$XDG_CACHE_HOME/python-eggs"
-export IPYTHONDIR="$XDG_CONFIG_HOME/jupyter"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
+export IPYTHONDIR="$XDG_CONFIG_HOME/jupyter"
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 # }}}
 
 # Set the paths used by go {{{
 export GOPATH="$HOME/.local/go"
-# }}}
-
-# Set the paths used by ruby {{{
-export GEM_HOME="$HOME/.local/ruby"
-export GEM_SPEC_CACHE="$GEM_HOME/specs"
-export GEM_PATH="$GEM_HOME:/usr/lib/ruby/gems/2.7.0"
-export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME/bundle"
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
-export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle"
-export TRAVIS_CONFIG_PATH="$XDG_CONFIG_HOME/travis"
 # }}}
 
 # Set the paths used by R {{{
@@ -64,7 +53,7 @@ export R_HISTFILE="$XDG_CACHE_HOME/.R_history"
 # Set the paths used by perl5 {{{
 export PERL5LIB="$HOME/.local/perl/lib/perl5"
 export PERL_CPANM_OPT="-l $HOME/.local/perl"
-export PERL_CPANM_HOME="$HOME/.local/perl/.cpanm"
+export PERL_CPANM_HOME="$HOME/.local/perl/cpanm"
 # }}}
 
 # Set the paths used by rust {{{
@@ -87,10 +76,6 @@ export ANDROID_EMULATOR_HOME="$ANDROID_HOME"
 # Set the paths used by kotlin {{{
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export KONAN_DATA_DIR="$XDG_DATA_HOME/konan"
-# }}}
-
-# Set the paths used by sqlite {{{
-export SQLITE_HISTORY="$XDG_CACHE_HOME/.sqlite_history"
 # }}}
 
 # Set the paths used by xorg {{{
@@ -134,27 +119,23 @@ export PATH="$HOME/.local/bin:\
 /usr/bin/vendor_perl:\
 /usr/bin/core_perl:\
 $HOME/.local/perl/bin:\
-$GOPATH/bin:\
-$GEM_HOME/bin"
+$GOPATH/bin"
 # }}}
 
-# Use a 256color terminal if one exists {{{
-for t in {konsole,xterm,gnome}-256color; do
-  [ -f /usr/share/terminfo/${t:0:1}/$t ] && export TERM=$t && break
-  [ $t == gnome-256color ] && export TERM=xterm
-done
-unset t
+# Use a 256color terminal if possible {{{
+# shellcheck disable=SC2015
+test -f '/usr/share/terminfo/k/konsole-256color' \
+  && export TERM="${_##*/}" || export TERM='xterm'
 # }}}
 
 # Specify inputrc
 test -f "$XDG_CONFIG_HOME/inputrc" && export INPUTRC="$_"
 
 # Source fzf keybinds
-test -f /usr/share/fzf/key-bindings.bash && . "$_"
+test -f '/usr/share/fzf/key-bindings.bash' && . "$_"
 
-# Source github & gitlab tokens {{{
-test -f "$XDG_DATA_HOME/tokens" && . "$_"
-# }}}
+# Source tokens for CLI tools
+test -f "$XDG_DATA_HOME/tokens.sh" && . "$_"
 
 # Source bashrc
 test -f "$XDG_DATA_HOME/bash/bashrc.sh" && . "$_"
@@ -165,4 +146,4 @@ test -f "$XDG_DATA_HOME/bash/aliases.sh" && . "$_"
 # Source functions
 test -f "$XDG_DATA_HOME/bash/functions.sh" && . "$_"
 
-# vim:fdm=marker:fdl=1:
+# vim:fdm=marker:fdl=1:ft=sh:

@@ -5,10 +5,16 @@
 --external-downloader "aria2c"
 
 # Give these arguments to the external downloader.
---external-downloader-args "--file-allocation=none"
+--downloader-args "aria2c:--file-allocation=none"
 
 # Video format code.
---format "(bestvideo*+bestaudio/best)[height<=?1080]"
+--format "bv*[height<=?1080]+ba/b"
+
+# If a merge is required, output to given container format.
+--merge-output-format "mkv"
+
+# Prefer video formats with free containers.
+--prefer-free-formats
 
 # Do not use .part files - write directly into output file.
 --no-part
@@ -18,5 +24,11 @@
 
 # Specify a custom user agent.
 --user-agent "Mozilla/5.0 (Linux x86_64) yt-dlp/2021.11.10.1"
+
+# SponsorBlock categories to create chapters for.
+--sponsorblock-mark "all"
+
+# SponsorBlock categories to be removed from the video file.
+--sponsorblock-remove "music_offtopic"
 
 # vim:ft=conf:

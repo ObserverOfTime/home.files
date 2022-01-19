@@ -7,6 +7,7 @@
 	autocrlf = false
 	whitespace = cr-at-eol
 	editor = ${EDITOR:-nvim}
+	askpass = ksshaskpass
 
 [extensions]
 	objectFormat = sha256
@@ -16,9 +17,13 @@
 
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
 
 [credential]
 	helper = store
+
+[credential "https://github.com"]
+	helper = !gh auth git-credential
 
 [commit]
 	gpgSign = true
@@ -111,7 +116,6 @@
 	rev  = log --decorate --reverse --no-merges --stat @{1}..
 	amend = commit --amend -uno -a
 	wdiff = diff --word-diff
-	cdiff = diff --word-diff-regex=. --color-words
 	conflicts = diff --name-only --diff-filter=U
 	root = rev-parse --show-toplevel
 	shallow = clone --single-branch --depth=1
@@ -137,7 +141,6 @@
 	insteadOf = @disroot:
 
 [url "aur@aur.archlinux.org:"]
-	insteadOf = https://aur.archlinux.org/
 	insteadOf = http://aur.archlinux.org/
 	insteadOf = @aur:
 

@@ -1,5 +1,5 @@
 # Define where cd looks for targets
-[ -d ~/Documents/Code ] && CDPATH='.:~/Documents/Code'
+[ -d "$HOME/Documents/Code" ] && CDPATH='.:~/Documents/Code'
 
 # Set the primary prompt string
 # shellcheck disable=SC2154

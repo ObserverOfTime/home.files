@@ -48,17 +48,10 @@ fi
 # -l: use a long listing format
 # -N: print entry names without quoting
 # -1: list one file per line
+export TIME_STYLE=long-iso
 alias ll='ls -lhAFH'
 alias l1='ls -ANFH1'
 alias l='ls -lhNFHB'
-# }}}
-
-# Alert for long running commands {{{
-alert() { # Use like so: sleep 10; alert
-  # shellcheck disable=SC2181
-  notify-send -u low -i "$( (($?)) && printf error || printf terminal)" \
-    "$(history | sed -e '$!d;s/^[^}]\+}\s*//;s/[;&|]\s*alert$//')"
-}
 # }}}
 
 # vim:fdm=marker:fdl=1:

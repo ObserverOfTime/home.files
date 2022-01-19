@@ -24,12 +24,14 @@ doxygen
 eog
 eog-plugins
 exe-thumbnailer
+exfatprogs
 extra-cmake-modules
 fd
 ffmpegthumbs
 firefox-developer-edition
 fontconfig
 fontforge
+freeoffice
 fzf
 gamemode
 gawk
@@ -38,6 +40,7 @@ gimp-git
 git
 git-lfs
 github-cli
+glab
 gnupg
 gst-plugins-bad
 gst-plugins-base
@@ -108,12 +111,14 @@ python-isort
 python-pip
 python-poetry
 python-pynvim
+python-pypresence
 python-urwid
-qbittorrent
+qbittorrent-qt5
 qemu
 qt5-imageformats
 qutebrowser
 rclone
+rclone-browser
 ripgrep
 rsync
 sddm-kcm
@@ -122,6 +127,7 @@ spectacle
 sshfs
 steam
 syncplay
+tea
 terminus-font
 texlive-bibtexextra
 texlive-langgreek
@@ -139,7 +145,7 @@ vulkan-icd-loader-git
 vulkan-headers-tkg-git
 waifu2x-ncnn-vulkan-git
 webp-pixbuf-loader
-winetricks-git
+winetricks
 whois
 wine
 words
@@ -154,3 +160,4 @@ yt-dlp
 zathura
 zathura-pdf-mupdf
 zip
+zlib-ng
