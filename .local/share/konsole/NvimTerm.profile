@@ -19,14 +19,16 @@ Environment=TERM=konsole-256color,COLORTERM=truecolor
 Name=NvimTerm
 Parent=FALLBACK/
 TerminalCenter=true
-TerminalColumns=100
+TerminalColumns=120
 TerminalMargin=2
-TerminalRows=35
+TerminalRows=36
 
 [Scrolling]
+HistorySize=200
 ScrollBarPosition=2
 
 [Terminal Features]
+BellMode=3
 BlinkingCursorEnabled=true
 
 # vim:ft=cfg:

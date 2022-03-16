@@ -1,5 +1,4 @@
 cfr
-desmume-git
 discord-ptb
 easyrpg-player
 fakepkg
@@ -7,6 +6,8 @@ kora-icon-theme
 lib32-gst-plugins-bad
 lib32-gst-plugins-ugly
 mkv-extractor-qt
+ntfsprogs-ntfs3
+nvim-packer-git
 nvimpager-git
 otf-alegreya
 otf-alegreya-sans
@@ -14,4 +15,4 @@ otf-fira-go
 otf-firamath
 otf-hasklig
 pandoc-bin
-ttf-twemoji-color
+shellcheck-bin

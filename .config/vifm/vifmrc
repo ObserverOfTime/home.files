@@ -94,14 +94,14 @@ filextype *.pdf,*.epub
     \ {Okular} okular %f %i &,
     \ {MComix} mcomix %f %i &
 filextype *.doc,*.docx,*.odt,*.tmdx
-    \ {FreeOffice} freeoffice-textmaker %f %i &,
-    \ {Calligra} calligrawords %f %i &
+    \ {Calligra} calligrawords %f %i &,
+    \ {FreeOffice} freeoffice-textmaker %f %i &
 filextype *.ppt,*.pptx,*.odp,*.prdx
+    \ {Calligra} calligrastage %f %i &,
     \ {FreeOffice} freeoffice-presentations %f %i &,
-    \ {Calligra} calligrastage %f %i &
 filextype *.xls,*.xlsx,*.csv,*.pmdx
-    \ {FreeOffice} freeoffice-planmaker %f %i &,
-    \ {Calligra} calligrasheets %f %i &
+    \ {Calligra} calligrasheets %f %i &,
+    \ {FreeOffice} freeoffice-planmaker %f %i &
 fileviewer *.pdf pdftotext -nopgbrk %c -
 fileviewer *.epub pandoc -f epub -t plain %c
 fileviewer *.docx pandoc -f docx -t plain %c

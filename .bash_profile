@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Print date on login
 printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 
@@ -120,12 +122,6 @@ export PATH="$HOME/.local/bin:\
 /usr/bin/core_perl:\
 $HOME/.local/perl/bin:\
 $GOPATH/bin"
-# }}}
-
-# Use a 256color terminal if possible {{{
-# shellcheck disable=SC2015
-test -f '/usr/share/terminfo/k/konsole-256color' \
-  && export TERM="${_##*/}" || export TERM='xterm'
 # }}}
 
 # Specify inputrc

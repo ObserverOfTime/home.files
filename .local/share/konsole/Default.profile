@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=false
 ColorScheme=GreenOnBlack
-Font=Hack,16,-1,0,50,0,0,0,0,0
+Font=Iosevka Custom,15,-1,5,50,0,0,0,0,0
 LineSpacing=1
 UseFontLineChararacters=true
 
@@ -20,9 +20,9 @@ Name=Default
 Parent=FALLBACK/
 ShowTerminalSizeHint=true
 TerminalCenter=true
-TerminalColumns=100
+TerminalColumns=120
 TerminalMargin=5
-TerminalRows=35
+TerminalRows=32
 
 [Interaction Options]
 CopyTextAsHTML=false
@@ -33,4 +33,6 @@ HistoryMode=1
 ScrollBarPosition=2
 
 [Terminal Features]
+BellMode=3
+BidiRenderingEnabled=false
 BlinkingCursorEnabled=true
