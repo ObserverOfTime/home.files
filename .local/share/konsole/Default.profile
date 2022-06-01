@@ -21,7 +21,7 @@ Parent=FALLBACK/
 ShowTerminalSizeHint=true
 TerminalCenter=true
 TerminalColumns=120
-TerminalMargin=5
+TerminalMargin=2
 TerminalRows=32
 
 [Interaction Options]

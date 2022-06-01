@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 __usage() {
   if (($1 < $2)); then
     printf 'Usage: %s %s\n' "${FUNCNAME[1]}" "$3"

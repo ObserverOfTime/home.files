@@ -32,9 +32,9 @@ c.content.headers.accept_language = 'en-GB,en,el;q=0.9'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.15.6',
+    'QtWebEngine/5.15.9',
     'Chromium/87.0.4280.144',
-    'qutebrowser/2.3.1'
+    'qutebrowser/2.5.1'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.

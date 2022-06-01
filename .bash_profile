@@ -1,4 +1,4 @@
-# shellcheck shell=bash
+# shellcheck shell=bash disable=SC1090
 
 # Print date on login
 printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
@@ -26,6 +26,7 @@ export BROWSER='firefox'
 # Set the XDG directories {{{
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 # }}}
 
@@ -39,7 +40,7 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc.py"
 export PYTHON_EGG_CACHE="$XDG_CACHE_HOME/python-eggs"
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
 export IPYTHONDIR="$XDG_CONFIG_HOME/jupyter"
-export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+export PYLINTHOME="$XDG_STATE_HOME/pylint"
 # }}}
 
 # Set the paths used by go {{{
@@ -49,7 +50,7 @@ export GOPATH="$HOME/.local/go"
 # Set the paths used by R {{{
 export R_LIBS_USER="$HOME/.local/R"
 export R_PROFILE="$XDG_CONFIG_HOME/Rprofile"
-export R_HISTFILE="$XDG_CACHE_HOME/.R_history"
+export R_HISTFILE="$XDG_STATE_HOME/.R_history"
 # }}}
 
 # Set the paths used by perl5 {{{
@@ -60,10 +61,11 @@ export PERL_CPANM_HOME="$HOME/.local/perl/cpanm"
 
 # Set the paths used by rust {{{
 export CARGO_HOME="$XDG_CACHE_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 # }}}
 
 # Set the paths used by node {{{
-export NODE_REPL_HISTORY="$XDG_CACHE_HOME/.node_repl_history"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/.node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # }}}
 

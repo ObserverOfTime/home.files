@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Aliases {{{
 # go to parent directory
 alias ..='cd ..'

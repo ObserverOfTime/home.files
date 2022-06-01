@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # Define where cd looks for targets
 [ -d "$HOME/Documents/Code" ] && CDPATH='.:~/Documents/Code'
 
@@ -12,7 +14,7 @@ HISTIGNORE='[ ]*:ls:ll:exit:logout:history:clear:bg:fg'
 HISTCONTROL='erasedups'
 
 # Move the history file away from $HOME
-HISTFILE="$XDG_CACHE_HOME/.bash_history"
+HISTFILE="$XDG_STATE_HOME/.bash_history"
 
 # Print time of command in history
 HISTTIMEFORMAT='{%Y-%m-%d %T} '
