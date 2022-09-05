@@ -29,6 +29,9 @@
 	gpgSign = true
 	status = true
 
+[push]
+	autoSetupRemote = true
+
 [status]
 	submoduleSummary = 1
 

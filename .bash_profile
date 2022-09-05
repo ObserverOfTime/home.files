@@ -50,7 +50,7 @@ export GOPATH="$HOME/.local/go"
 # Set the paths used by R {{{
 export R_LIBS_USER="$HOME/.local/R"
 export R_PROFILE="$XDG_CONFIG_HOME/Rprofile"
-export R_HISTFILE="$XDG_STATE_HOME/.R_history"
+export R_HISTFILE="$XDG_STATE_HOME/R/history"
 # }}}
 
 # Set the paths used by perl5 {{{
@@ -65,16 +65,13 @@ export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 # }}}
 
 # Set the paths used by node {{{
-export NODE_REPL_HISTORY="$XDG_STATE_HOME/.node_repl_history"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/node/history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 # }}}
 
 # Set the paths used by android {{{
 export ANDROID_HOME="$HOME/.local/android"
-export ANDROID_SDK_HOME="$ANDROID_HOME"
-export ANDROID_SDK_ROOT="$ANDROID_HOME"
-export ANDROID_AVD_HOME="$ANDROID_HOME/avd"
-export ANDROID_EMULATOR_HOME="$ANDROID_HOME"
+export ANDROID_USER_HOME="$ANDROID_HOME"
 # }}}
 
 # Set the paths used by kotlin {{{

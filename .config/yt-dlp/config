@@ -23,7 +23,7 @@
 --output "%(title)s.%(ext)s"
 
 # Specify a custom user agent.
---user-agent "Mozilla/5.0 (Linux x86_64) yt-dlp/2022.05.18"
+--user-agent "Mozilla/5.0 (Linux x86_64) yt-dlp/2022.08.19"
 
 # SponsorBlock categories to create chapters for.
 --sponsorblock-mark "all"

@@ -14,7 +14,7 @@ HISTIGNORE='[ ]*:ls:ll:exit:logout:history:clear:bg:fg'
 HISTCONTROL='erasedups'
 
 # Move the history file away from $HOME
-HISTFILE="$XDG_STATE_HOME/.bash_history"
+HISTFILE="$XDG_STATE_HOME/bash/history"
 
 # Print time of command in history
 HISTTIMEFORMAT='{%Y-%m-%d %T} '

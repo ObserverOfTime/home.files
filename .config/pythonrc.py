@@ -3,8 +3,8 @@ import os
 import readline
 
 histfile = os.path.join(os.getenv(
-    'XDG_CACHE_HOME', os.path.expanduser('~/.cache')
-), '.python_history')
+    'XDG_STATE_HOME', os.path.expanduser('~/.cache')
+), 'python', 'history')
 
 try:
     readline.read_history_file(histfile)
