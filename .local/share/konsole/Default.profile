@@ -1,7 +1,7 @@
 [Appearance]
 AntiAliasFonts=true
 BoldIntense=false
-ColorScheme=GreenOnBlack
+ColorScheme=Gruvbox8
 Font=Iosevka Custom,15,-1,5,50,0,0,0,0,0
 LineSpacing=1
 UseFontLineChararacters=true

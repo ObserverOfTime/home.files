@@ -1,17 +1,17 @@
-let &g:guicursor =
-            \ 'v-sm:block,' .
+let &guicursor =
+            \ 'v-sm:block,'.
             \ 'i-ci-ve:ver25,'.
             \ 'r-o-n-c-cr:hor25'
 
-let &g:background = 'dark'
+let &background = 'dark'
 
-let &g:foldenable = v:false
+let &foldenable = v:false
 
-let &g:packpath = ''
+let &packpath = ''
 
 let s:packer = stdpath('data').'/site/pack/packer/'
 
-let &g:runtimepath =
+let &runtimepath =
             \ '/usr/share/nvimpager/runtime,'.
             \ '/usr/share/nvim/runtime,'.
             \ '/usr/share/vim/vimfiles,'.
@@ -24,7 +24,7 @@ dofile(config..'/lua/config/treesitter.lua')
 EOF
 
 if $TERM !=# 'linux'
-    let &g:termguicolors = v:true
+    let &termguicolors = v:true
     let g:gruvbox_italic = v:true
     colorscheme gruvbox
 else
@@ -42,7 +42,6 @@ hi MatchParen ctermbg=236 guibg=#303030
 hi Todo ctermfg=179 guifg=#D7AF5F
 
 hi! link Operator GruvboxGreen
-hi! link TSOperator GruvboxGreen
 
 hi NvimPagerFG_red_BG_ ctermfg=9 guifg=#FF0000
 hi NvimPagerFG_green_BG_ ctermfg=40 guifg=#00D700

@@ -63,7 +63,7 @@ c.fileselect.single_file.command = \
 c.fonts.web.family.fixed = 'Hack, Fira Code, Fantasque Sans Mono'
 
 # Which Chromium process model to use.
-c.qt.process_model = 'process-per-site'
+c.qt.chromium.process_model = 'process-per-site'
 
 # Languages to use for spell checking.
 c.spellcheck.languages = ['en-GB', 'en-US', 'el-GR']

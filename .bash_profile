@@ -44,19 +44,19 @@ export PYLINTHOME="$XDG_STATE_HOME/pylint"
 # }}}
 
 # Set the paths used by go {{{
-export GOPATH="$HOME/.local/go"
+export GOPATH="$XDG_DATA_HOME/go"
 # }}}
 
 # Set the paths used by R {{{
-export R_LIBS_USER="$HOME/.local/R"
+export R_LIBS_USER="$XDG_DATA_HOME/R"
 export R_PROFILE="$XDG_CONFIG_HOME/Rprofile"
 export R_HISTFILE="$XDG_STATE_HOME/R/history"
 # }}}
 
 # Set the paths used by perl5 {{{
-export PERL5LIB="$HOME/.local/perl/lib/perl5"
-export PERL_CPANM_OPT="-l $HOME/.local/perl"
-export PERL_CPANM_HOME="$HOME/.local/perl/cpanm"
+export PERL5LIB="$XDG_DATA_HOME/perl/lib/perl5"
+export PERL_CPANM_OPT="-l $XDG_DATA_HOME/perl"
+export PERL_CPANM_HOME="$XDG_DATA_HOME/perl/cpanm"
 # }}}
 
 # Set the paths used by rust {{{
@@ -95,7 +95,7 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # Set the paths used by docker {{{
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-# }}
+# }}}
 
 # Set the paths used by texlive  {{{
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texmf"
@@ -119,7 +119,7 @@ export PATH="$HOME/.local/bin:\
 /usr/bin/site_perl:\
 /usr/bin/vendor_perl:\
 /usr/bin/core_perl:\
-$HOME/.local/perl/bin:\
+$XDG_DATA_HOME/perl/bin:\
 $GOPATH/bin"
 # }}}
 
@@ -128,9 +128,6 @@ test -f "$XDG_CONFIG_HOME/inputrc" && export INPUTRC="$_"
 
 # Source fzf keybinds
 test -f '/usr/share/fzf/key-bindings.bash' && . "$_"
-
-# Source tokens for CLI tools
-test -f "$XDG_DATA_HOME/tokens.sh" && . "$_"
 
 # Source bashrc
 test -f "$XDG_DATA_HOME/bash/bashrc.sh" && . "$_"

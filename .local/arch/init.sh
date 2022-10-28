@@ -68,22 +68,6 @@ Exec = /bin/sed -i /usr/share/wine/wine.inf \
 EOF
 # }}}
 
-# Disable netrw file explorer {{{
-sudo tee /etc/pacman.d/hooks/netrw.hook >/dev/null <<EOF
-[Trigger]
-Operation = Install
-Operation = Upgrade
-Type = Path
-Target = usr/share/nvim/runtime/plugin/netrwPlugin.vim
-
-[Action]
-Description = Disabling netrw file explorer...
-When = PostTransaction
-Exec = /bin/sed -e '/FileExplorer/,/END/d' -i \
-  /usr/share/nvim/runtime/plugin/netrwPlugin.vim
-EOF
-# }}}
-
 # Install packages via yay {{{
 xargs <~/.local/arch/packages.repo.txt \
   yay -S --repo --needed --noconfirm
@@ -168,8 +152,9 @@ sudo sed -i /opt/maven/conf/settings.xml \
 # }}}
 
 # Setup neovim {{{
-nvim --headless +q >/dev/null
-nvim --headless +PlugInstall +qa >/dev/null
+nvim --headless -c \
+  'autocmd User PackerComplete qa' \
+  -c 'PackerSync' >/dev/null
 sudo ln -s /usr/bin/nvim /usr/local/bin/vi
 sudo ln -s /usr/bin/nvim /usr/local/bin/vim
 # }}}

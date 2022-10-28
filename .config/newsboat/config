@@ -1,6 +1,6 @@
 # All feeds will be automatically reloaded at start up
 # and then continuously after a certain time has passed.
-auto-reload "yes"
+auto-reload yes
 
 # Set the browser command to use when opening an article in the browser.
 browser "firefox %u"
@@ -12,7 +12,7 @@ datetime-format "%Y-%m-%d"
 error-log "~/.local/share/newsboat/error.log"
 
 # Specifies which feed property shall be used for sorting.
-feed-sort-order "title"
+feed-sort-order title
 
 # Format string that is used for formatting notifications.
 notify-format "%d new articles"
@@ -28,7 +28,7 @@ reload-threads 4
 save-path "~/Documents/RSS"
 
 # This value will be used as HTTP User-Agent header.
-user-agent "Mozilla/5.0 (Linux x86_64) newsboat/2.21.1"
+user-agent "Mozilla/5.0 (Linux x86_64) newsboat/2.29"
 
 # Keybindings {{{
 bind-key j next

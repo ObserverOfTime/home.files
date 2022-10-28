@@ -447,4 +447,4 @@ nnoremap o :file<CR>
 nnoremap Q :quit<CR>
 " }}}
 
-" vim:fdm=marker:fdl=1:
+" vim:fdm=marker:fdl=1:syn=vim:
