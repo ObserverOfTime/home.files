@@ -7,6 +7,10 @@ let &background = 'dark'
 
 let &foldenable = v:false
 
+let &wrap = v:true
+
+let &linebreak = v:true
+
 let &packpath = ''
 
 let s:packer = stdpath('data').'/site/pack/packer/'

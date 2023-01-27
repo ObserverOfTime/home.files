@@ -30,6 +30,9 @@ set findprg=fd\ --color=never\ %p\ %s
 " What should be saved automatically between vifm runs
 set vifminfo=chistory,shistory
 
+" Redraw screen to get rid of graphics
+set previewoptions=hardgraphicsclear
+
 " Maximum number of stored items in all histories
 set history=100
 
@@ -278,7 +281,7 @@ fileviewer *.apng,
     \*.webp,
     \*.xbm,
     \*.xpm
-    \ identify -verbose %c
+    \ img2sixel -S -q low %c -w $((%pw*6)) %pd
 " }}}
 
 " Archives {{{
@@ -390,12 +393,11 @@ fileviewer *.o nm %c
 
 " IDE projects {{{
 filextype *.pro
-    \ {Qt Creator} qtcreator %f %i &,
-    \ {CLion} clion %d %i &
+    \ {CLion} clion %d %i &,
+    \ {Qt Creator} qtcreator %f %i &
 filextype .idea/
     \ {IntelliJ} intellij-idea-ultimate-edition %d %i &,
     \ {CLion} clion %d %i &,
-    \ {PhpStorm} phpstorm %d %i &,
     \ {PyCharm} pycharm %d %i &
 " }}}
 

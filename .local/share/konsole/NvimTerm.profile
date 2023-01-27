@@ -5,6 +5,9 @@ ColorScheme=Gruvbox8
 Font=Hack,16,-1,0,50,0,0,0,0,0
 LineSpacing=1
 UseFontLineChararacters=true
+WordMode=true
+WordModeAttr=false
+WordModeBrahmic=false
 
 [Cursor Options]
 CursorShape=2

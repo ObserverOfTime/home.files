@@ -21,6 +21,10 @@
 * [.local/share/bash/bashrc.sh](.local/share/bash/bashrc.sh): interactive shell configuration file
 * [.local/share/bash/functions.sh](.local/share/bash/functions.sh): contains various functions
 
+# [bottom](https://clementtsang.github.io/bottom/)
+
+* [.config/bottom/bottom.toml](.config/bottom/bottom.toml): configuration file
+
 ## [Ccache](https://github.com/ccache/ccache)
 
 * [.config/ccache.cfg](.config/ccache.cfg): configuration file
@@ -32,10 +36,6 @@
 ## [Fontconfig](https://www.freedesktop.org/wiki/Software/fontconfig/)
 
 * [.config/fontconfig/fonts.conf](.config/fontconfig/fonts.conf): configuration file
-
-## [Htop](https://hisham.hm/htop/)
-
-* [.config/htop/htoprc](.config/htop/htoprc): configuration file
 
 ## [Git](https://git-scm.com/)
 

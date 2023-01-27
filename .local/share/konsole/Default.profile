@@ -1,10 +1,13 @@
 [Appearance]
 AntiAliasFonts=true
-BoldIntense=false
+BoldIntense=true
 ColorScheme=Gruvbox8
 Font=Iosevka Custom,15,-1,5,50,0,0,0,0,0
 LineSpacing=1
 UseFontLineChararacters=true
+WordMode=true
+WordModeAttr=false
+WordModeBrahmic=false
 
 [Cursor Options]
 CursorShape=2
@@ -25,7 +28,11 @@ TerminalMargin=2
 TerminalRows=32
 
 [Interaction Options]
+AllowEscapedLinks=false
 CopyTextAsHTML=false
+EscapedLinksSchema=https://;file://
+TextEditorCmd=6
+TextEditorCmdCustom=
 UnderlineFilesEnabled=true
 
 [Scrolling]

@@ -1,0 +1,27 @@
+[flags]
+# Puts the CPU chart legend to the left side.
+left_legend = true
+# Groups processes with the same name by default.
+group_processes = true
+# Uses the older network legend.
+use_old_network_legend = true
+# Shows the battery widget.
+battery = true
+# Use a color scheme.
+color = "gruvbox"
+# Defaults to showing process memory usage by value.
+mem_as_value = true
+# Defaults to showing the process widget in tree mode.
+tree = true
+
+[disk_filter]
+list = ["/dev/nvme0n1p1"]
+is_list_ignored = true
+whole_word = true
+regex = false
+
+[mount_filter]
+list = ["/mnt/swap"]
+is_list_ignored = true
+whole_word = true
+regex = false

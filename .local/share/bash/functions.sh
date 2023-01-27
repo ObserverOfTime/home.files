@@ -88,7 +88,7 @@ sri() { # Prints the SRI hash of a resource
 }
 
 myip() { # What's my ip
-   drill myip.opendns.com @resolver1.opendns.com | awk '/^myip/{print $NF}'
+   dig +short +tls A myip.opendns.com @resolver1.opendns.com
 }
 
 urlencode() { # Encodes string for url

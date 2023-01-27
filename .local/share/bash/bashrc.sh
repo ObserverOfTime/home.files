@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 
 # Define where cd looks for targets
-[[ -d "$HOME/Documents/Code" ]] && CDPATH='.:~/Documents/Code'
+[[ -d "$HOME/Documents/Code" ]] && CDPATH='.:/mnt/ext/Code'
 
 # Set the primary prompt string
 # shellcheck disable=SC2154

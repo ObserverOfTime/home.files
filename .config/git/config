@@ -7,6 +7,7 @@
 	autocrlf = false
 	whitespace = cr-at-eol
 	editor = ${EDITOR:-nvim}
+	pager = ${PAGER:-nvimpager}
 	askpass = ksshaskpass
 
 [extensions]
@@ -25,12 +26,27 @@
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 
+[credential "https://gitlab.com"]
+	helper = !glab auth git-credential
+
+[credential "https://framagit.org"]
+	helper = !glab auth git-crendential
+
+[credential "https://gitlab.archlinux.org"]
+	helper = !glab auth git-crendential
+
+[credential "https://invent.kde.org"]
+	helper = !glab auth git-crendential
+
 [commit]
 	gpgSign = true
 	status = true
 
 [push]
 	autoSetupRemote = true
+
+[rebase]
+	autoSquash = true
 
 [status]
 	submoduleSummary = 1
@@ -59,16 +75,27 @@
 [tar "tar.br"]
 	command = brotli -c -f
 
-[pager]
-	diff = ${PAGER:-nvimpager}
-	show = ${PAGER:-nvimpager}
+[color]
+	ui = true
 
 [color "diff"]
 	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = brightgreen bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = brightgreen bold
+	newHighlight = brightgreen bold 22
 
 [diff]
 	wsErrorHighlight = all
 	mnemonicPrefix = true
+	colorMoved = default
 
 [diff "hex"]
 	textconv = hexdump -v -C
@@ -85,7 +112,7 @@
 [difftool "meld"]
 	cmd = meld \"$LOCAL\" \"$REMOTE\"
 
-[difftool "imgdiff"]
+[difftool "magick"]
 	cmd = compare \"$LOCAL\" \"$REMOTE\" png:- | \
 		montage -geometry 400x -font \
 		Liberation-Sans -label l/%f \"$LOCAL\" \
@@ -98,19 +125,28 @@
 	keepBackup = false
 
 [mergetool "fugitive"]
-	cmd = nvim -f +Gvdiffsplit\\! \"$MERGED\"
+	cmd = nvim --cmd let\\ g:_mergetool=v:true +Gvdiffsplit\\! \"$MERGED\"
 
 [mergetool "meld"]
 	cmd = meld \"$LOCAL\" \"$BASE\" \"$REMOTE\" -o \"$MERGED\"
 
 [pretty]
-	log = format:%h %s%d [%cn] (%ad)
-	color = format:%C(cyan)%h %Creset%s%C(white)%d %C(yellow)[%an] %Cred(%ad)
+	log = format:%C(auto,cyan)%h %Creset%s%d %C(auto,yellow)[%an] %C(auto,red)(%ad)
 
 [grep]
 	lineNumber = true
 	patternType = perl
 	fallbackToNoIndex = true
+
+[diff-so-fancy]
+	markEmptyLines = false
+
+[delta]
+	navigate = true
+	line-numbers = true
+	relative-paths = true
+	syntax-theme = gruvbox-dark
+	pager = less -R
 
 [alias]
 	last = log -1 HEAD
@@ -126,10 +162,10 @@
 	repush = !git commit --amend -a --no-edit && git push --force-with-lease
 
 [filter "lfs"]
-	required = true
-	process = git-lfs filter-process
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [url "git@github.com:"]
 	insteadOf = http://github.com/
@@ -146,5 +182,3 @@
 [url "aur@aur.archlinux.org:"]
 	insteadOf = http://aur.archlinux.org/
 	insteadOf = @aur:
-
-# vim:noet:sw=4:ts=4:
