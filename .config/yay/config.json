@@ -15,7 +15,7 @@
   "answeredit": "",
   "answerupgrade": "",
   "gitbin": "git",
-  "gpgbin": "gpg2",
+  "gpgbin": "gpg",
   "gpgflags": "",
   "mflags": "",
   "sortby": "votes",

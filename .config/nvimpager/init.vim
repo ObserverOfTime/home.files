@@ -13,19 +13,16 @@ let &linebreak = v:true
 
 let &packpath = ''
 
-let s:packer = stdpath('data').'/site/pack/packer/'
+let s:packer = $XDG_DATA_HOME..'/nvim/site/pack/packer/'
 
 let &runtimepath =
             \ '/usr/share/nvimpager/runtime,'.
             \ '/usr/share/nvim/runtime,'.
             \ '/usr/share/vim/vimfiles,'.
-            \ s:packer.'start/nvim-treesitter,'.
             \ s:packer.'opt/gruvbox.nvim'
+            " \ s:packer.'start/nvim-treesitter'
 
-lua <<EOF
-local config = vim.fn.stdpath('config')
-dofile(config..'/lua/config/treesitter.lua')
-EOF
+" lua dofile(vim.env.XDG_CONFIG_HOME..'/nvim/lua/config/treesitter.lua')
 
 if $TERM !=# 'linux'
     let &termguicolors = v:true
@@ -38,15 +35,12 @@ endif
 vnoremap <C-c> "+y
 vnoremap <C-Insert> "+y
 
-hi String cterm=NONE gui=NONE
-hi Special cterm=NONE gui=NONE
-hi Comment cterm=italic gui=italic
-hi Visual ctermbg=237 guibg=#3A3A3A
-hi MatchParen ctermbg=236 guibg=#303030
-hi Todo ctermfg=179 guifg=#D7AF5F
-
-hi! link Operator GruvboxGreen
-
-hi NvimPagerFG_red_BG_ ctermfg=9 guifg=#FF0000
-hi NvimPagerFG_green_BG_ ctermfg=40 guifg=#00D700
-hi NvimPagerFG_yellow_BG_ ctermfg=172 guifg=#D78700
+hi String      cterm=NONE   gui=NONE
+hi Special     cterm=NONE   gui=NONE
+hi Comment     cterm=italic gui=italic
+hi Visual      ctermbg=237  guibg=#3A3A3A
+hi MatchParen  ctermbg=236  guibg=#303030
+hi Todo        ctermfg=179  guifg=#D7AF5F
+hi diffRemoved ctermfg=9    guifg=#FF0000
+hi diffAdded   ctermfg=40   guifg=#00D700
+hi diffChanged ctermfg=172  guifg=#D78700

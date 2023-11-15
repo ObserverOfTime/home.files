@@ -149,14 +149,15 @@
 	pager = less -R
 
 [alias]
+	list = shortlog -ns
 	last = log -1 HEAD
 	hist = log --date=short --graph --pretty=log
-	ls   = log --date=short --graph --pretty=color --decorate
 	rev  = log --decorate --reverse --no-merges --stat @{1}..
 	amend = commit --amend -uno -a
 	wdiff = diff --word-diff
 	conflicts = diff --name-only --diff-filter=U
 	root = rev-parse --show-toplevel
+	head = rev-parse HEAD
 	shallow = clone --single-branch --depth=1
 	compare = !git log $1...$2 --format=%m\\ %h\\ %s --left-right
 	repush = !git commit --amend -a --no-edit && git push --force-with-lease
@@ -178,6 +179,10 @@
 [url "git@git.disroot.org:"]
 	insteadOf = http://git.disroot.org/
 	insteadOf = @disroot:
+
+[url "git@gitlab.archlinux.org:"]
+	insteadOf = http://gitlab.archlinux.org/
+	insteadOf = @arch:
 
 [url "aur@aur.archlinux.org:"]
 	insteadOf = http://aur.archlinux.org/

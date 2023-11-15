@@ -1,4 +1,4 @@
-config, c = config, c
+config, c = config, c  # pyright: ignore
 
 # Background color for webpages if unset.
 c.colors.webpage.bg = ''
@@ -32,13 +32,13 @@ c.content.headers.accept_language = 'en-GB,en,el;q=0.9'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.15.10',
+    'QtWebEngine/5.15.14',
     'Chromium/87.0.4280.144',
-    'qutebrowser/2.5.2'
+    'qutebrowser/3.0.0'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
-c.content.javascript.can_access_clipboard = True
+c.content.javascript.clipboard = 'access-paste'
 
 # Allow pdf.js to view PDF files in the browser.
 c.content.pdfjs = True
@@ -82,23 +82,34 @@ c.url.auto_search = 'never'
 
 # Page to open if :open -t/-b/-w is used without URL. {{{1
 c.url.default_page = """https://search.disroot.org/?preferences=
-eJx1VU3P2zYM_jXzxUixroedfBg2DCtQ4C2adFeDlmibjSS6opy83q8fFX_EedNe
-Elgm-XyQoiPK6JLUHOqA1zpBU_0NTrCwTHVEYXfBWImhQz8279K1cBC6ETqsMBy-
-HgvHBlx-KCwJNA5tPbixoyDVv-QPjs5Y95zOOMkvv_35MmDIVRWydhTOG24T-SoY
-M36O-xhaCpSwFhPZuTXzD2NQpP7r5aMWuUYNKMgrl3qI_DpVpzhiAWNiw35wmLAq
-BFoUhGj66tci9eixYjEQCwyPZI_o2lphOXpIxCGzOEUwZyX19csnxfOsTujpP6fT
-5-OKr8_HW_ksxEDCjuNUCzo06e4IBsVAqVhFAEUcxsaRmXFq1UgYTC7VRsRSuE1X
-iFhajTQp16sp6dsLQ9JoNgSu9GgJ9LABwX2JMAHU9YUscpYwBhkcSK8lslH5qGPu
-HJZ6PJUwDEqgJXd7Y6lr0v1xsM1D6Y46lQOiIR0GjJD7EtFa0hNtYs7RdolEbPd5
-gh5CIlOK6dlBfKa7cVsNspBUV3owZ8_bj0Kmrm9_GdWYQ7rsZK-s7jw7xHMij7KY
-SWFvk6dMXI0vwYBFn4vfkRdftuiFyfy8OwfTCY_PgTNlvhDuo9-_7oTb0ep87_gK
-oh1Qh28Tqe8S80LfjDEqu2mf4unVOB7tPeX7VY0v54l5mhzUK0d2X6CFmAGWVvbQ
-RMg_C2SecrpgSbLPWTWvkG3Ua01gdtoSnydOLD2fIewiZ7QfSd48aiN4cNREXEhM
-0DOXmeHG009e72acyhQhiNM7aH9EcJ1qz990FPYRs0sPNR03kvBdXKelvzVyebjz
-XGu-UbjRXwZnVfwmbM0W_C-Af3DCQIilpDiaNEaUN8PYPfVyXnGGLZb5ZyGqa8Zn
-M-7J7z98-P11R3CXZ9ksadZ2pcXbAp4X1LOZc2-3Jbrut2XeH63U7oF2JxeRx9lZ
-wn-6FlaD1tv8RnS3NOWp4MxuN4ENpWbUVZ4WhWvBLWDGu_Wp8Jh6ttXnl-OpWDY6
-ZW0zSnH7fBwkTfrVc9xRNu9ysBDP_wMVWr6s""".replace('\n', '')
+eJx1V02P4zYM_TXNxdgA2z0UPeTSAu1xC3TvAi0xNseS6NVHHM-vLxXbsTyZHsYY
+kRJFPoqPjIaEHQfCeOnQYwB7suC7DB1e0H_5-4-TZQ22LE6QE2t2o8WEl58T-HQi
+JxvVGPg-X36EjCeHqWdz-ef7vz9OEa4YEYLuL19PqUeHlxYxBeZ0ChizTVGxVx4n
+laC9_AU24skwKVGyvWG4MMjyzKE7RSr3qphm8aU4ctLoEwYFljrv5P_1PJgbeI1G
+rTcv0p8Zw6zIq0RJDCxC8lfylMSqDmzt5gBFaK0YQN-RF1x-76BTKrImsI1DQ_DL
+r3_CODSOQuCg1JUsxodMXGzk28TEASuFOEI3bCgqtaL8kCbSSj0gLLta8EaDG5Vy
+OZIuEkpt1gMm2ZVkrbX-km5K3cgglyM8ohecIlZmJJYYA17FZU0oUIhsxrG-Wedg
+CT9Iguyda5lBfBeAn94Y0zUGH5AR-0MoGHgioxRLloOsJxrIQIKDOYmk_HXcLL5W
+Ple6CaEY2W0tqDoY5YB8y22O32gsidh3JUnVfAjp67264GoCFwe3jFwt6SHUGwJi
+E_maJgjYGAqoJYfzCvw1kB8I6mx11MkzgZgOMLLBFkO3HuuYO_F9tDCXZxH3-2uN
+4xsVNJ5Z7UY2pka-hzZA-ax2-8fpdUHOtDsO5KGy9Eax5105SNAQKzcsieEwNyWC
+SJ8o-Npo9p0UZJ0uy21MeA5xdQHe7RxIx91joQHQI_h1g6O7tpzNvsHPAPt15R3H
+JClIkuEtzUUYcOTKrREkgI7iVhBjbs8Gb-vqQUmN0ImcKF8RRRwJFiaoYFkEJVlN
+-TyTDA5K4JsgohODpJuoe7YQ6oqKScp3LORXpT_xMHNiwXwooW9ep4lSoaqPHJJ9
+lAcQ-wrZGSS3tcmZc8otVs4_JRuUE7WHunUQhLgkkkP5CYffhWDCUVoKtWUe4kfh
+AcUi-Jk54cddkXPQL9LCSJTmFzHPH_AypNM7-2PZfvv2233HzmSDfn_BEd89uEO0
+_IY41BIPtwL2Lgi5nTt022sdEcMHTB8ZkSsGqcRpwrZShexaW--d-E4De3l3TZw9
+-9lh5d_beB4nf2RCJ5RZ-yOldTvEPEq12O2Vfip-pcxaeXzyj5z0Oe0k9DR6Qn_s
+bY_jlny-N8XTrZ7DnW71ay-6lXCrMMh3H9evfj6kBwcfkgXOCtY2Geq6KvF4I6k-
+qbK6T7B0w9D0uV093RvHoR2l2bGXsKrMiJZyxVCyTgWZBSOZCqDdF_sF3Uq1u_GV
+ul8CXeWHUFfZS7Cr_BNeIS-biHO9u5Jt3kts3e2QDT-6jWxBehVuvaKwKEg7K-04
+okxc1WWbTmhU-iGsbX3Xj6ZUSbXuhd38xs8jBRkeW5grfs6tlNLhyDxSTc-1ywtf
+vwC5iF8wkxAMpRcSlecuY9OxuQg564GFBa6Wp-1NxyG32ae8kXseMeT4xEkmTjLS
+8mUMSlXHeRDyMakGyMr7KmhV7t3IIdc0QUPZAWWGeJIB26XJjH01ujhhECezRpMC
+-GgF03qS4mA8DZUgpXCmimGkY62deB9dR5ulvuOl8MP9vK7OPcck7IkyX0vfWdrY
+YYOEr3SPenjRSHRKkj_gHJ8c8j-XlIa2LF6sWKHCtPJ4LWdQy9g_BdG_qFdmFLj1
+8mtlluHeyoD2yU57lSn_yq-hBSjUoWTylXtceRwnadcydlz-A1zR6ss=&q=%s
+""".replace('\n', '')
 # }}}
 
 # Page(s) to open at the start.

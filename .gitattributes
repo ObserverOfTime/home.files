@@ -37,6 +37,7 @@
 .local/arch/packages.aur.txt linguist-language=Text
 .local/arch/packages.repo.txt linguist-language=Text
 
+.config/bottom/bottom.toml linguist-language=TOML
 .config/pypoetry/config.toml linguist-language=TOML
 
 .config/nvimpager/init.vim linguist-language=Vim-script

@@ -57,6 +57,7 @@ export R_HISTFILE="$XDG_STATE_HOME/R/history"
 export PERL5LIB="$XDG_DATA_HOME/perl/lib/perl5"
 export PERL_CPANM_OPT="-l $XDG_DATA_HOME/perl"
 export PERL_CPANM_HOME="$XDG_DATA_HOME/perl/cpanm"
+export PERL_LOCAL_LIB_ROOT="$HOME/.local/share/perl"
 # }}}
 
 # Set the paths used by rust {{{
