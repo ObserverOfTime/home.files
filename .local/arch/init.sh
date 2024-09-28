@@ -104,7 +104,6 @@ for key in "${!ALIASES[@]}"; do
 done
 pandoc --bash-completion > "$DIRECTORY/pandoc"
 poetry completions bash > "$DIRECTORY/poetry"
-ln -fvs /usr/share/fzf/completion.bash "$DIRECTORY/fzf"
 unset DIRECTORY ALIASES
 # }}}
 
@@ -152,9 +151,7 @@ sudo sed -i /opt/maven/conf/settings.xml \
 # }}}
 
 # Setup neovim {{{
-nvim --headless -c \
-  'autocmd User PackerComplete qa' \
-  -c 'PackerSync' >/dev/null
+nvim --headless -c 'Lazy! sync' +qa
 sudo ln -s /usr/bin/nvim /usr/local/bin/vi
 sudo ln -s /usr/bin/nvim /usr/local/bin/vim
 # }}}

@@ -15,8 +15,8 @@ alias ffprobe='ffprobe -hide_banner'
 alias ffmpeg='ffmpeg -hide_banner'
 # paste to file from clipboard
 alias fpaste='xclip -sel c -o > '
-# fzf with preview
-alias fzfp='fzf --preview rougify\ -tbase16.dark\ {}'
+# skim with preview
+alias skp='sk --preview pygmentize\ -Pstyle=gruvbox-dark\ {}'
 # git diff for regular files
 alias gdiff='git diff --no-index'
 # print makefile variable

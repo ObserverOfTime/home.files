@@ -78,6 +78,11 @@
 [color]
 	ui = true
 
+[color "grep"]
+	linenumber = yellow
+	filename = magenta
+	match = red bold
+
 [color "diff"]
 	meta = yellow
 	frag = magenta bold
@@ -161,6 +166,7 @@
 	shallow = clone --single-branch --depth=1
 	compare = !git log $1...$2 --format=%m\\ %h\\ %s --left-right
 	repush = !git commit --amend -a --no-edit && git push --force-with-lease
+	autosquash = !git -c sequence.editor=: rebase -i --autosquash
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

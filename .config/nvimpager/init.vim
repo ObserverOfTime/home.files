@@ -3,6 +3,8 @@ let &guicursor =
             \ 'i-ci-ve:ver25,'.
             \ 'r-o-n-c-cr:hor25'
 
+let &mousemodel = 'extend'
+
 let &background = 'dark'
 
 let &foldenable = v:false
@@ -13,16 +15,14 @@ let &linebreak = v:true
 
 let &packpath = ''
 
-let s:packer = $XDG_DATA_HOME..'/nvim/site/pack/packer/'
-
 let &runtimepath =
             \ '/usr/share/nvimpager/runtime,'.
             \ '/usr/share/nvim/runtime,'.
             \ '/usr/share/vim/vimfiles,'.
-            \ s:packer.'opt/gruvbox.nvim'
-            " \ s:packer.'start/nvim-treesitter'
+            \ $XDG_DATA_HOME..'/nvim/site/lazy/gruvbox.nvim'
 
-" lua dofile(vim.env.XDG_CONFIG_HOME..'/nvim/lua/config/treesitter.lua')
+let g:loaded_skim = 0
+let g:loaded_tutor_mode_plugin = 0
 
 if $TERM !=# 'linux'
     let &termguicolors = v:true

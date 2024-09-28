@@ -33,7 +33,6 @@ ffmpegthumbs
 firefox-developer-edition
 fontconfig
 fontforge
-fzf
 gamemode
 gawk
 gdb
@@ -149,6 +148,7 @@ ripgrep
 rsync
 sddm-kcm
 sha3sum
+skim
 spectacle
 sshfs
 steam

@@ -4,7 +4,7 @@ fakepkg
 kora-icon-theme
 lib32-gst-plugins-bad
 lib32-gst-plugins-ugly
-nvim-packer-git
+nvim-lazy
 nvimpager-git
 otf-alegreya
 otf-alegreya-sans

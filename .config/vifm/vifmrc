@@ -124,27 +124,33 @@ filetype *.aac,
     \*.mpc,
     \*.oga,
     \*.ogg,
+    \*.opus,
     \*.ra,
     \*.spx,
     \*.wav,
     \*.xspf
-    \ {MPV} mpv %f &
+    \ {MPV} mpv -q %f &
 fileviewer *.aac,
     \*.au,
     \*.axa,
-    \*.flac,
     \*.mid,
     \*.midi,
     \*.mka,
-    \*.mp3,
     \*.mpc,
-    \*.oga,
-    \*.ogg,
     \*.ra,
     \*.spx,
     \*.wav,
     \*.xspf
     \ ffprobe -hide_banner %c 2>&1
+filetype *.flac,
+    \*.mp3,
+    \*.oga,
+    \*.ogg,
+    \*.opus
+    \ {Probe} ffprobe -hide_banner %f %q 2>&1
+fileviewer *.flac,*.mp3,*.oga,*.ogg,*.opus
+    \ ffmpeg -hide_banner -loglevel error -i %c -an -vcodec copy -f mjpeg -
+    \ | convert jpeg:- -resize $((%pw*10))x$((%ph*20)) sixel:- %pd
 " }}}
 
 " Videos {{{
@@ -180,7 +186,40 @@ filextype *.anx,
     \*.xcf,
     \*.xwd,
     \*.yuv
-    \ {MPV} mpv %f &
+    \ {MPV} mpv -q %f &
+filetype *.anx,
+    \*.asf,
+    \*.avi,
+    \*.axv,
+    \*.cgm,
+    \*.dl,
+    \*.emf,
+    \*.flc,
+    \*.fli,
+    \*.flv,
+    \*.gl,
+    \*.m2v,
+    \*.m4v,
+    \*.mkv,
+    \*.mov,
+    \*.mp4,
+    \*.mp4v,
+    \*.mpeg,
+    \*.mpg,
+    \*.nuv,
+    \*.ogm,
+    \*.ogv,
+    \*.ogx,
+    \*.pak,
+    \*.qt,
+    \*.rm,
+    \*.rmvb,
+    \*.vob,
+    \*.wmv,
+    \*.xcf,
+    \*.xwd,
+    \*.yuv
+    \ {Probe} ffprobe -hide_banner %f %q 2>&1
 fileviewer *.anx,
     \*.asf,
     \*.avi,
@@ -213,7 +252,7 @@ fileviewer *.anx,
     \*.xcf,
     \*.xwd,
     \*.yuv
-    \ ffprobe -hide_banner %c 2>&1
+    \ convert '%c[1]' -resize $((%pw*10))x$((%ph*20)) sixel:- %pd
 " }}}
 
 " Images {{{
@@ -246,14 +285,41 @@ filextype *.apng,
     \ {ImageMagick} display %f %i &,
     \ {Eye of Gnome} eog %f %i &,
     \ {Gwenview} gwenview %f %i &,
-    \ {GIMP} gimp %f %i &,
-    \ {Krita} krita %f %i &
+    \ {GIMP} gimp %f %i &
 filextype *.svg,*.svgz
     \ {ImageMagick} display %f %i &,
     \ {Eye of Gnome} eog %f %i &,
     \ {Gwenview} gwenview %f %i &,
     \ {Inkscape} inkscape %f %i &,
     \ {Karbon} karbon %f %i &
+filetype *.apng,
+    \*.bmp,
+    \*.gif,
+    \*.ico,
+    \*.icon,
+    \*.j2k,
+    \*.jp2,
+    \*.jpeg,
+    \*.jpf,
+    \*.jpg,
+    \*.jpm,
+    \*.jpx,
+    \*.jxl,
+    \*.mng,
+    \*.pbm,
+    \*.pcx,
+    \*.pgm,
+    \*.png,
+    \*.ppm,
+    \*.svg,
+    \*.svgz,
+    \*.tga,
+    \*.tif,
+    \*.tiff,
+    \*.webp,
+    \*.xbm,
+    \*.xpm
+    \ {Identify} identify %f %m
 fileviewer *.apng,
     \*.bmp,
     \*.gif,
@@ -281,7 +347,7 @@ fileviewer *.apng,
     \*.webp,
     \*.xbm,
     \*.xpm
-    \ img2sixel -S -q low %c -w $((%pw*6)) %pd
+    \ convert %c -resize $((%pw*10))x$((%ph*20)) sixel:- %pd
 " }}}
 
 " Archives {{{
@@ -387,7 +453,7 @@ filextype *.out,*.exe,*.bin,*.run {Okteta} okteta %f %i &
 filetype *.class {Decompile} cfr %f --outputdir %d %i &
 fileviewer *.out,*.exe,*.bin,*.run xxd -u %c
 fileviewer *.class cfr %c
-fileviewer *.lnk pylnk3 p %c
+fileviewer *.lnk lnkinfo %c
 fileviewer *.o nm %c
 " }}}
 
@@ -405,7 +471,7 @@ filextype .idea/
 filextype */
     \ {Dolphin} dolphin %f %i &,
     \ {Gwenview} gwenview %f %i &,
-    \ {MPV} mpv %f &
+    \ {MPV} mpv -q %f &
 filetype * {Default} xdg-open
 " }}}
 " }}}
@@ -449,4 +515,4 @@ nnoremap o :file<CR>
 nnoremap Q :quit<CR>
 " }}}
 
-" vim:fdm=marker:fdl=1:syn=vim:
+" vim:fdm=marker:fdl=1:ft=vifm:

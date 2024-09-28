@@ -38,9 +38,12 @@ TextEditorCmd=6
 TextEditorCmdCustom=
 UnderlineFilesEnabled=true
 
+[Keyboard]
+KeyBindings=default
+
 [Scrolling]
 HighlightScrolledLines=false
-HistoryMode=1
+HistoryMode=2
 ScrollBarPosition=2
 
 [Terminal Features]

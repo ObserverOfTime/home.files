@@ -7,11 +7,11 @@ printf '\e[1m\e[91m%(%A, %B %d, %Y)T \e[90m- \e[36m%(%Z %z)T\e[m\n\n'
 shopt -s dotglob globstar cmdhist
 shopt -u force_fignore
 
-# Set the default command & options used by fzf {{{
-export FZF_DEFAULT_COMMAND='fd -LIH -tf --color=always'
-export FZF_CTRL_T_COMMAND='fd -LIH -tf'
-export FZF_ALT_C_COMMAND='fd -LIH -td'
-export FZF_DEFAULT_OPTS='--ansi'
+# Set the default command & options used by skim {{{
+export SKIM_DEFAULT_COMMAND='fd -LIH -tf --color=always'
+export SKIM_CTRL_T_COMMAND='fd -LIH -tf'
+export SKIM_ALT_C_COMMAND='fd -LIH -td'
+export SKIM_DEFAULT_OPTIONS='--ansi'
 # }}}
 
 # Set the default pager
@@ -114,21 +114,26 @@ export PYCHARM_VM_OPTIONS="$XDG_CONFIG_HOME/pycharm/charm.vmoptions"
 # }}}
 
 # Set the search path for commands {{{
-export PATH="$HOME/.local/bin:\
-/usr/local/bin:/usr/bin:\
+export PATH="\
+$HOME/.local/bin:\
+/usr/local/bin:\
+/usr/bin:\
 /usr/lib/jvm/default/bin:\
+/usr/lib/emscripten:\
 /usr/bin/site_perl:\
 /usr/bin/vendor_perl:\
 /usr/bin/core_perl:\
 $XDG_DATA_HOME/perl/bin:\
+$XDG_DATA_HOME/npm/bin:\
+$CARGO_HOME/bin:\
 $GOPATH/bin"
 # }}}
 
 # Specify inputrc
 test -f "$XDG_CONFIG_HOME/inputrc" && export INPUTRC="$_"
 
-# Source fzf keybinds
-test -f '/usr/share/fzf/key-bindings.bash' && . "$_"
+# Source skim keybinds
+test -f '/usr/share/skim/key-bindings.bash' && . "$_"
 
 # Source bashrc
 test -f "$XDG_DATA_HOME/bash/bashrc.sh" && . "$_"
