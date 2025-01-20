@@ -111,17 +111,14 @@
 [difftool]
 	prompt = false
 
-[difftool "nvim"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-
-[difftool "meld"]
-	cmd = meld \"$LOCAL\" \"$REMOTE\"
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
 
 [difftool "magick"]
-	cmd = compare \"$LOCAL\" \"$REMOTE\" png:- | \
+	cmd = compare "$LOCAL" "$REMOTE" png:- | \
 		montage -geometry 400x -font \
-		Liberation-Sans -label l/%f \"$LOCAL\" \
-		-label diff - -label r/%f \"$REMOTE\" x:
+		Liberation-Sans -label l/%f "$LOCAL" \
+		-label diff - -label r/%f "$REMOTE" x:
 
 [merge]
 	tool = fugitive
@@ -130,10 +127,13 @@
 	keepBackup = false
 
 [mergetool "fugitive"]
-	cmd = nvim --cmd let\\ g:_mergetool=v:true +Gvdiffsplit\\! \"$MERGED\"
+	cmd = nvim -n -c 'Gvdiffsplit!' "$MERGED"
 
-[mergetool "meld"]
-	cmd = meld \"$LOCAL\" \"$BASE\" \"$REMOTE\" -o \"$MERGED\"
+[mergetool "nvimdiff"]
+	layout = LOCAL,@BASE,REMOTE
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
 
 [pretty]
 	log = format:%C(auto,cyan)%h %Creset%s%d %C(auto,yellow)[%an] %C(auto,red)(%ad)
@@ -164,7 +164,7 @@
 	root = rev-parse --show-toplevel
 	head = rev-parse HEAD
 	shallow = clone --single-branch --depth=1
-	compare = !git log $1...$2 --format=%m\\ %h\\ %s --left-right
+	compare = !git log $1...$2 --format='%m %h %s' --left-right
 	repush = !git commit --amend -a --no-edit && git push --force-with-lease
 	autosquash = !git -c sequence.editor=: rebase -i --autosquash
 

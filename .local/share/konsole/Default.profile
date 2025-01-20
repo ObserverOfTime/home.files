@@ -2,7 +2,7 @@
 AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Gruvbox8
-Font=Iosevka Custom,14,-1,5,50,0,0,0,0,0
+Font=Iosevka Custom,15,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 IgnoreWcWidth=false
 LineSpacing=1
 UseFontLineChararacters=true

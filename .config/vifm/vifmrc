@@ -59,7 +59,7 @@ set timefmt=%F\ %T
 set statusline='  %t%= %A %10u:%-7g %15E %20d '
 
 " Selected color scheme
-colorscheme ph
+colorscheme gruvbox
 
 " Set --login flag for bash shell
 let $SHELL = '/bin/bash --login'
@@ -283,12 +283,10 @@ filextype *.apng,
     \*.xbm,
     \*.xpm
     \ {ImageMagick} display %f %i &,
-    \ {Eye of Gnome} eog %f %i &,
     \ {Gwenview} gwenview %f %i &,
     \ {GIMP} gimp %f %i &
 filextype *.svg,*.svgz
     \ {ImageMagick} display %f %i &,
-    \ {Eye of Gnome} eog %f %i &,
     \ {Gwenview} gwenview %f %i &,
     \ {Inkscape} inkscape %f %i &,
     \ {Karbon} karbon %f %i &
@@ -453,7 +451,7 @@ filextype *.out,*.exe,*.bin,*.run {Okteta} okteta %f %i &
 filetype *.class {Decompile} cfr %f --outputdir %d %i &
 fileviewer *.out,*.exe,*.bin,*.run xxd -u %c
 fileviewer *.class cfr %c
-fileviewer *.lnk lnkinfo %c
+fileviewer *.lnk pylnk3 p %c
 fileviewer *.o nm %c
 " }}}
 

@@ -9,7 +9,7 @@ browser "firefox %u"
 datetime-format "%Y-%m-%d"
 
 # User errors will be logged to this file.
-error-log "~/.local/share/newsboat/error.log"
+error-log "~/.local/state/newsboat/error.log"
 
 # Specifies which feed property shall be used for sorting.
 feed-sort-order title

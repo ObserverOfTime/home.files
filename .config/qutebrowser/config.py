@@ -32,9 +32,9 @@ c.content.headers.accept_language = 'en-GB,en,el;q=0.9'
 c.content.headers.user_agent = ' '.join((
     'Mozilla/5.0',
     '(X11; Linux x86_64)',
-    'QtWebEngine/5.15.14',
-    'Chromium/87.0.4280.144',
-    'qutebrowser/3.0.0'
+    'QtWebEngine/6.18.1',
+    'Chromium/122.0.6261.171',
+    'qutebrowser/3.3.1'
 ))
 
 # Allow JavaScript to read from or write to the clipboard.
@@ -119,7 +119,6 @@ c.url.start_pages = ['about:blank']
 c.url.searchengines = {
     'DEFAULT': c.url.default_page + '&q={}',
     'G': 'https://google.com/search?q={}',
-    'Q': 'https://qwant.com/?q={}'
 }
 
 # Keybindings {{{0
